@@ -1,0 +1,19 @@
+.nav-item.nav-item.nav-item a {
+  color: #185632;
+  font-size: xx-large;
+  transition: all 0.3s ease;
+  line-height: 1;
+  padding: 1rem 1.5rem;
+  text-align: center;
+}
+.nav-item.nav-item.nav-item a:hover {
+    background-color: rgba(229,229,229,.1);
+    color: #185632;
+    font-weight: 600;
+  
+}
+
+.navbar{
+  background-color: #e5e5e5;
+  
+}
