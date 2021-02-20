@@ -38,6 +38,8 @@ export default {
         { ruta: "/muroGN10", nombre: "Muro GN10", icono: "mdi-folder" },
         {ruta: "/nosotros", nombre: "Nosotros", icono: "mdi-folder"},
         {ruta: "/organigrama", nombre: "Organigrama", icono: "mdi-folder"},
+         { ruta: "/servicioPersonal", nombre: "Servicios Personal", icono: "mdi-folder" },
+
       ],
     };
   },
@@ -46,6 +48,7 @@ export default {
 
 
 <style >
+
 .nav-item.nav-item.nav-item a {
   color: #185632;
   font-size: xx-large;
@@ -65,6 +68,29 @@ export default {
   background-color: #e5e5e5;
   
 }
+
+
+.sombra {
+  background-color: white;
+  border-color: #e5e5e5;
+  border-radius: 1rem;
+  box-shadow: 4px 4px 4px 4px rgba(87, 54, 85, 0.2);
+}
+.sombra:focus {
+  background-color: #fcfcfc;
+  outline-color: #e5e5e5 !important;
+  border-radius: 1rem;
+  box-shadow: 4px 4px 4px 4px rgba(87, 54, 85, 0.4);
+}
+
+.sombra:hover {
+  background-color: #fcfcfc;
+  outline-color: #e5e5e5 !important;
+  border-radius: 1rem;
+  box-shadow: 4px 4px 4px 4px rgba(87, 54, 85, 0.4);
+}
+
+
 
 
 

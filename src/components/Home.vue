@@ -30,7 +30,7 @@
               oficial, donde encontrarás contenido referente a Comunicados, Bienestar, 
               Fundación, temas en Tendencia. <br>Explora en su menú dinámico; Directorio de
               Colaboradores, Buzón GN10, Contenido Corporativo, Desarrollo de Talento,
-              Políticas y Formatos, y acceso a las principales aplicaciones del GRUPO GN10  
+              Políticas y Formatos, y acceso a las principales aplicaciones del GRUPO GN10.  
             </h6>
           </b-col>
            <b-col cols="8" class="mx-auto">

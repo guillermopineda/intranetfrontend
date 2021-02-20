@@ -5,6 +5,7 @@ import Home from "./components/Home"
 import MuroGN10 from "./components/muroGN10/MuroGN10"
 import Nosotros from "./components/nosotros/Nosotros"
 import Organigrama from "./components/organigrama/Organigrama"
+import ServicioPersonal from "./components/servicioPersonal/ServicioPersonal"
 
 Vue.use(VueRouter);
 
@@ -28,6 +29,11 @@ const routes = [
         path:"/organigrama",
         name:"organigrama",
         component: Organigrama
+    },
+    {
+        path:"/servicioPersonal",
+        name:"servicioPersonal",
+        component: ServicioPersonal
     }
 ]
 
