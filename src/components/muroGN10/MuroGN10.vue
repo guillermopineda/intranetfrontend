@@ -39,7 +39,7 @@ import Fundacion from "./Fundacion";
 import Formulario from "./Formulario";
 import Footer from "../Footer";
 export default {
-    name:"Pixabay",
+    name:"MuroGN10",
     components:{
         Imagen,
         Buscador,

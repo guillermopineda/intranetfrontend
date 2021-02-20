@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from "vue-router"
 
 import Home from "./components/Home"
-import Pixabay from "./components/pixabay/Pixabay"
+import MuroGN10 from "./components/muroGN10/MuroGN10"
 import Nosotros from "./components/nosotros/Nosotros"
 import Organigrama from "./components/organigrama/Organigrama"
 
@@ -15,9 +15,9 @@ const routes = [
         component: Home
     },
     {
-        path:"/pixa",
-        name:"pixa",
-        component: Pixabay
+        path:"/muroGN10",
+        name:"muroGN10",
+        component: MuroGN10
     },
     {
         path:"/nosotros",

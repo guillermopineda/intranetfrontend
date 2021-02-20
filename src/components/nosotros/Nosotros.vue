@@ -137,7 +137,7 @@
           </b-col>
           <b-col cols="12">
             <h4 class="font-weight-bold pt-4 text-center titulo-valores">
-              Compromiso
+              COMPROMISO
             </h4>
           </b-col>
           <b-col cols="12">
@@ -171,7 +171,7 @@
           </b-col>
           <b-col cols="12">
             <h4 class="font-weight-bold pt-4 text-center titulo-valores">
-              Respeto
+              RESPETO
             </h4>
           </b-col>
           <b-col cols="12">

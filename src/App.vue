@@ -35,7 +35,7 @@ export default {
     return {
       menu: [
         { ruta: "/", nombre: "Home", icono: "mdi-folder" },
-        { ruta: "/pixa", nombre: "Muro GN10", icono: "mdi-folder" },
+        { ruta: "/muroGN10", nombre: "Muro GN10", icono: "mdi-folder" },
         {ruta: "/nosotros", nombre: "Nosotros", icono: "mdi-folder"},
         {ruta: "/organigrama", nombre: "Organigrama", icono: "mdi-folder"},
       ],
