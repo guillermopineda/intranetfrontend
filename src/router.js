@@ -6,6 +6,8 @@ import MuroGN10 from "./components/muroGN10/MuroGN10"
 import Nosotros from "./components/nosotros/Nosotros"
 import Organigrama from "./components/organigrama/Organigrama"
 import ServicioPersonal from "./components/servicioPersonal/ServicioPersonal"
+import DesarrolloTalento from "./components/desarrollo/DesarrolloTalento"
+import Crece from "./components/crece/Crece"
 
 Vue.use(VueRouter);
 
@@ -34,6 +36,16 @@ const routes = [
         path:"/servicioPersonal",
         name:"servicioPersonal",
         component: ServicioPersonal
+    },
+    {
+        path:"/desarrolloTalento",
+        name:"desarrolloTalento",
+        component: DesarrolloTalento
+    },
+    {
+        path:"/creceGN10",
+        name:"creceGN10",
+        component: Crece
     }
 ]
 
