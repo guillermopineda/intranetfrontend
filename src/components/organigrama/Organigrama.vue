@@ -273,7 +273,7 @@
       </b-row>
     </b-collapse>
 
-    <b-modal id="modal-1" title="PERFIL GN10" hide-footer >
+    <b-modal id="modal-1" title="PERFIL GN10" hide-footer>
       <b-row class="justify-content-center">
         <b-col cols="12" class="my-5" align="center">
           <b-avatar src="" size="8rem"></b-avatar>
@@ -401,82 +401,82 @@ export default {
 
 @-webkit-keyframes horizontal {
   0% {
-    -webkit-transform: translate(0,0);
-    transform: translate(0,0);
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
   }
 
   6% {
-    -webkit-transform: translate(5px,0);
-    transform: translate(5px,0);
+    -webkit-transform: translate(5px, 0);
+    transform: translate(5px, 0);
   }
 
   12% {
-    -webkit-transform: translate(0,0);
-    transform: translate(0,0);
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
   }
 
   18% {
-    -webkit-transform: translate(5px,0);
-    transform: translate(5px,0);
+    -webkit-transform: translate(5px, 0);
+    transform: translate(5px, 0);
   }
 
   24% {
-    -webkit-transform: translate(0,0);
-    transform: translate(0,0);
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
   }
 
   30% {
-    -webkit-transform: translate(5px,0);
-    transform: translate(5px,0);
+    -webkit-transform: translate(5px, 0);
+    transform: translate(5px, 0);
   }
 
   36% {
-    -webkit-transform: translate(0,0);
-    transform: translate(0,0);
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
   }
 }
 
 @keyframes horizontal {
   0% {
-    -webkit-transform: translate(0,0);
-    -ms-transform: translate(0,0);
-    transform: translate(0,0);
+    -webkit-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    transform: translate(0, 0);
   }
 
   6% {
-    -webkit-transform: translate(5px,0);
-    -ms-transform: translate(5px,0);
-    transform: translate(5px,0);
+    -webkit-transform: translate(5px, 0);
+    -ms-transform: translate(5px, 0);
+    transform: translate(5px, 0);
   }
 
   12% {
-    -webkit-transform: translate(0,0);
-    -ms-transform: translate(0,0);
-    transform: translate(0,0);
+    -webkit-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    transform: translate(0, 0);
   }
 
   18% {
-    -webkit-transform: translate(5px,0);
-    -ms-transform: translate(5px,0);
-    transform: translate(5px,0);
+    -webkit-transform: translate(5px, 0);
+    -ms-transform: translate(5px, 0);
+    transform: translate(5px, 0);
   }
 
   24% {
-    -webkit-transform: translate(0,0);
-    -ms-transform: translate(0,0);
-    transform: translate(0,0);
+    -webkit-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    transform: translate(0, 0);
   }
 
   30% {
-    -webkit-transform: translate(5px,0);
-    -ms-transform: translate(5px,0);
-    transform: translate(5px,0);
+    -webkit-transform: translate(5px, 0);
+    -ms-transform: translate(5px, 0);
+    transform: translate(5px, 0);
   }
 
   36% {
-    -webkit-transform: translate(0,0);
-    -ms-transform: translate(0,0);
-    transform: translate(0,0);
+    -webkit-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    transform: translate(0, 0);
   }
 }
 
@@ -486,11 +486,4 @@ export default {
   -webkit-animation: horizontal 2s ease infinite;
   animation: horizontal 2s ease infinite;
 }
-
-
-
-
-
-
-
 </style>

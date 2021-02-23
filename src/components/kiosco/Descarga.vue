@@ -2,81 +2,40 @@
   <b-row>
     <b-col class="py-2 px-0" cols="12">
       <b-form-input
-        v-model="buscarPixaHijo"
-        placeholder="Busca en el MuroGN10"
-        @keypress.enter="buscarHijo"
+        v-model="buscarDescarga"
+        placeholder="Busca el Documento"
+        @keypress.enter="buscarHijoDescarga"
       ></b-form-input>
     </b-col>
-
-    <!-- <b-button block variant="danger" @click="buscarHijo">Button</b-button> -->
     <b-button-group size="sm" class="w-100">
-      <b-button @click="buscarHijo">COMUNICADOS</b-button>
-      <b-button @click="buscarHijo">BIENESTAR</b-button>
-      <b-button @click="buscarHijo">FUNDACIÓN</b-button>
-      <b-button @click="buscarHijo">MURO GN10</b-button>
-      <b-button v-b-modal.my-modal>
-        <font-awesome-icon
-          v-b-modal.my-modal
-          :icon="['fas', 'address-book']"
-          size="lg"
-          :transform="{ rotate: 330 }"
-        />
-        <b-modal
-          id="my-modal"
-          title="DIRECTORIO"
-          hide-footer
-          scrollable
-          size="lg"
-          ><div class="text-justify d-block">
-            <b-form inline>
-              <label class="sr-only" for="inline-form-input-buscar"
-                >BUSCAR</label
-              >
-              <b-input-group class="mt-3 w-100 px-md-5 mx-auto">
-                <b-form-input
-                  placeholder="BUSCAR"
-                  id="inline-form-input-buscar"
-                ></b-form-input>
-                <b-input-group-append>
-                  <b-button id="btnModal">
-                    <font-awesome-icon :icon="['fas', 'search']" size="md" />
-                  </b-button>
-                </b-input-group-append>
-              </b-input-group>
-            </b-form>
-          </div>
-          <b-list-group flush class="py-5 px-md-5 mx-auto w-100">
-            <b-list-group-item button>Button item</b-list-group-item>
-            <b-list-group-item button>I am a button</b-list-group-item>
-            <b-list-group-item button>This is a button too</b-list-group-item>
-          </b-list-group>
-        </b-modal>
-      </b-button>
+      <b-button @click="buscarHijoDescarga">FORMATOS</b-button>
+      <b-button @click="buscarHijoDescarga">POLÍTICAS</b-button>
+      <b-button @click="buscarHijoDescarga">LOGOTIPOS</b-button>
+      <b-button @click="buscarHijoDescarga">AVISO OPORTUNO</b-button>
     </b-button-group>
   </b-row>
 </template>
 
+
 <script>
 export default {
-  name: "Buscador",
+  nam: "Descarga",
   data() {
     return {
-      buscarPixaHijo: "",
-      buscarDirectorioModal: "",
+      buscarDescarga: "",
     };
   },
   methods: {
-    buscarHijo() {
-      this.$emit("buscarDesdeHijo", this.buscarPixaHijo);
-    },
-    buscarDirectorio() {
-      this.$emit("buscarDedesHijoDirectorio", this.buscarDirectorioModal);
+    buscarDescargaHijo() {
+      this.$emit("buscarDesdeDescargaHijo", this.buscarDescargaHijo);
     },
   },
 };
 </script>
 
+
 <style scoped>
+
 .btn-secondary {
   color: #185632;
   font-weight: 600;
@@ -178,4 +137,5 @@ export default {
   border-color: #e5e5e5;
   box-shadow: 2px 2px 2px 1px rgba(87, 54, 85, 0.2);
 }
+
 </style>
