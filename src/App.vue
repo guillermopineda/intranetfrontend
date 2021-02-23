@@ -61,6 +61,11 @@ export default {
           ruta: "/creceGN10",
           nombre: "Crece con GN10",
           icono: "mdi-folder",
+        },
+        {
+          ruta: "/kiosco",
+          nombre: "Kiosco",
+          icono: "mdi-folder",
         }
         
       ],

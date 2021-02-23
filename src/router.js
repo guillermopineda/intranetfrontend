@@ -8,6 +8,7 @@ import Organigrama from "./components/organigrama/Organigrama"
 import ServicioPersonal from "./components/servicioPersonal/ServicioPersonal"
 import DesarrolloTalento from "./components/desarrollo/DesarrolloTalento"
 import Crece from "./components/crece/Crece"
+import Kiosco from "./components/kiosco/Kiosco"
 
 Vue.use(VueRouter);
 
@@ -46,6 +47,11 @@ const routes = [
         path:"/creceGN10",
         name:"creceGN10",
         component: Crece
+    },
+    {
+        path:"/kiosco",
+        name:"kiosco",
+        component: Kiosco
     }
 ]
 

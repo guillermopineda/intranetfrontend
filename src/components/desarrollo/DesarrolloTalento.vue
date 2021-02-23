@@ -1,4 +1,4 @@
-<template id="marca" fluid>
+<template >
   <b-container id="marca" fluid>
     <b-row class="text-center">
       <b-col cols="12">
@@ -17,7 +17,7 @@
         <b-embed
           type="iframe"
           aspect="16by9"
-          src="https://app.powerbi.com/reportEmbed?reportId=e9c06129-df64-4d0c-9462-c73a38d441ef&autoAuth=true&ctid=3668d871-63f9-46b2-beeb-6f0617ff1f3d&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLXBhYXMtMS1zY3VzLXJlZGlyZWN0LmFuYWx5c2lzLndpbmRvd3MubmV0LyJ9"
+          src="https://app.powerbi.com/view?r=eyJrIjoiOWE0NTgwMzQtMThjNS00MGQ3LTkzY2MtOWU3Nzk2OWQwOWZmIiwidCI6IjM2NjhkODcxLTYzZjktNDZiMi1iZWViLTZmMDYxN2ZmMWYzZCJ9"
         ></b-embed>
       </b-col>
     </b-row>
@@ -33,7 +33,7 @@
         <b-embed
           type="iframe"
           aspect="16by9"
-          src="https://app.powerbi.com/reportEmbed?reportId=30524785-86ab-4e7c-a0f7-ef452488da78&autoAuth=true&ctid=3668d871-63f9-46b2-beeb-6f0617ff1f3d&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLXBhYXMtMS1zY3VzLXJlZGlyZWN0LmFuYWx5c2lzLndpbmRvd3MubmV0LyJ9"
+          src="https://app.powerbi.com/view?r=eyJrIjoiODFhMDkxYjUtZTY4Zi00NmZhLWI0NjEtNzIwNDg1MTkzMzNkIiwidCI6IjM2NjhkODcxLTYzZjktNDZiMi1iZWViLTZmMDYxN2ZmMWYzZCJ9"
         ></b-embed>
       </b-col>
     </b-row>

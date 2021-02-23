@@ -27,7 +27,7 @@
         <b-embed
           type="iframe"
           aspect="16by9"
-          src="https://app.powerbi.com/reportEmbed?reportId=3fd856d3-d37e-48f4-a723-2efb7b55464b&autoAuth=true&ctid=3668d871-63f9-46b2-beeb-6f0617ff1f3d&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLXBhYXMtMS1zY3VzLXJlZGlyZWN0LmFuYWx5c2lzLndpbmRvd3MubmV0LyJ9"
+          src="https://app.powerbi.com/view?r=eyJrIjoiZWMyZDgwZjQtNzcxMS00Mjk5LWI2MTQtOTM4MGQ3N2Q2NzI5IiwidCI6IjM2NjhkODcxLTYzZjktNDZiMi1iZWViLTZmMDYxN2ZmMWYzZCJ9"
         ></b-embed>
       </b-col>
     </b-row>
