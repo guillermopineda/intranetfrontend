@@ -2,8 +2,8 @@
     <b-container id="marca"  fluid   >
         <Buscador @buscarDesdeHijo="buscarImagenes"/>
         <b-row >
-            <b-col id="tarejetaMuro" v-for="img in pixaImagenes" :key="img.id" class="p-4 my-2 bg-" cols="12">
-                <Imagen :img="img"/>
+            <b-col id="tarejetaMuro" v-for="io in pixaImagenes" :key="io.id" class="p-4 my-2 bg-" cols="12">
+                <Imagen :io="io"/>
             </b-col>
         </b-row>
         <b-row>
@@ -26,12 +26,22 @@
                 <Footer/>
             </b-col>
         </b-row>
+         <b-row >
+            <b-col id="tarejetaMuro" v-for="nota in listaComunicados" :key="nota.beneficio.id" class="p-4 my-2 bg-" cols="12">
+                <Comunicados24 :nota="nota"/>
+            </b-col>
+        </b-row>
+
+
     </b-container>
 </template>
 
 
 <script>
-import ServicioAPI from "./ServiciosAPI";
+import Comunicados24 from "./Comunicados";
+import Goku from "./ServiciosAPICapital24"
+
+import Hakunamatata from "./ServiciosAPI";
 import Imagen from "./Imagen";
 import Buscador from "./Buscador";
 import Universidad from "./Universidad";
@@ -47,24 +57,32 @@ export default {
         Formulario,
         Fundacion,
         Footer,
+        Comunicados24,
         
     },
     data(){
         return{
             pixaImagenes:[],
-            buscarPixabay:""
+            buscarPixabay:"",
+            listaComunicados : [],
         }
     },
     methods:{
-        async buscarImagenes(buscar=""){
-            this.buscarPixabay = buscar;
-            const consulta = await ServicioAPI.getImagenes(this.buscarPixabay);
+        async buscarImagenes(busca="libros"){
+            this.buscarPixabay = busca;
+            const consulta = await Hakunamatata.getImagenes(this.buscarPixabay);
             this.pixaImagenes = consulta.hits.slice(0,5);
             console.log(consulta.hits);
+        },
+        async funcionComunicado(){
+            const consulta24 = await Goku.getComunicados();
+            this.listaComunicados = consulta24;
+            console.log(consulta24)
         }
     },
     mounted(){
         this.buscarImagenes();
+        this.funcionComunicado();
     }   
 
 }

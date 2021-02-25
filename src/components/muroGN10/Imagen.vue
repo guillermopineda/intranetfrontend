@@ -1,14 +1,15 @@
 <template>
   <div v-if="!archiveNote" id="pol">
     <b-img
-      :id="img.id"
-      :src="img.largeImageURL"
+      :id="io.id"
+      :src="io.largeImageURL"
       @click="mostrarModal = true"
       class="h-100 w-100"
       rounded
     >
     </b-img>
-    <Modal :mostrarModal="mostrarModal" :img="img" />,
+    <!-- <Modal :mostrarModal="mostrarModal" :io="io" /> -->, 
+    <ModalCarrusel :mostrarModal="mostrarModal" :io="io"/>
 
   </div>
 
@@ -27,16 +28,18 @@
 </template>
 
 <script>
-import Modal from "./Modal";
+//import Modal from "./Modal";
+import ModalCarrusel from "./ModalCarrusel";
 export default {
   name: "Imagen",
-  props: ["img", "index"],
+  props: ["io"],
   components: {
-    Modal,
+    //Modal,
+    ModalCarrusel,
   },
   methods: {
     showModal() {
-      this.$refs[this.img.id].show();
+      this.$refs[this.io.id].show();
     },
   },
   data() {
@@ -46,6 +49,7 @@ export default {
   },
 };
 </script>
+
 
 <style scoped>
 #pol {

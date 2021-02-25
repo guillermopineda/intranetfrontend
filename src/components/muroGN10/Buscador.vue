@@ -3,7 +3,7 @@
     <b-col class="py-2 px-0" cols="12">
       <b-form-input
         v-model="buscarPixaHijo"
-        placeholder="Busca en el MuroGN10"
+        placeholder="Buscar Comunicado"
         @keypress.enter="buscarHijo"
       ></b-form-input>
     </b-col>

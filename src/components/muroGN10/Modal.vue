@@ -2,7 +2,7 @@
   <div>
     <b-modal
       v-model="mostrar"
-      :title="img.tags"
+      :title="io.tags"
       hide-footer
       scrollable
       size="xl"
@@ -13,27 +13,27 @@
             <p>Para:</p>
           </b-col>
           <b-col class="h5" cols="9">
-            <small> {{ img.tags }}</small>
+            <small> {{ io.tags }}</small>
           </b-col>
           <b-col class="h6" cols="3">
             <p>Copia a:</p>
           </b-col>
           <b-col class="h5" cols="9">
-            <small> {{ img.tags }}</small>
+            <small> {{ io.tags }}</small>
           </b-col>
 
           <b-col class="h6" cols="3">
             <p>Fecha:</p>
           </b-col>
           <b-col class="h5" cols="9">
-            <small> {{ img.tags }}</small>
+            <small> {{ io.tags }}</small>
           </b-col>
 
           <b-col class="h6" cols="3">
             <p>Asunto:</p>
           </b-col>
           <b-col class="h5" cols="9">
-            <small> {{ img.tags }}</small>
+            <small> {{ io.tags }}</small>
           </b-col>
           <b-col cols="12" class="h-6 text-justify">
             <p>
@@ -74,10 +74,10 @@
             <p class="py-0 my-0"><strong> Atentamente</strong></p>
 
             <p class="py-0 my-0">
-              <small> {{ img.tags }}</small>
+              <small> {{ io.tags }}</small>
             </p>
             <p class="py-0 my-0">
-              <small> {{ img.tags }} </small>
+              <small> {{ io.tags }} </small>
             </p>
           </b-col>
         </b-row>
@@ -89,7 +89,7 @@
 <script>
 export default {
   name: "Modal",
-  props: ["img", "mostrarModal"],
+  props: ["io", "mostrarModal"],
   computed: {
     mostrar: {
       get() {
