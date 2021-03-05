@@ -8,46 +8,63 @@
           style="color: #282828"
         >BUZÓN GN10
         </h2>
-        <b-form @submit="onSubmit" @reset="onReset">
+        <b-form @submit="enviarCorreo" @reset="onReset">
+          
+          
           <b-form-group id="input-group-1" label="Nombre:" label-for="input-1">
             <b-form-input
               id="input-1"
-              v-model="form.nombre"
-              type=""
+              v-model="form.name"
+              name="name"
               placeholder="Ingresa nombre completo"
               required
             ></b-form-input>
             <small class="text-muted"
-              >Tu información personal es confidencial.</small
+              >Tu información personal es confidencial</small
             >
           </b-form-group>
+
+
+          <template v-if="form.name.length >= 6">
           <label for="textarea">Mensaje:</label>
           <b-form-textarea
-            id="textarea"
-            v-model="form.mensaje"
+            id="textarea-1"
+            v-model="form.message"
+            name="message"
             placeholder="Escribe tu mensaje, sugerencia o queja"
             rows="8"
             required
           ></b-form-textarea>
+          </template>
+          <p v-else class="alerta" >Por favor ingresa un nombre mayor a 6 caracteres</p>
 
+          
+          <template v-if="form.message.length > 10">
           <b-form-group id="input-group-1" v-slot="{ ariaDescribedby }">
             <b-form-checkbox-group
               v-model="form.checked"
-              id="checkboxes-1"
+              id="form.checked"
               :aria-describedby="ariaDescribedby"
               required
             >
               <br />
-              <b-form-checkbox value="true">No soy un robot</b-form-checkbox>
+              <b-form-checkbox >No soy un robot</b-form-checkbox>
             </b-form-checkbox-group>
           </b-form-group>
+           </template>
+          <p v-else-if="form.name.length >= 6" class="alerta" >Por favor ingresa un mensaje mayor a 10 caracteres</p>
 
-          <b-button type="submit" class="btn-primary bg-primary"
+
+          <template v-if="form.checked === true ">
+          <b-button  type="submit" value="Send" class="btn-primary bg-primary"
             >Enviar</b-button
           >
           <b-button type="reset" class="btn-primary bg-primary"
             >Borrar</b-button
           >
+          </template>
+          <p v-else-if="form.message.length > 10" class="alerta" >Por favor marca la casilla para continuar</p>
+      
         </b-form>
       </b-col>
     </b-row>
@@ -55,37 +72,52 @@
 </template>
 
 <script>
+import  emailjs from 'emailjs-com';
 export default {
   name: "Formulario",
   data() {
     return {
       form: {
-        nombre: "",
-        checked: [],
-        mensaje: "",
+        name: "",
+        checked: false,
+        message: "",
       },
     };
   },
   methods: {
-    onSubmit(event) {
-      event.preventDefault();
-      alert(JSON.stringify(this.form));
-      this.form.nombre = "";
-      this.form.checked = [];
-      this.form.mensaje = "";
-    },
-    onReset(event) {
-      event.preventDefault();
+    onReset(e) {
+      e.preventDefault();
       // Reset our form values
-      this.form.nombre = "";
-      this.form.checked = [];
-      this.form.mensaje = "";
+      this.form.name = "";
+      this.form.checked = false;
+      this.form.message = "";
     },
+    enviarCorreo(e){
+      e.preventDefault();
+      alert("Muchas gracias por tu mensaje, el Cómite de Ética GN10 te escucha, lee y ayuda.");
+      try {
+        emailjs.sendForm('service_ruy025b','template_elddntt',e.target,
+        'user_9kYzuJ3S98QHGgfInPLsA',{
+          name  : this.form.name,
+          message : this.form.message
+        })
+      }
+      catch(error){
+        console.log({error})
+      }
+      this.form.name = "";
+      this.form.checked = false;
+      this.form.message = "";
+    }
   },
 };
 </script>
 
 <style scoped>
+.alerta{
+  color: rgba(255,5,0,.6);
+}
+
 #letraFormulario {
   color: #e5e5e5;
   font-size: 13px;

@@ -2,8 +2,8 @@
     <b-container id="marca"  fluid   >
         <Buscador @buscarDesdeHijo="buscarImagenes"/>
         <b-row >
-            <b-col id="tarejetaMuro" v-for="io in pixaImagenes" :key="io.id" class="p-4 my-2 bg-" cols="12">
-                <Imagen :io="io"/>
+            <b-col id="tarejetaMuro" v-for="notaMuroFundacion in listaMuroFundacion" :key="notaMuroFundacion.id" class="p-4 my-2 bg-" cols="12">
+                <ListaFundacion :notaMuroFundacion="notaMuroFundacion"/>
             </b-col>
         </b-row>
         <b-row>
@@ -26,23 +26,15 @@
                 <Footer/>
             </b-col>
         </b-row>
-         <b-row >
-            <b-col id="tarejetaMuro" v-for="nota in listaComunicados" :key="nota.beneficio.id" class="p-4 my-2 bg-" cols="12">
-                <Comunicados24 :nota="nota"/>
-            </b-col>
-        </b-row>
-
-
     </b-container>
 </template>
 
 
 <script>
-import Comunicados24 from "./Comunicados";
-import Goku from "./ServiciosAPICapital24"
+import ListaFundacion from "./ListaFundacion";
+import ApiFundacion from "./ServiciosAPIFundacion"
 
 import Hakunamatata from "./ServiciosAPI";
-import Imagen from "./Imagen";
 import Buscador from "./Buscador";
 import Universidad from "./Universidad";
 import Fundacion from "./Fundacion";
@@ -51,20 +43,20 @@ import Footer from "../Footer";
 export default {
     name:"MuroGN10",
     components:{
-        Imagen,
+
         Buscador,
         Universidad,
         Formulario,
         Fundacion,
         Footer,
-        Comunicados24,
+        ListaFundacion,
         
     },
     data(){
         return{
             pixaImagenes:[],
             buscarPixabay:"",
-            listaComunicados : [],
+            listaMuroFundacion : [],
         }
     },
     methods:{
@@ -74,15 +66,15 @@ export default {
             this.pixaImagenes = consulta.hits.slice(0,5);
             console.log(consulta.hits);
         },
-        async funcionComunicado(){
-            const consulta24 = await Goku.getComunicados();
-            this.listaComunicados = consulta24;
-            console.log(consulta24)
+        async funcionListaFundacion(){
+            const consultaListaFundacion = await ApiFundacion.getFundacion();
+            this.listaMuroFundacion = consultaListaFundacion;
+            console.log(consultaListaFundacion)
         }
     },
     mounted(){
         this.buscarImagenes();
-        this.funcionComunicado();
+        this.funcionListaFundacion();
     }   
 
 }

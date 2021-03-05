@@ -2,7 +2,7 @@
   <b-container id="fundacion"  align="center"  >
     <b-row  >
       <b-col cols="12" >
-        <a href="https://fundaciongn10.com/" target="blank">
+        <a href="https://www.fundaciongn10.org/" target="blank">
         <img
           class="mx-auto img-fluid"
           src="../../assets/fundacion.png"

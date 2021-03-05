@@ -2,14 +2,15 @@
   <div>
     <b-modal
       v-model="mostrar"
-      :title="io.tags"
+      :title="notaMuroFundacion.titulo"
       hide-footer
       scrollable
       size="lg"
+      
     >
       <b-container>
         <b-carousel
-          v-if="io.type == 'photo'"
+          v-if="notaMuroFundacion.type != 'photo'"
           id="carousel-fade"
           style="text-shadow: 0px 0px 10px #e5e5e5"
           fade
@@ -17,8 +18,8 @@
           indicators
         >
           <b-carousel-slide
-            :caption="io.tags"
-            :img-src="io.userImageURL"
+            :caption="notaMuroFundacion.titulo"
+            :img-src="notaMuroFundacion.imagen_grande"
           ></b-carousel-slide>
         </b-carousel>
         <b-embed
@@ -30,23 +31,26 @@
         ></b-embed>
       </b-container>
     </b-modal>
+  
   </div>
 </template>
 
 <script>
 export default {
   name: "ModalCarrusel",
-  props: ["io", "mostrarModal"],
-  computed: {
-    mostrar: {
-      get() {
-        return this.mostrarModal;
+  props: ["notaMuroFundacion", "mostrarModal"],
+  computed:{
+    mostrar:{
+      get(){
+        return this.mostrarModal 
       },
-      set(valor) {
-        return valor;
-      },
-    },
-  },
+      set(valor){
+        return valor
+      }
+    }
+  }
+
+
 };
 </script>
 
