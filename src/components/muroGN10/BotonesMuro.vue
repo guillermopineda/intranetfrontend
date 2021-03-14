@@ -1,20 +1,20 @@
 <template>
   <b-row>
-    <b-col class="py-2 px-0" cols="12">
+    <!-- <b-col class="py-2 px-0" cols="12">
       <b-form-input
         v-model="buscarPixaHijo"
         placeholder="Buscar Comunicado"
         @keypress.enter="buscarHijo"
       ></b-form-input>
-    </b-col>
+    </b-col> -->
 
     <!-- <b-button block variant="danger" @click="buscarHijo">Button</b-button> -->
     <b-button-group size="sm" class="w-100">
-      <b-button @click="buscarHijo">COMUNICADOS</b-button>
-      <b-button @click="buscarHijo">BIENESTAR</b-button>
-      <b-button @click="buscarHijo">FUNDACIÓN</b-button>
-      <b-button @click="buscarHijo">MURO GN10</b-button>
-      <b-button v-b-modal.my-modal>
+      <b-button @click="servicioComunicado">COMUNICADOS</b-button>
+      <b-button @click="servicioBienestar">BIENESTAR</b-button>
+      <b-button @click="servicioFundacion">FUNDACIÓN</b-button>
+      <b-button @click="servicioInformativo">MURO GN10</b-button>
+      <b-button @click="buscarDirectorio" v-b-modal.my-modal>
         <font-awesome-icon
           v-b-modal.my-modal
           :icon="['fas', 'address-book']"
@@ -45,10 +45,9 @@
               </b-input-group>
             </b-form>
           </div>
-          <b-list-group flush class="py-5 px-md-5 mx-auto w-100">
-            <b-list-group-item button>Button item</b-list-group-item>
-            <b-list-group-item button>I am a button</b-list-group-item>
-            <b-list-group-item button>This is a button too</b-list-group-item>
+          <b-list-group flush class="py-5 px-md-5 mx-auto w-100" >
+            <b-list-group-item button v-for="colaborador in colaboradores" :key="colaborador.id">{{colaborador.titulo}}</b-list-group-item>
+           
           </b-list-group>
         </b-modal>
       </b-button>
@@ -57,21 +56,48 @@
 </template>
 
 <script>
+import gnService from "./gnService";
 export default {
   name: "Buscador",
   data() {
     return {
-      buscarPixaHijo: "",
+      buscarBienestar: "bienestar/",
+      buscarFundacion: "fundacion/",
+      buscarInformativo: "informativo/",
+      buscarComunicado: "",
       buscarDirectorioModal: "",
+      colaboradores: [],
+
+
+      
     };
   },
   methods: {
-    buscarHijo() {
-      this.$emit("buscarDesdeHijo", this.buscarPixaHijo);
+    servicioBienestar() {
+      this.$emit("buscarMuro", this.buscarBienestar);
+
+    },
+    servicioFundacion() {
+      this.$emit("buscarMuro", this.buscarFundacion);
+
+    },
+    servicioInformativo() {
+      this.$emit("buscarMuro", this.buscarInformativo);
+ 
+    },
+    servicioComunicado() {
+      this.$emit("buscarMuro", this.buscarComunicado);
+
     },
     buscarDirectorio() {
-      this.$emit("buscarDedesHijoDirectorio", this.buscarDirectorioModal);
-    },
+      gnService
+      .getMuro()
+      .then(
+            (colaboradores) =>
+              (this.colaboradores = colaboradores.data.slice(0, 5))
+          );
+
+    }
   },
 };
 </script>

@@ -1,24 +1,24 @@
 <template>
   <div id="pol">
     <b-img
-      :id="notaMuroFundacion.id"
-      :src="notaMuroFundacion.imagen_pequena"
+      :id="comunicado.id"
+      :src="comunicado.logo"
       @click="mostrarModal=true"
       class="h-100 w-100"
       rounded
     ></b-img>
-    <ModalCarrusel :mostrarModal="mostrarModal" :notaMuroFundacion="notaMuroFundacion" />
+    <Modal :mostrarModal="mostrarModal" :comunicado="comunicado" />
     
   </div>
 </template>
 
 <script>
-import ModalCarrusel from "./ModalCarrusel";
+import Modal from "./Modal";
 export default {
-  name: "ListaFundacion",
-  props: ["notaMuroFundacion"],
+  name: "ListaComunicado",
+  props: ["comunicado"],
   components: {
-      ModalCarrusel,
+      Modal,
   },
   data(){
       return {

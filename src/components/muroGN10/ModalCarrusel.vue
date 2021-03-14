@@ -2,15 +2,15 @@
   <div>
     <b-modal
       v-model="mostrar"
-      :title="notaMuroFundacion.titulo"
+      :title="comunicadoMuro.titulo"
       hide-footer
       scrollable
       size="lg"
-      
+
     >
       <b-container>
-        <b-carousel
-          v-if="notaMuroFundacion.type != 'photo'"
+        <!-- <b-carousel
+          v-if="comunicadoMuro.type !== 'photo'"
           id="carousel-fade"
           style="text-shadow: 0px 0px 10px #e5e5e5"
           fade
@@ -18,15 +18,15 @@
           indicators
         >
           <b-carousel-slide
-            :caption="notaMuroFundacion.titulo"
-            :img-src="notaMuroFundacion.imagen_grande"
+            :caption="comunicadoMuro.titulo"
+            :img-src="comunicadoMuro.imagen_grande"
           ></b-carousel-slide>
-        </b-carousel>
+        </b-carousel> -->
         <b-embed
-          v-else
+          
           type="iframe"
           aspect="16by9"
-          src="https://www.youtube.com/embed/HObwcGNE4HA"
+          :src="comunicadoMuro.video"
           allowfullscreen
         ></b-embed>
       </b-container>
@@ -38,14 +38,14 @@
 <script>
 export default {
   name: "ModalCarrusel",
-  props: ["notaMuroFundacion", "mostrarModal"],
+  props: ["comunicadoMuro", "mostrarModal"],
   computed:{
     mostrar:{
       get(){
         return this.mostrarModal 
       },
       set(valor){
-        return valor
+        return valor.mostrarModal
       }
     }
   }

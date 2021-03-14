@@ -2,7 +2,7 @@
   <div>
     <b-modal
       v-model="mostrar"
-      :title="io.tags"
+      :title="comunicado.titulo"
       hide-footer
       scrollable
       size="xl"
@@ -12,60 +12,37 @@
           <b-col class="h6" cols="3">
             <p>Para:</p>
           </b-col>
-          <b-col class="h5" cols="9">
-            <small> {{ io.tags }}</small>
+          <b-col class="h6" cols="9">
+            {{ comunicado.para }}
           </b-col>
           <b-col class="h6" cols="3">
             <p>Copia a:</p>
           </b-col>
-          <b-col class="h5" cols="9">
-            <small> {{ io.tags }}</small>
+          <b-col class="h6" cols="9">
+            {{ comunicado.copia }}
           </b-col>
 
           <b-col class="h6" cols="3">
             <p>Fecha:</p>
           </b-col>
-          <b-col class="h5" cols="9">
-            <small> {{ io.tags }}</small>
+          <b-col class="h6" cols="9">
+            {{ comunicado.creado | moment("dddd D  MMMM [del] YYYY") }}
           </b-col>
 
           <b-col class="h6" cols="3">
             <p>Asunto:</p>
           </b-col>
-          <b-col class="h5" cols="9">
-            <small> {{ io.tags }}</small>
+          <b-col class="h6" cols="9">
+            {{ comunicado.asunto }}
           </b-col>
+
           <b-col cols="12" class="h-6 text-justify">
+            <br />
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum,
-              magni omnis! Saepe sequi animi eaque id. Eum inventore esse eos
-              amet fuga saepe veritatis quisquam voluptatum earum, qui quibusdam
-              assumenda. Lorem ipsum dolor sit amet consectetur adipisicing
-              elit. Cum, magni omnis! Saepe sequi animi eaque id. Eum inventore
-              esse eos amet fuga saepe veritatis quisquam voluptatum earum, qui
-              quibusdam assumenda. Lorem ipsum dolor sit amet consectetur
-              adipisicing elit. Cum, magni omnis! Saepe sequi animi eaque id.
-              Eum inventore esse eos amet fuga saepe veritatis quisquam
-              voluptatum earum, qui quibusdam assumenda.Lorem ipsum dolor sit
-              amet consectetur adipisicing elit. Cum, magni omnis! Saepe sequi
-              animi eaque id. Eum inventore esse eos amet fuga saepe veritatis
-              quisquam voluptatum earum, qui quibusdam assumenda. Lorem ipsum
-              dolor sit amet consectetur adipisicing elit. Cum, magni omnis!
-              Saepe sequi animi eaque id. Eum inventore esse eos amet fuga saepe
-              veritatis quisquam voluptatum earum, qui quibusdam assumenda.
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum,
-              magni omnis! Saepe sequi animi eaque id. Eum inventore esse eos
-              amet fuga saepe veritatis quisquam voluptatum earum, qui quibusdam
-              assumenda.
+              {{ comunicado.texto }}
             </p>
           </b-col>
-          <b-col cols="12" class="text-center">
-            <img
-              class="mx-auto img-fluid"
-              src="../../assets/logo.png"
-              alt="Logo GN10"
-            />
-          </b-col>
+
           <b-col cols="12" class="h-6 text-justify">
             <p>Agradecemos su comprensión y atención, un cordial saludo.</p>
           </b-col>
@@ -74,11 +51,15 @@
             <p class="py-0 my-0"><strong> Atentamente</strong></p>
 
             <p class="py-0 my-0">
-              <small> {{ io.tags }}</small>
+              <small> {{ comunicado.emisor }}</small>
             </p>
-            <p class="py-0 my-0">
-              <small> {{ io.tags }} </small>
-            </p>
+          </b-col>
+          <b-col cols="4" class="mx-auto">
+            <img
+              class="mx-auto img-fluid"
+              :src="comunicado.logo"
+              alt="Logo GN10"
+            />
           </b-col>
         </b-row>
       </b-conatiner>
@@ -87,9 +68,10 @@
 </template>
 
 <script>
+import moment from "moment";
 export default {
   name: "Modal",
-  props: ["io", "mostrarModal"],
+  props: ["comunicado", "mostrarModal"],
   computed: {
     mostrar: {
       get() {
@@ -99,6 +81,9 @@ export default {
         return valor;
       },
     },
+  },
+  created() {
+    moment.locale("es");
   },
 };
 </script>

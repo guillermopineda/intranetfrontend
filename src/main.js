@@ -7,8 +7,11 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { faAddressBook, faBars, faBullhorn, faDonate, faExclamationTriangle, faFilePdf, faGlobeAmericas, faSearch, faSitemap, faTimes } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import router from "./router"
+import VueMoment from 'vue-moment'
+import moment from 'moment-timezone'
 
 Vue.config.productionTip = false
+
 Vue.use(BootstrapVue)
 Vue.use(BootstrapVueIcons)
 library.add(faAddressBook)
@@ -26,7 +29,9 @@ Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 Vue.config.productionTip = false
 
-
+Vue.use(VueMoment, {
+  moment,
+}) 
 new Vue({
   router,
   render: h => h(App),
