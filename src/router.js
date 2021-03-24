@@ -14,7 +14,7 @@ Vue.use(VueRouter);
 
 const routes = [
     {
-        path:"/",
+        path:"/web",
         name:"Home",
         component: Home
     },

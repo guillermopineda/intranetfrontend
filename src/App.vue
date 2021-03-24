@@ -43,7 +43,7 @@ export default {
   data() {
     return {
       menu: [
-        { ruta: "/", nombre: "Home", icono: "mdi-folder" },
+        { ruta: "/web", nombre: "Home", icono: "mdi-folder" },
         { ruta: "/muroGN10", nombre: "Muro GN10", icono: "mdi-folder" },
         { ruta: "/nosotros", nombre: "Nosotros", icono: "mdi-folder" },
         { ruta: "/organigrama", nombre: "Organigrama", icono: "mdi-folder" },
