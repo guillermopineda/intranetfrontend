@@ -10,7 +10,7 @@
         <img
           id="imagenMision"
           class="img-fluid"
-          src="../../assets/mision.png"
+          src="@/assets/mision.png"
           alt="Misión GN10"
         />
       </b-col>
@@ -44,7 +44,7 @@
         <img
           id="imagenVision"
           class="img-fluid"
-          src="../../assets/vision.png"
+          src="@/assets/vision.png"
           alt="Visión GN10"
         />
       </b-col>
@@ -65,7 +65,7 @@
               <img
                 id="imagenIntegridad"
                 class="img-fluid"
-                src="../../assets/logo.png"
+                src="@/assets/integridad.png"
                 alt="Integridad GN10"
               />
             </div>
@@ -95,7 +95,7 @@
               <img
                 id="imagenConfianza"
                 class="img-fluid"
-                src="../../assets/logo.png"
+                src="@/assets/confianza.png"
                 alt="Confianza GN10"
               />
             </div>
@@ -130,7 +130,7 @@
               <img
                 id="imagenCompromiso"
                 class="img-fluid"
-                src="../../assets/logo.png"
+                src="@/assets/compromiso.png"
                 alt="Compromiso GN10"
               />
             </div>
@@ -164,7 +164,7 @@
               <img
                 id="imagenRespeto"
                 class="img-fluid"
-                src="../../assets/logo.png"
+                src="@/assets/respeto.png"
                 alt="Respeto GN10"
               />
             </div>
@@ -196,7 +196,7 @@
               <img
                 id="imagenLealtad"
                 class="img-fluid"
-                src="../../assets/logo.png"
+                src="@/assets/lealtad.png"
                 alt="Lealtad GN10"
               />
             </div>

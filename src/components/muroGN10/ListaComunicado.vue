@@ -1,15 +1,20 @@
 <template>
   <div id="pol">
-    <b-img
-      :id="comunicado.id"
-      :src="comunicado.logo"
-      @click="mostrarModal=true"
-      class="h-100 w-100"
-      rounded
-    ></b-img>
-    <Modal :mostrarModal="mostrarModal" :comunicado="comunicado" />
-    
+       <b-container class="shadow-lg rounded p-6 mx-2 bg-light" 
+       :id="comunicado.id" 
+       @click="mostrarModal = !mostrarModal"> 
+           <b-row class="justify-content-between h-100">
+                 <b-col cols="6" class="h4 pt-4 pl-4" align-self="start">
+                   <p id="letraMuro"> {{comunicado.titulo}}</p>
+               </b-col>
+               <b-col cols="4"   align-self="end" >
+                   <img  class="mx-auto img-fluid" src="../../assets/logo.png" alt="Logo GN10">
+               </b-col>
+           </b-row>
+       </b-container>
+       <Modal :mostrarModal="mostrarModal" :comunicado="comunicado" />
   </div>
+  
 </template>
 
 <script>
@@ -37,5 +42,12 @@ export default {
   width: 100%;
   margin: auto;
   display: flex;
+}
+
+#letraMuro{
+    color:#282828;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    
 }
 </style>

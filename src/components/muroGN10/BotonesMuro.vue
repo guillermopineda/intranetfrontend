@@ -27,27 +27,43 @@
           hide-footer
           scrollable
           size="lg"
-          ><div class="text-justify d-block">
+          >
+
+          <div class="text-justify d-block">
+            
             <b-form inline>
               <label class="sr-only" for="inline-form-input-buscar"
                 >BUSCAR</label
               >
+
               <b-input-group class="mt-3 w-100 px-md-5 mx-auto">
+
                 <b-form-input
                   placeholder="BUSCAR"
                   id="inline-form-input-buscar"
-                ></b-form-input>
+                  type="search"
+                  v-model="buscarColaborador"
+                ></b-form-input
+                >
+
+
                 <b-input-group-append>
-                  <b-button id="btnModal">
+                  <b-button id="btnModal" >
                     <font-awesome-icon :icon="['fas', 'search']" size="md" />
                   </b-button>
                 </b-input-group-append>
+
+
               </b-input-group>
             </b-form>
           </div>
-          <b-list-group flush class="py-5 px-md-5 mx-auto w-100" >
-            <b-list-group-item button v-for="colaborador in colaboradores" :key="colaborador.id">{{colaborador.titulo}}</b-list-group-item>
-           
+          <b-list-group flush class="py-5 px-md-5 mx-auto w-100">
+            <b-list-group-item
+              button
+              v-for="colaborador in filtro"
+              :key="colaborador.id"
+              >{{ colaborador.titulo }}
+            </b-list-group-item>
           </b-list-group>
         </b-modal>
       </b-button>
@@ -67,37 +83,38 @@ export default {
       buscarComunicado: "",
       buscarDirectorioModal: "",
       colaboradores: [],
-
-
-      
+      buscarColaborador: "",
     };
   },
+
   methods: {
     servicioBienestar() {
       this.$emit("buscarMuro", this.buscarBienestar);
-
     },
     servicioFundacion() {
       this.$emit("buscarMuro", this.buscarFundacion);
-
     },
     servicioInformativo() {
       this.$emit("buscarMuro", this.buscarInformativo);
- 
     },
     servicioComunicado() {
       this.$emit("buscarMuro", this.buscarComunicado);
-
     },
-    buscarDirectorio() {
-      gnService
-      .getMuro()
-      .then(
-            (colaboradores) =>
-              (this.colaboradores = colaboradores.data.slice(0, 5))
-          );
-
-    }
+    async buscarDirectorio() {
+      await gnService
+        .getMuro()
+        .then((colaboradores) => (this.colaboradores = colaboradores.data));
+    },
+  },
+  computed: {
+    filtro() {
+      return this.colaboradores.filter((colaborador) => {
+        return (
+          
+          colaborador.titulo.includes(this.buscarColaborador)
+        );
+      });
+    },
   },
 };
 </script>

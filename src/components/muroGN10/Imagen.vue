@@ -3,13 +3,13 @@
     <b-img
       :id="io.id"
       :src="io.largeImageURL"
-      @click="mostrarModal = true"
+      @click="mostrarModal = !mostrarModal"
       class="h-100 w-100"
       rounded
     >
     </b-img>
     <!-- <Modal :mostrarModal="mostrarModal" :io="io" /> -->, 
-    <ModalCarrusel :mostrarModal="mostrarModal" :io="io"/>
+    <ModalCarrusel :mostrarModal="mostrarModal" :io="io" />
 
   </div>
 

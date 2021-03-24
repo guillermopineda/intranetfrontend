@@ -38,9 +38,10 @@
 
           <b-col cols="12" class="h-6 text-justify">
             <br />
-            <p>
-              {{ comunicado.texto }}
-            </p>
+            <article
+              class="textoComunicado"
+              v-html="comunicado.texto"
+            ></article>
           </b-col>
 
           <b-col cols="12" class="h-6 text-justify">
@@ -54,13 +55,15 @@
               <small> {{ comunicado.emisor }}</small>
             </p>
           </b-col>
-          <b-col cols="4" class="mx-auto">
-            <img
-              class="mx-auto img-fluid"
-              :src="comunicado.logo"
-              alt="Logo GN10"
-            />
-          </b-col>
+          <template v-if="comunicado.logo !== null">
+            <b-col cols="4" class="mx-auto">
+              <img
+                class="mx-auto img-fluid"
+                :src="comunicado.logo"
+                alt="Logo GN10"
+              />
+            </b-col>
+          </template>
         </b-row>
       </b-conatiner>
     </b-modal>
@@ -71,7 +74,19 @@
 import moment from "moment";
 export default {
   name: "Modal",
-  props: ["comunicado", "mostrarModal"],
+  data(){
+    return {
+      cerrarModal: false,
+    }
+  },
+  props: {
+    comunicado: {},
+    mostrarModal: {},
+    textoComunicado: {
+      type: String,
+      required: true,
+    },
+  },
   computed: {
     mostrar: {
       get() {
@@ -101,5 +116,9 @@ export default {
   text-align: center;
   width: 100%;
   padding: 1rem 0;
+}
+
+.textoComunicado {
+  white-space: pre-wrap; /* 👈 this is the important part */
 }
 </style>

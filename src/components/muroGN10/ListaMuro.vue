@@ -3,12 +3,17 @@
     <b-img
       :id="comunicadoMuro.id"
       :src="comunicadoMuro.imagen_pequena"
-      @click="mostrarModal=true"
+      @click="mostrarModal = !mostrarModal"
       class="h-100 w-100"
       rounded
+     
     ></b-img>
-    <ModalCarrusel :mostrarModal="mostrarModal" :comunicadoMuro="comunicadoMuro" />
-    
+    <ModalCarrusel
+      :mostrarModal="mostrarModal"
+      :comunicadoMuro="comunicadoMuro"
+    />
+
+
   </div>
 </template>
 
@@ -18,20 +23,19 @@ export default {
   name: "ListaMuro",
   props: ["comunicadoMuro"],
   components: {
-      ModalCarrusel,
+    ModalCarrusel,
   },
-  data(){
-      return {
-          mostrarModal: false,
-      }
-  }
+  data() {
+    return {
+      mostrarModal: false,
+    };
+  },
 };
 </script>
 
 
 
 <style scoped>
-
 #pol {
   height: 100%;
   width: 100%;

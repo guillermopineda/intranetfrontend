@@ -6,11 +6,9 @@
       hide-footer
       scrollable
       size="lg"
-
     >
-      <b-container>
-        <!-- <b-carousel
-          v-if="comunicadoMuro.type !== 'photo'"
+      <b-container v-if="comunicadoMuro.video === null">
+        <b-carousel
           id="carousel-fade"
           style="text-shadow: 0px 0px 10px #e5e5e5"
           fade
@@ -18,12 +16,21 @@
           indicators
         >
           <b-carousel-slide
-            :caption="comunicadoMuro.titulo"
+           
             :img-src="comunicadoMuro.imagen_grande"
           ></b-carousel-slide>
-        </b-carousel> -->
+        </b-carousel>
+        <b-row class="text-center">
+          <b-col cols="12">
+            <hr />
+            <a :href="comunicadoMuro.url_consulta" target="blank">
+              <p id="letraModal">Conoce más...</p>
+            </a>
+          </b-col>
+        </b-row>
+      </b-container>
+      <b-container v-else>
         <b-embed
-          
           type="iframe"
           aspect="16by9"
           :src="comunicadoMuro.video"
@@ -31,7 +38,6 @@
         ></b-embed>
       </b-container>
     </b-modal>
-  
   </div>
 </template>
 
@@ -39,18 +45,16 @@
 export default {
   name: "ModalCarrusel",
   props: ["comunicadoMuro", "mostrarModal"],
-  computed:{
-    mostrar:{
-      get(){
-        return this.mostrarModal 
+  computed: {
+    mostrar: {
+      get() {
+        return this.mostrarModal;
       },
-      set(valor){
-        return valor.mostrarModal
-      }
-    }
-  }
-
-
+      set(valor) {
+        return valor.mostrarModal;
+      },
+    },
+  },
 };
 </script>
 
@@ -68,5 +72,11 @@ export default {
   text-align: center;
   width: 100%;
   padding: 1rem 0;
+}
+
+#letraModal {
+  color: #185632;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
 }
 </style>
