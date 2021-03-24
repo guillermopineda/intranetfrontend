@@ -14,42 +14,42 @@ Vue.use(VueRouter);
 
 const routes = [
     {
-        path:"/web",
+        path:"/web/",
         name:"Home",
         component: Home
     },
     {
-        path:"/muroGN10",
+        path:"/web/muroGN10",
         name:"muroGN10",
         component: MuroGN10
     },
     {
-        path:"/nosotros",
+        path:"/web/nosotros",
         name:"nosotros",
         component: Nosotros
     },
     {
-        path:"/organigrama",
+        path:"/web/organigrama",
         name:"organigrama",
         component: Organigrama
     },
     {
-        path:"/servicioPersonal",
+        path:"/web/servicioPersonal",
         name:"servicioPersonal",
         component: ServicioPersonal
     },
     {
-        path:"/desarrolloTalento",
+        path:"/web/desarrolloTalento",
         name:"desarrolloTalento",
         component: DesarrolloTalento
     },
     {
-        path:"/creceGN10",
+        path:"/web/creceGN10",
         name:"creceGN10",
         component: Crece
     },
     {
-        path:"/kiosco",
+        path:"/web/kiosco",
         name:"kiosco",
         component: Kiosco
     }
