@@ -7,7 +7,7 @@
     </b-row>
     <b-row class="justify-content-between rounded sombra my-3" align-v="center">
       <b-col cols="6" class="h4 pt-4 pl-5">
-        <p class="subrayado izquierda">GLOBAL RHPAY</p>
+        <p >GLOBAL RHPAY</p>
       </b-col>
       <b-col cols="4" md="3" align="center">
         <b-link href="https://global.rhpay.com/" target="blank">
@@ -22,7 +22,7 @@
 
     <b-row class="justify-content-between rounded sombra my-3" align-v="center">
       <b-col cols="6" class="h4 pt-4 pl-5">
-        <p class="subrayado izquierda">RECIBOS Y VACACIONES</p>
+        <p >RECIBOS Y VACACIONES</p>
       </b-col>
       <b-col cols="4" md="3" align="center">
         <b-link
@@ -39,7 +39,7 @@
     </b-row>
     <b-row class="justify-content-between rounded sombra my-3" align-v="center">
       <b-col cols="6" class="h4 pt-4 pl-5">
-        <p class="subrayado izquierda">JOB POST</p>
+        <p >JOB POST</p>
       </b-col>
       <b-col cols="4" md="3" align="center">
         <b-link href="https://global.rhpay.com/" target="blank">
@@ -51,7 +51,7 @@
         </b-link>
       </b-col>
     </b-row>
-    <hr class="espaciado my-5" />
+    <hr class=" my-5" />
 
     <b-row class="text-center">
       <b-col cols="12">
@@ -104,12 +104,7 @@ export default {
   background-size: 100% 0.1rem;
 }
 
-.espaciado {
-  background-image: linear-gradient(to right, #573655, #573655);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 100% 0.4rem;
-}
+
 
 .iconoIr {
   color: #573655;
@@ -119,14 +114,5 @@ export default {
   outline-color: #fff !important;
 }
 
-@media only screen and (min-width: 992px) {
-  .izquierda {
-    background-position: bottom left;
-    background-size: 50% 0.1arturem;
-  }
 
-  .subrayado {
-    background-size: 75% 0.2rem;
-  }
-}
 </style>

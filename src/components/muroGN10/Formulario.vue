@@ -127,7 +127,7 @@ export default {
 
 input,
 ::placeholder {
-  color: #e5e5e5;
+  color: #282828;
 }
 textarea {
   color: #282828 !important;

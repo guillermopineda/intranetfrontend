@@ -72,7 +72,7 @@
 </template>
 
 <script>
-import gnService from "./gnService";
+import gnService from "@/services/muro/gnService";
 export default {
   name: "Buscador",
   data() {

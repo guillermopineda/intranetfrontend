@@ -1,4 +1,5 @@
-import Service from './Service';
+import Service from '@/services/muro/Services';
+
 
 
 export default{

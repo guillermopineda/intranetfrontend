@@ -39,80 +39,14 @@
     </b-row>
 
     <b-row class="justify-content-around">
-      <b-col cols="11" md="4" class="tarjeta py-4 my-2">
+      <b-col cols="11" md="4" class="tarjeta py-4 my-2" v-for="vacante in vacantes" :key="vacante.id">
+       
         <b-row>
           <b-col>
-            <b-card
-              title="TITULO VACANTE"
-              img-src="https://capitalpeople.mx/static/img/blog-images/Dise%C3%B1o_sin_t%C3%ADtulo_80.png"
-              img-alt="Crece con GN10"
-              img-top
-              tag="article"
-              style="max-width: 25rem;"
-              class="mb-2 text-center"
-            >
-              <b-card-text class="text-justify">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Nostrum assumenda rerum natus similique sequi porro doloremque expedita 
-                reprehenderit qui, alias itaque dolor tenetur ad ex. Fugiat necessitatibus 
-                amet saepe eligendi!
-              </b-card-text>
-
-              <b-button href="#" class="btn-primary bg-primary">Postularme</b-button>
-            </b-card>
+            <TarjetaVacante :vacante="vacante" />
           </b-col>
         </b-row>
-      </b-col>
-
-
-<b-col cols="11" md="4" class="tarjeta py-4 my-2">
-        <b-row>
-          <b-col>
-            <b-card
-              title="TITULO VACANTE"
-              img-src="https://capitalpeople.mx/static/img/blog-images/Dise%C3%B1o_sin_t%C3%ADtulo_80.png"
-              img-alt="Crece con GN10"
-              img-top
-              tag="article"
-              style="max-width: 25rem;"
-              class="mb-2 text-center"
-            >
-              <b-card-text class="text-justify">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Nostrum assumenda rerum natus similique sequi porro doloremque expedita 
-                reprehenderit qui, alias itaque dolor tenetur ad ex. Fugiat necessitatibus 
-                amet saepe eligendi!
-              </b-card-text>
-
-              <b-button href="#" class="btn-primary bg-primary">Postularme</b-button>
-            </b-card>
-          </b-col>
-        </b-row>
-      </b-col>
-
-      <b-col cols="11" md="4" class="tarjeta py-4 my-2">
-        <b-row>
-          <b-col>
-            <b-card
-              title="TITULO VACANTE"
-              img-src="https://capitalpeople.mx/static/img/blog-images/Dise%C3%B1o_sin_t%C3%ADtulo_80.png"
-              img-alt="Crece con GN10"
-              img-top
-              tag="article"
-              style="max-width: 25rem;"
-              class="mb-2 text-center"
-            >
-              <b-card-text class="text-justify">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Nostrum assumenda rerum natus similique sequi porro doloremque expedita 
-                reprehenderit qui, alias itaque dolor tenetur ad ex. Fugiat necessitatibus 
-                amet saepe eligendi!
-              </b-card-text>
-
-              <b-button href="#" class="btn-primary bg-primary">Postularme</b-button>
-            </b-card>
-          </b-col>
-        </b-row>
+         
       </b-col>
 
     </b-row>
@@ -122,16 +56,36 @@
         <Footer />
       </b-col>
     </b-row>
+    
   </b-container>
+  
+
 </template>
 
 <script>
+import TarjetaVacante from "@/components/crece/TarjetaVacante";
 import Footer from "../Footer";
+import gnService from "@/services/crece/gnService";
 export default {
   name: "Crece",
   components: {
+    TarjetaVacante,
     Footer,
   },
+  data(){
+    return {
+      vacantes: [],
+      loading: false,
+      mostrarModalVacante:false,
+    }
+  },
+  created(){
+    this.loading = true;
+    gnService
+      .getVacantes()
+      .then((vacantes) => (this.vacantes = vacantes.data.slice(0, 8)));
+      setTimeout(() => (this.loading = false), 1000);
+  }
 };
 </script>
 
@@ -145,45 +99,5 @@ export default {
 }
 
 
-.btn {
-  border-radius: 2rem;
-  padding: 0.5rem 3rem;
-  font-weight: bold;
-  font-size: large;
-  margin: .5rem;
-  min-width: 100%;
-}
 
-.bg-primary {
-  background-color: #185632 !important;
-}
-
-.btn-primary {
-  color: #fff;
-  background-color: #185632;
-  border-color: #185632;
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
-  transition: all 0.3s ease;
-}
-
-.btn-primary:hover {
-  color: #185632;
-  background-color: #fff !important;
-  border-color: #185632;
-}
-
-.btn-primary:active {
-  color: #185632 !important;
-  background-color: rgba(255,255,255, 0.95) !important;
-  border-color: rgba(28, 86, 50, 0.1) !important;
-}
-
-.btn-primary:focus {
-  color: #185632 !important;
-  background-color: rgba(255,255,255, 0.95) !important;
-  border-color: rgba(28, 86, 50, 0.1) !important;
-  box-shadow: 0 0 0 0.2rem rgba(28, 86, 50, 0.5) !important;
-}
 </style>

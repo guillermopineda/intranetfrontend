@@ -61,9 +61,7 @@
       </template>
       <template v-if="this.loaded">
         <div
-          v-if="
-            this.comunicadosMuro.length === 0 || this.comunicados.length === 0
-          "
+          v-if="this.comunicadosMuro.length === 0 || this.comunicados.length === 0"
           id="pol"
         >
           <b-container class="shadow-lg rounded p-6 mx-2 bg-light">
@@ -113,9 +111,7 @@
 <script>
 import ListaMuro from "./ListaMuro";
 import ListaComunicado from "./ListaComunicado";
-import gnService from "./gnService";
-
-import Hakunamatata from "./ServiciosAPIDemo";
+import gnService from "@/services/muro/gnService";
 import BotonesMuro from "./BotonesMuro";
 import Universidad from "./Universidad";
 import Fundacion from "./Fundacion";
@@ -134,8 +130,6 @@ export default {
   },
   data() {
     return {
-      pixaImagenes: [],
-      buscarPixabay: "",
       comunicadosMuro: [],
       comunicados: [],
       servicio: "",
@@ -145,12 +139,6 @@ export default {
   },
 
   methods: {
-    async buscarImagenes(busca = "libros") {
-      this.buscarPixabay = busca;
-      const consulta = await Hakunamatata.getImagenes(this.buscarPixabay);
-      this.pixaImagenes = consulta.hits.slice(0, 5);
-      console.log(consulta.hits);
-    },
     async actualizarMuro(servicio) {
       this.servicio = servicio;
       this.loading = true;
@@ -161,9 +149,8 @@ export default {
           .then(
             (comunicados) => (this.comunicados = comunicados.data.slice(0, 5))
           );
-
-        this.loaded = true;
         setTimeout(() => (this.loading = false), 1000);
+         this.loaded = true;
       } else {
         await gnService
           .getMuro(servicio)
@@ -171,9 +158,8 @@ export default {
             (comunicadosMuro) =>
               (this.comunicadosMuro = comunicadosMuro.data.slice(0, 5))
           );
-
-        this.loaded = true;
         setTimeout(() => (this.loading = false), 1000);
+         this.loaded = true;
       }
     },
   },
