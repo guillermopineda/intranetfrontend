@@ -1,88 +1,57 @@
 <template>
-  <b-container id="marca" fluid>
-    <b-row class="text-center">
-      <b-col cols="12">
-        <h2 class="font-weight-bold py-5">ORGANIGRAMA</h2>
-      </b-col>
-    </b-row>
-
-    <div v-for="(empleado,i) in empleados"
-    :key="empleado.id">
     
-
-    <b-row
-      v-for="tarjeta in empleado.unidad_de_negocio"
-      :key="tarjeta.id"
-      class="justify-content-between rounded sombra my-3"
-      v-b-toggle="'accordion-tarjeta.id' + i"
-      align-v="center"
+   <b-collapse 
+    :id="'accordion-tarjeta.id'+i"
+    :accordion="'tarjeta.id-accordion' +i"
     >
-      <b-col cols="6" class="h4 pt-4 pl-5">
-        <p><strong>{{tarjeta.subtitulo}} </strong>
-        
-        </p>
-      </b-col>
-      <b-col cols="4" md="3">
-        <img
-          class="mx-auto img-fluid"
-          :src="tarjeta.imagen"
-          :alt="tarjeta.titulo"
-        />
-      </b-col>
-    </b-row>
+      <b-row
+        class="justify-content-between rounded sombra my-3"
+        @click="mostrarModal = !mostrarModal"
+        align-v="center"
+        align-h="end"
+      >
+        <b-col cols="6" class="h4 pt-4 pl-5 m-0">
+          <p>{{empleado.nombre}} </p>
+          <p id="letraPuesto">{{empleado.puesto.substring(0,20) + '...'}} </p>
+        </b-col>
+        <b-col cols="3" md="2">
+          <b-avatar
+            :src="empleado.foto"
+            size="4rem"
+          ></b-avatar>
+        </b-col>
+      </b-row>
+      <EmpleadoDetalle :mostrarModal="mostrarModal" :empleado="empleado"  :tarjeta="tarjeta" :i="i" />
 
+    </b-collapse>
 
-   <Empleado :tarjeta="tarjeta" :empleado="empleado" :i="i"/>
-
-   
-   
-
-   
-   
-
-
-    
-     
-      </div>
-
-    <b-row class="mt-4">
-      <b-col class="mx-0 px-0">
-        <Footer />
-      </b-col>
-    </b-row>
-  </b-container>
+  
 </template>
 
-
 <script>
-import gnService from "@/services/empleados/gnService"
-import Empleado from "@/components/organigrama/Empleado"
-import Footer from "../Footer";
-
+import EmpleadoDetalle from "@/components/organigrama/EmpleadoDetalle"
 export default {
-  name: "Organigrama",
-  components: {
-    Empleado,
-    Footer,
-  },
-  data(){
-    return{
-    empleados: [],
-    loading: false
-    }
-  },
-  created(){
-    this.loading = true;
-    gnService
-      .getEmpleados()
-      .then((empleados) => (this.empleados = empleados.data));
-      setTimeout(() => (this.loading = false) , 1000);
-  },
-
-};
+    name: "Empleado",
+    props: [
+      "empleado",
+      "tarjeta",
+      "i"
+      ],
+    components:{
+      EmpleadoDetalle,
+    },
+    data(){
+      return {
+          mostrarModal: false,
+      }
+  }
+    
+}
 </script>
 
 <style scoped>
+
+
 #marca {
   background-image: url("../../assets/fondo.png");
   color: #282828;
@@ -234,4 +203,5 @@ export default {
   -webkit-animation: horizontal 2s ease infinite;
   animation: horizontal 2s ease infinite;
 }
+
 </style>

@@ -27,42 +27,74 @@
           hide-footer
           scrollable
           size="lg"
-          >
-
+        >
           <div class="text-justify d-block">
-            
             <b-form inline>
               <label class="sr-only" for="inline-form-input-buscar"
                 >BUSCAR</label
               >
 
               <b-input-group class="mt-3 w-100 px-md-5 mx-auto">
-
                 <b-form-input
                   placeholder="BUSCAR"
                   id="inline-form-input-buscar"
                   type="search"
                   v-model="buscarColaborador"
-                ></b-form-input
-                >
-
+                ></b-form-input>
 
                 <b-input-group-append>
-                  <b-button id="btnModal" >
+                  <b-button id="btnModal">
                     <font-awesome-icon :icon="['fas', 'search']" size="md" />
                   </b-button>
                 </b-input-group-append>
-
-
               </b-input-group>
             </b-form>
           </div>
-          <b-list-group flush class="py-5 px-md-5 mx-auto w-100">
+          <b-list-group flush class="py-5 px-md-5 mx-auto w-100 letraTarjeta">
             <b-list-group-item
-              button
+              class="flex-column align-items-start"
               v-for="colaborador in filtro"
               :key="colaborador.id"
-              >{{ colaborador.titulo }}
+            >
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1 nombre">{{ colaborador.nombre}}</h5>
+                <small 
+                v-for="negocio in colaborador.unidad_de_negocio"
+                :key="negocio.id"
+                >{{ negocio.titulo }}</small>
+              </div>
+
+              <div
+              v-for="telefono in colaborador.telefonos"
+              :key="telefono.id"  >
+              <p 
+              v-if="telefono.tipo === fijo "
+              class="mb-1">
+                <strong>Teléfono:</strong> <br>{{ telefono.numero }} Ext: {{telefono.extension}}
+              </p>
+              </div>
+
+               <div
+              v-for="telefono in colaborador.telefonos"
+              :key="telefono.id"  >
+              <a :href="`tel:+52${telefono.numero}`">
+              <p 
+              v-if="telefono.tipo === movil "
+              class="mb-1">
+                <strong>Móvil:</strong> <br>{{ telefono.numero }}, 
+              </p>
+              </a>
+              </div>
+              <div>
+                
+              <p 
+              class="mb-1 "
+              v-for="(correo, index) in colaborador.correos"
+              :key="correo.id"
+              ><a :href="`mailto:${correo.correo}`"><strong>
+                Correo {{index + 1}}:</strong> <br>{{ correo.correo}} </a> </p>
+              
+              </div>
             </b-list-group-item>
           </b-list-group>
         </b-modal>
@@ -72,7 +104,7 @@
 </template>
 
 <script>
-import gnService from "@/services/muro/gnService";
+import gnService from "@/services/empleados/gnService";
 export default {
   name: "Buscador",
   data() {
@@ -84,6 +116,9 @@ export default {
       buscarDirectorioModal: "",
       colaboradores: [],
       buscarColaborador: "",
+
+      fijo:"F",
+      movil:"M"
     };
   },
 
@@ -102,17 +137,14 @@ export default {
     },
     async buscarDirectorio() {
       await gnService
-        .getMuro()
+        .getEmpleados()
         .then((colaboradores) => (this.colaboradores = colaboradores.data));
     },
   },
   computed: {
     filtro() {
       return this.colaboradores.filter((colaborador) => {
-        return (
-          
-          colaborador.titulo.includes(this.buscarColaborador)
-        );
+        return colaborador.nombre.includes(this.buscarColaborador);
       });
     },
   },
@@ -120,6 +152,17 @@ export default {
 </script>
 
 <style scoped>
+.nombre{
+  color:#185632;
+  font-weight: bold;
+}
+
+a:link, a:visited, a:active {
+  text-decoration:none;
+  color: #282828;
+  }
+
+
 .btn-secondary {
   color: #185632;
   font-weight: 600;

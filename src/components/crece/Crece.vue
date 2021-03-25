@@ -39,7 +39,7 @@
     </b-row>
 
     <b-row class="justify-content-around">
-      <b-col cols="11" md="4" class="tarjeta py-4 my-2" v-for="vacante in vacantes" :key="vacante.id">
+      <b-col cols="12" md="6" lg="4" class="tarjeta py-4 my-2" v-for="vacante in vacantes" :key="vacante.id">
        
         <b-row>
           <b-col>

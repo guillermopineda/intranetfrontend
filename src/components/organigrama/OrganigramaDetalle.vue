@@ -1,88 +1,41 @@
 <template>
-  <b-container id="marca" fluid>
-    <b-row class="text-center">
-      <b-col cols="12">
-        <h2 class="font-weight-bold py-5">ORGANIGRAMA</h2>
-      </b-col>
-    </b-row>
-
-    <div v-for="(empleado,i) in empleados"
-    :key="empleado.id">
-    
-
-    <b-row
-      v-for="tarjeta in empleado.unidad_de_negocio"
-      :key="tarjeta.id"
-      class="justify-content-between rounded sombra my-3"
-      v-b-toggle="'accordion-tarjeta.id' + i"
-      align-v="center"
-    >
-      <b-col cols="6" class="h4 pt-4 pl-5">
-        <p><strong>{{tarjeta.subtitulo}} </strong>
-        
-        </p>
-      </b-col>
-      <b-col cols="4" md="3">
-        <img
-          class="mx-auto img-fluid"
-          :src="tarjeta.imagen"
-          :alt="tarjeta.titulo"
-        />
-      </b-col>
-    </b-row>
-
-
-   <Empleado :tarjeta="tarjeta" :empleado="empleado" :i="i"/>
-
-   
-   
-
-   
-   
-
-
-    
-     
-      </div>
-
-    <b-row class="mt-4">
-      <b-col class="mx-0 px-0">
-        <Footer />
-      </b-col>
-    </b-row>
-  </b-container>
+    <b-modal 
+    v-model="mostrarOrg"
+    title="ORGANIGRAMA" 
+    hide-footer size="lg">
+      <img
+        class="mx-auto img-fluid"
+        :src="empleado.image_organigrama"
+        alt="Organigrama"
+      />
+    </b-modal>
 </template>
 
-
 <script>
-import gnService from "@/services/empleados/gnService"
-import Empleado from "@/components/organigrama/Empleado"
-import Footer from "../Footer";
-
 export default {
-  name: "Organigrama",
-  components: {
-    Empleado,
-    Footer,
+    name: "OrganigramaDetalle",
+     props: [
+    "empleado",
+    "tarjeta",
+    "i",
+    "mostrarOrganigrama"
+  ],
+   computed: {
+    mostrarOrg: {
+      get() {
+        return this.mostrarOrganigrama;
+      },
+      set(valor) {
+        return valor.mostrarOrganigrama;
+      },
+    },
   },
-  data(){
-    return{
-    empleados: [],
-    loading: false
-    }
-  },
-  created(){
-    this.loading = true;
-    gnService
-      .getEmpleados()
-      .then((empleados) => (this.empleados = empleados.data));
-      setTimeout(() => (this.loading = false) , 1000);
-  },
-
-};
+    
+}
 </script>
 
 <style scoped>
+
 #marca {
   background-image: url("../../assets/fondo.png");
   color: #282828;
@@ -234,4 +187,6 @@ export default {
   -webkit-animation: horizontal 2s ease infinite;
   animation: horizontal 2s ease infinite;
 }
+
+
 </style>

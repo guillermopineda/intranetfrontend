@@ -46,7 +46,7 @@ export default {
         { ruta: "/web/", nombre: "Home", icono: "mdi-folder" },
         { ruta: "/web/muroGN10", nombre: "Muro GN10", icono: "mdi-folder" },
         { ruta: "/web/nosotros", nombre: "Nosotros", icono: "mdi-folder" },
-        { ruta: "/web//organigrama", nombre: "Organigrama", icono: "mdi-folder" },
+        { ruta: "/web/organigrama", nombre: "Organigrama", icono: "mdi-folder" },
         {
           ruta: "/web/servicioPersonal",
           nombre: "Servicios Personal",
