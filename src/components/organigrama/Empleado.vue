@@ -1,8 +1,12 @@
 <template>
-    
-   <b-collapse 
-    :id="'accordion-tarjeta.id'+i"
-    :accordion="'tarjeta.id-accordion' +i"
+  <b-collapse
+    :id="'accordion-tarjeta.id' + i"
+    :accordion="'tarjeta.id-accordion'"
+    class="collapse-div"
+  >
+    <b-container 
+      v-for="(empleado) in empleadoDatas"
+      :key="empleado.id"
     >
       <b-row
         class="justify-content-between rounded sombra my-3"
@@ -11,47 +15,40 @@
         align-h="end"
       >
         <b-col cols="6" class="h4 pt-4 pl-5 m-0">
-          <p>{{empleado.nombre}} </p>
-          <p id="letraPuesto">{{empleado.puesto.substring(0,20) + '...'}} </p>
+          <p>{{ empleado.nombre }}</p>
+          <p id="letraPuesto">{{ empleado.puesto.substring(0, 20) + "..." }}</p>
         </b-col>
         <b-col cols="3" md="2">
-          <b-avatar
-            :src="empleado.foto"
-            size="4rem"
-          ></b-avatar>
+          <b-avatar :src="empleado.foto" size="4rem"></b-avatar>
         </b-col>
       </b-row>
-      <EmpleadoDetalle :mostrarModal="mostrarModal" :empleado="empleado"  :tarjeta="tarjeta" :i="i" />
-
-    </b-collapse>
-
-  
+      <!-- <EmpleadoDetalle
+        :mostrarModal="mostrarModal"
+        :empleado="empleado"
+        :tarjeta="tarjeta"
+        :i="i"
+      /> -->
+    </b-container>
+  </b-collapse>
 </template>
 
 <script>
-import EmpleadoDetalle from "@/components/organigrama/EmpleadoDetalle"
+import EmpleadoDetalle from "@/components/organigrama/EmpleadoDetalle";
 export default {
-    name: "Empleado",
-    props: [
-      "empleado",
-      "tarjeta",
-      "i"
-      ],
-    components:{
-      EmpleadoDetalle,
-    },
-    data(){
-      return {
-          mostrarModal: false,
-      }
-  }
-    
-}
+  name: "Empleado",
+  props: ["empleadoDatas", "tarjeta", "i"],
+  components: {
+    EmpleadoDetalle,
+  },
+  data() {
+    return {
+      mostrarModal: false,
+    };
+  },
+};
 </script>
 
 <style scoped>
-
-
 #marca {
   background-image: url("../../assets/fondo.png");
   color: #282828;
@@ -202,6 +199,10 @@ export default {
 .faa-parent.animated-hover:hover > .faa-horizontal {
   -webkit-animation: horizontal 2s ease infinite;
   animation: horizontal 2s ease infinite;
+}
+
+.collapse-div {
+  width: 100%;
 }
 
 </style>
