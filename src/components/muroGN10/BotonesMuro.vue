@@ -52,48 +52,39 @@
           </div>
           <b-list-group flush class="py-5 px-md-5 mx-auto w-100 letraTarjeta">
             <b-list-group-item
-              class="flex-column align-items-start"
+              class="flex-column align-items-start letra"
               v-for="colaborador in filtro"
               :key="colaborador.id"
             >
-              <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1 nombre">{{ colaborador.nombre}}</h5>
-                <small 
-                v-for="negocio in colaborador.unidad_de_negocio"
-                :key="negocio.id"
-                >{{ negocio.titulo }}</small>
+              <div class="d-flex w-100 justify-content-between" >
+                <h5 class="mb-1 nombre">{{ colaborador.nombre }}</h5>
+              </div>
+              <div v-for="telefono in colaborador.telefonos" :key="telefono.id">
+                <p v-if="telefono.tipo === fijo" class="mb-1">
+                  <strong>Teléfono:</strong> <br />{{ telefono.numero }} Ext:
+                  {{ telefono.extension }}
+                </p>
               </div>
 
-              <div
-              v-for="telefono in colaborador.telefonos"
-              :key="telefono.id"  >
-              <p 
-              v-if="telefono.tipo === fijo "
-              class="mb-1">
-                <strong>Teléfono:</strong> <br>{{ telefono.numero }} Ext: {{telefono.extension}}
-              </p>
-              </div>
-
-               <div
-              v-for="telefono in colaborador.telefonos"
-              :key="telefono.id"  >
-              <a :href="`tel:+52${telefono.numero}`">
-              <p 
-              v-if="telefono.tipo === movil "
-              class="mb-1">
-                <strong>Móvil:</strong> <br>{{ telefono.numero }}, 
-              </p>
-              </a>
+              <div v-for="telefono in colaborador.telefonos" :key="telefono.id">
+                <a :href="`tel:+52${telefono.numero}`">
+                  <p v-if="telefono.tipo === movil" class="mb-1">
+                    <strong>Móvil:</strong> <br />{{ telefono.numero }},
+                  </p>
+                </a>
               </div>
               <div>
-                
-              <p 
-              class="mb-1 "
-              v-for="(correo, index) in colaborador.correos"
-              :key="correo.id"
-              ><a :href="`mailto:${correo.correo}`"><strong>
-                Correo {{index + 1}}:</strong> <br>{{ correo.correo}} </a> </p>
-              
+                <p
+                  class="mb-1"
+                  v-for="(correo, index) in colaborador.correos"
+                  :key="correo.id"
+                >
+                  <a :href="`mailto:${correo.correo}`"
+                    ><strong> Correo {{ index + 1 }}:</strong> <br />{{
+                      correo.correo
+                    }}
+                  </a>
+                </p>
               </div>
             </b-list-group-item>
           </b-list-group>
@@ -117,8 +108,8 @@ export default {
       colaboradores: [],
       buscarColaborador: "",
 
-      fijo:"F",
-      movil:"M"
+      fijo: "F",
+      movil: "M",
     };
   },
 
@@ -147,21 +138,32 @@ export default {
         return colaborador.nombre.includes(this.buscarColaborador);
       });
     },
+     redes() {
+      return colaborador.unidad_de_negocio.length;
+    },
+ 
   },
 };
 </script>
 
 <style scoped>
-.nombre{
-  color:#185632;
+.letra {
+  font-family: "Montserrat", sans-serif;
+  color: #282828;
+  font-size: 1rem;
+}
+
+.nombre {
+  color: #185632;
   font-weight: bold;
 }
 
-a:link, a:visited, a:active {
-  text-decoration:none;
+a:link,
+a:visited,
+a:active {
+  text-decoration: none;
   color: #282828;
-  }
-
+}
 
 .btn-secondary {
   color: #185632;

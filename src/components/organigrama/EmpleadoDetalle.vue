@@ -1,14 +1,16 @@
 <template>
      <b-modal 
      v-model="mostrar" 
-     title="PERFIL GN10" 
+     :id="'accordion-empleadoData.id' + index +i"
+     :accordion="'empleadoData.id-accordion' + index + i"
+     title="PERFIL GN10"  
      hide-footer>
       <b-row class="justify-content-center">
         <b-col cols="12" class="my-5" align="center">
-          <b-avatar :src="empleado.foto" size="10rem"></b-avatar>
+          <b-avatar :src="empleadoData.foto" size="10rem"></b-avatar>
         </b-col>
-        <b-col cols="12" align="center" class="h5">
-          <p>{{empleado.nombre}}</p>
+        <b-col cols="12" align="center" class="h5 letra">
+          <p><strong>{{empleadoData.nombre}}</strong></p>
         </b-col>
         <b-col cols="12" class="h6 mb-4 chart" align="center">
           <font-awesome-icon
@@ -18,34 +20,35 @@
             size="3x"
           />
         </b-col>
-        <b-col cols="12" class="h6" align="justify">
+        <b-col cols="12" class="h5 letra" align="justify">
           <p>
-            <strong>Trayectoria: </strong> {{empleado.trayectoria}}
+            <strong>Trayectoria: </strong> {{empleadoData.trayectoria}}
           </p>
           <p>
-            <strong>Intereses: </strong> {{empleado.intereses}} 
+            <strong>Intereses: </strong> {{empleadoData.intereses}} 
           </p>
           <p>
-            <strong>Ubicación: </strong>  {{empleado.centro_de_trabajo.nombre}}
+            <strong>Ubicación: </strong>  {{empleadoData.centro_de_trabajo.nombre}}
           </p>
         </b-col>
       </b-row>
-      <OrganigramaDetalle :mostrarOrganigrama="mostrarOrganigrama" :empleado="empleado" :tarjeta="tarjeta" :i="i" />
+      <OrganigramaDetalle :mostrarOrganigrama="mostrarOrganigrama" :empleadoData="empleadoData" :compania="compania" :i="i" />
     </b-modal>
 </template>
 
 <script>
-import OrganigramaDetalle from "@/components/organigrama/OrganigramaDetalle"
+import OrganigramaDetalle from "@/components/organigrama/OrganigramaDetalle";
 export default {
     name: "EmpleadoDetalle",
     components:{
         OrganigramaDetalle
     },
     props: [
-    "empleado",
-    "tarjeta",
-    "i",
     "mostrarModal",
+    "empleadoData",
+    "index",
+    "i",
+    "compania"
   ],
    computed: {
     mostrar: {
@@ -67,34 +70,6 @@ export default {
 
 <style scoped>
 
-#marca {
-  background-image: url("../../assets/fondo.png");
-  color: #282828;
-  font-size: 13px;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 600;
-}
-
-.sombra {
-  background-color: white;
-  border-color: #e5e5e5;
-  border-radius: 1rem;
-  box-shadow: 4px 4px 4px 4px rgba(87, 54, 85, 0.2);
-}
-.sombra:focus {
-  background-color: #fcfcfc;
-  outline-color: #e5e5e5 !important;
-  border-radius: 1rem;
-  box-shadow: 4px 4px 4px 4px rgba(87, 54, 85, 0.4);
-}
-
-.sombra:hover {
-  background-color: #fcfcfc;
-  outline-color: #e5e5e5 !important;
-  border-radius: 1rem;
-  box-shadow: 4px 4px 4px 4px rgba(87, 54, 85, 0.4);
-}
-
 ::v-deep .modal-header {
   color: #282828;
   font-family: "Montserrat", sans-serif;
@@ -109,9 +84,9 @@ export default {
   padding: 1rem 0;
 }
 
-#letraPuesto {
-  color: #e5e5e5;
-  font-weight: bold;
+.letra {
+  font-family: "Montserrat", sans-serif;
+  color: #282828;
   font-size: 1rem;
 }
 
@@ -123,11 +98,6 @@ export default {
   outline-color: #fff !important;
 }
 
-@media only screen and (min-width: 992px) {
-  #letraPuesto {
-    font-size: 1.5rem;
-  }
-}
 
 /* HORIZONTAL */
 

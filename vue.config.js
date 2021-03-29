@@ -1,3 +1,4 @@
 module.exports = {
-    publicPath: '/web/'
-    };
+    publicPath: '/web/',
+    lintOnSave: false
+};

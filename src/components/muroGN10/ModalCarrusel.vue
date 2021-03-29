@@ -24,7 +24,7 @@
           <b-col cols="12">
             <hr />
             <a :href="comunicadoMuro.url_consulta" target="blank">
-              <p id="letraModal">Conoce más...</p>
+              <p id="letraModal" class="letra">Conoce más...</p>
             </a>
           </b-col>
         </b-row>
@@ -60,6 +60,8 @@ export default {
 
 
 <style scoped>
+
+
 ::v-deep .modal-header {
   color: #282828;
   font-family: "Montserrat", sans-serif;

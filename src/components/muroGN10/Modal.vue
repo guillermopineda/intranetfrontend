@@ -7,36 +7,36 @@
       scrollable
       size="xl"
     >
-      <b-conatiner>
+      <b-conatiner class="letra">
         <b-row class="px-2">
           <b-col class="h6" cols="3">
-            <p>Para:</p>
+            <p><strong>Para:</strong></p>
           </b-col>
           <b-col class="h6" cols="9">
             {{ comunicado.para }}
           </b-col>
           <b-col class="h6" cols="3">
-            <p>Copia a:</p>
+            <p><strong>Copia a:</strong></p>
           </b-col>
           <b-col class="h6" cols="9">
             {{ comunicado.copia }}
           </b-col>
 
           <b-col class="h6" cols="3">
-            <p>Fecha:</p>
+            <p><strong>Fecha:</strong></p>
           </b-col>
           <b-col class="h6" cols="9">
             {{ comunicado.creado | moment("dddd D  MMMM [del] YYYY") }}
           </b-col>
 
           <b-col class="h6" cols="3">
-            <p>Asunto:</p>
+            <p><strong>Asunto:</strong></p>
           </b-col>
           <b-col class="h6" cols="9">
             {{ comunicado.asunto }}
           </b-col>
 
-          <b-col cols="12" class="h-6 text-justify">
+          <b-col cols="12" class="h-5 text-justify">
             <br />
             <article
               class="textoComunicado"
@@ -47,11 +47,11 @@
           <b-col cols="12" class="h-6 text-justify">
             <p>Agradecemos su comprensión y atención, un cordial saludo.</p>
           </b-col>
-          <b-col cols="12" class="h-6 text-center">
+          <b-col cols="12" class="h-5 text-center">
             <br />
             <p class="py-0 my-0"><strong> Atentamente</strong></p>
 
-            <p class="py-0 my-0">
+            <p class="py-0 my-0 h5">
               <small> {{ comunicado.emisor }}</small>
             </p>
           </b-col>
@@ -104,6 +104,12 @@ export default {
 </script>
 
 <style scoped>
+.letra {
+  font-family: "Montserrat", sans-serif;
+  color: #282828;
+  font-size: 1rem;
+}
+
 ::v-deep .modal-header {
   color: #282828;
   font-family: "Montserrat", sans-serif;
