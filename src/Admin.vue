@@ -1,6 +1,37 @@
 <template>
   <b-container>
+    <b-navbar toggleable type="white">
+      <b-container class="py-3 mx-3" fluid>
+        <b-navbar-brand href="/">
+          <img src="./assets/logo.png" width="100" alt="Logo GN10" />
+        </b-navbar-brand>
 
+        <b-navbar-toggle target="navbar-toggle-collapse" style="border: none">
+          <template #default="{ expanded }">
+            <font-awesome-icon
+              v-if="expanded"
+              :icon="['fas', 'times']"
+              size="2x"
+              style="color: #185632"
+            />
+            <font-awesome-icon
+              v-else
+              :icon="['fas', 'bars']"
+              size="2x"
+              style="color: #185632"
+            />
+          </template>
+        </b-navbar-toggle>
+
+        <b-collapse id="navbar-toggle-collapse" is-nav>
+          <b-navbar-nav class="ml-auto">
+            <b-nav-item link v-for="m in menu" :key="m.nombre" :to="m.ruta">{{
+              m.nombre
+            }}</b-nav-item>
+          </b-navbar-nav>
+        </b-collapse>
+      </b-container>
+    </b-navbar>
     <router-view></router-view>
   </b-container>
 </template>
@@ -12,21 +43,9 @@ export default {
   data() {
     return {
       menu: [
-        { ruta: "/web/", 
-          nombre: "Home", 
-          icono: "mdi-folder" 
-        },
-        { ruta: "/web/muroGN10", 
-          nombre: "Muro GN10", 
-          icono: "mdi-folder" 
-        },
-        { ruta: "/web/nosotros",
-          nombre: "Nosotros", 
-          icono: "mdi-folder" 
-        },
-        { ruta: "/web/organigrama", 
-          nombre: "Organigrama", 
-          icono: "mdi-folder" },
+        { ruta: "/web/muroGN10", nombre: "Muro GN10", icono: "mdi-folder" },
+        { ruta: "/web/nosotros", nombre: "Nosotros", icono: "mdi-folder" },
+        { ruta: "/web/organigrama", nombre: "Organigrama", icono: "mdi-folder" },
         {
           ruta: "/web/servicioPersonal",
           nombre: "Servicios Personal",
