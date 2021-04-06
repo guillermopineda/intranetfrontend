@@ -1,17 +1,10 @@
 <template>
   <b-row>
-    <b-col class="py-2 px-0" cols="12">
-      <b-form-input
-        v-model="buscarDescarga"
-        placeholder="Busca el Documento"
-        @keypress.enter="buscarHijoDescarga"
-      ></b-form-input>
-    </b-col>
     <b-button-group size="sm" class="w-100">
-      <b-button @click="buscarHijoDescarga">FORMATOS</b-button>
-      <b-button @click="buscarHijoDescarga">POLÍTICAS</b-button>
-      <b-button @click="buscarHijoDescarga">LOGOTIPOS</b-button>
-      <b-button @click="buscarHijoDescarga">AVISO OPORTUNO</b-button>
+      <b-button @click="servicioFormato">FORMATOS</b-button>
+      <b-button @click="servicioPolitica">POLÍTICAS</b-button>
+      <b-button @click="servicioLogotipo">LOGOTIPOS</b-button>
+      <b-button @click="servicioAviso">AVISO OPORTUNO</b-button>
     </b-button-group>
   </b-row>
 </template>
@@ -22,13 +15,26 @@ export default {
   nam: "Descarga",
   data() {
     return {
-      buscarDescarga: "",
+      buscarFormato: "Formato",
+      buscarPolitica: "Política",
+      buscarLogotipos: "Logotipo",
+      buscarAviso:"",
+      documentos: [],
     };
   },
   methods: {
-    buscarDescargaHijo() {
-      this.$emit("buscarDesdeDescargaHijo", this.buscarDescargaHijo);
+    servicioFormato() {
+      this.$emit("buscarDocumento", this.buscarFormato);
     },
+    servicioPolitica(){
+      this.$emit("buscarDocumento", this.buscarPolitica);
+    },
+    servicioLogotipo(){
+      this.$emit("buscarDocumento", this.buscarLogotipos);
+    },
+    servicioAviso(){
+      this.$emit("buscarDocumento", this.buscarAviso);
+    }
   },
 };
 </script>

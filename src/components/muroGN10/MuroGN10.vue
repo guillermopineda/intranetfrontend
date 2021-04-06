@@ -177,21 +177,9 @@ export default {
       .getMuro()
       .then((comunicados) => (this.comunicados = comunicados.data.slice(0, 5)));
       setTimeout(() => (this.loading = false), 1000);
-      
 
-    //     gnService
-    //       .getMuro(this.servicio)
-    //       .then(
-    //         (comunicadosMuro) =>
-    //           (this.comunicadosMuro = comunicadosMuro.data.slice(0, 5))
-    //       );
   },
-  //   mounted() {
-  //
 
-  //     //this.buscarImagenes();
-  //     //this.fundacion();
-  //   },
 };
 </script>
 

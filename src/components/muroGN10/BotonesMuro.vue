@@ -1,14 +1,5 @@
 <template>
   <b-row>
-    <!-- <b-col class="py-2 px-0" cols="12">
-      <b-form-input
-        v-model="buscarPixaHijo"
-        placeholder="Buscar Comunicado"
-        @keypress.enter="buscarHijo"
-      ></b-form-input>
-    </b-col> -->
-
-    <!-- <b-button block variant="danger" @click="buscarHijo">Button</b-button> -->
     <b-button-group size="sm" class="w-100">
       <b-button @click="servicioComunicado">COMUNICADOS</b-button>
       <b-button @click="servicioBienestar">BIENESTAR</b-button>

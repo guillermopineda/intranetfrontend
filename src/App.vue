@@ -79,7 +79,7 @@ export default {
 .nav-item.nav-item.nav-item a {
   color: #185632;
   font-size: xx-large;
-  transition: all 0.3s ease;
+  transition: all 0.8s ease;
   line-height: 1;
   padding: 1rem 1.5rem;
   text-align: center;
