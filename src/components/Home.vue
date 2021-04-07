@@ -26,7 +26,7 @@
           <b-col cols="12">
             <h6 class="pb-5 pt-2 text-justify">
               Bienvenido a IntraGN10, el sitio creado para todos los
-              colaboradores del GRUPO GN10. <br />El objetivo de IntraGN10 es
+              colaboradores de GN10. <br />El objetivo de IntraGN10 es
               ser el canal de comunicación oficial, donde encontrarás contenido
               referente a Comunicados, Bienestar, Fundación, temas en Tendencia.
               <br />Explora en su menú dinámico; Directorio de Colaboradores,
