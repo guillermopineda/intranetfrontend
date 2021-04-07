@@ -48,7 +48,7 @@
           <b-col cols="12" class="py-5">
 
             <b-button type="submit" class="btn-primary bg-primary text-center" @click="submit"
-              >LOGIN OUTLOOK</b-button
+              >LOGIN</b-button
             >
         
             <input type="checkbox" id="checkbox" v-model="checked" />
