@@ -12,7 +12,7 @@ export default {
   data() {
     return {
       menu: [
-        { ruta: "/web", 
+        { ruta: "/web/", 
           nombre: "Home", 
           icono: "mdi-folder" 
         },
