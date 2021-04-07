@@ -15,12 +15,12 @@ Vue.use(VueRouter);
 
 const routes = [
     {
-        path:"/web/",
+        path:"/",
         name:"Home",
         component: Home
     },
     {
-        path:"/web/admin",
+        path:"/admin",
         name:"Admin",
         component: Admin,
         meta:{
@@ -28,7 +28,7 @@ const routes = [
         },
         children:[
             {
-                path:"/web/muroGN10",
+                path:"/muroGN10",
                 name:"muroGN10",
                 component: MuroGN10,
                 meta:{
@@ -36,7 +36,7 @@ const routes = [
                 },
             },
             {
-                path:"/web/nosotros",
+                path:"/nosotros",
                 name:"nosotros",
                 component: Nosotros,
                 meta:{
@@ -44,7 +44,7 @@ const routes = [
                 },
             },
             {
-                path:"/web/organigrama",
+                path:"/organigrama",
                 name:"organigrama",
                 component: Organigrama,
                 meta:{
@@ -52,7 +52,7 @@ const routes = [
                 },
             },
             {
-                path:"/web/servicioPersonal",
+                path:"/servicioPersonal",
                 name:"servicioPersonal",
                 component: ServicioPersonal,
                 meta:{
@@ -60,7 +60,7 @@ const routes = [
                 },
             },
             {
-                path:"/web/desarrolloTalento",
+                path:"/desarrolloTalento",
                 name:"desarrolloTalento",
                 component: DesarrolloTalento,
                 meta:{
@@ -68,7 +68,7 @@ const routes = [
                 },
             },
             {
-                path:"/web/creceGN10",
+                path:"/creceGN10",
                 name:"creceGN10",
                 component: Crece,
                 meta:{
@@ -76,7 +76,7 @@ const routes = [
                 },
             },
             {
-                path:"/web/kiosco",
+                path:"/kiosco",
                 name:"kiosco",
                 component: Kiosco,
                 meta:{
