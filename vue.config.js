@@ -1,4 +1,7 @@
 module.exports = {
     publicPath: '/web/',
-    lintOnSave: false
+    lintOnSave: false,
+    devServer: {
+        disableHostCheck: true
+    }
 };
