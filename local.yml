@@ -1,8 +1,0 @@
-version: '3'
-services:
-  intranet_front:
-    container_name: intranet_front
-    build: .
-    command: http-server dist
-    ports:
-    - 8080:8080

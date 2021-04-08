@@ -1,0 +1,10 @@
+version: '3'
+services:
+  intranet_front:
+    container_name: intranet_front
+    build: .
+    # command: http-server dist
+    # command: npm run serve
+    command: serve -s dist
+    ports:
+    - 5000:5000

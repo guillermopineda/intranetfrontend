@@ -43,26 +43,26 @@ export default {
   data() {
     return {
       menu: [
-        { ruta: "/web/muroGN10", nombre: "Muro GN10", icono: "mdi-folder" },
-        { ruta: "/web/nosotros", nombre: "Nosotros", icono: "mdi-folder" },
-        { ruta: "/web/organigrama", nombre: "Organigrama", icono: "mdi-folder" },
+        { ruta: "/muroGN10", nombre: "Muro GN10", icono: "mdi-folder" },
+        { ruta: "/nosotros", nombre: "Nosotros", icono: "mdi-folder" },
+        { ruta: "/organigrama", nombre: "Organigrama", icono: "mdi-folder" },
         {
-          ruta: "/web/servicioPersonal",
+          ruta: "/servicioPersonal",
           nombre: "Servicios Personal",
           icono: "mdi-folder",
         },
         {
-          ruta: "/web/desarrolloTalento",
+          ruta: "/desarrolloTalento",
           nombre: "Desarrollo de Talento",
           icono: "mdi-folder",
         },
         {
-          ruta: "/web/creceGN10",
+          ruta: "/creceGN10",
           nombre: "Crece con GN10",
           icono: "mdi-folder",
         },
         {
-          ruta: "/web/kiosco",
+          ruta: "/kiosco",
           nombre: "Kiosco",
           icono: "mdi-folder",
         }
