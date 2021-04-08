@@ -94,7 +94,20 @@ const router = new VueRouter({
     routes
 })
 
-router.beforeEach((to,from,next)=>{
+/*router.beforeEach((to,from,next)=>{
+    console.log(to.meta.rutaProtegida)
+    if(to.meta.rutaProtegida = false){
+        // if(){
+            
+        //     next()
+        // }else{
+           
+        //     next('/web/')
+        // }
+    }else{
+        next()
+    }
+})*/router.beforeEach((to,from,next)=>{
     console.log(to.meta.rutaProtegida)
     if(to.meta.rutaProtegida = false){
         // if(){
