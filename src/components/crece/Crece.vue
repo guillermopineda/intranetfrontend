@@ -1,5 +1,5 @@
 <template>
-  <b-container>
+  <b-container id="marca" fluid>
     <b-row class="text-center">
       <b-col cols="12">
         <h2 class="font-weight-bold py-5">CRECE CON GN10</h2>

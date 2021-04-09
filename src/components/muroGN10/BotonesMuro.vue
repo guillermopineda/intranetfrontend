@@ -1,15 +1,12 @@
 <template>
-  <b-row>
-    <b-button-group size="sm" class="w-100">
-      <b-button @click="servicioComunicado">COMUNICADOS</b-button>
-      <b-button @click="servicioBienestar">BIENESTAR</b-button>
-      <b-button @click="servicioFundacion">FUNDACIÓN</b-button>
-      <b-button @click="servicioInformativo">MURO GN10</b-button>
-      <b-button @click="buscarDirectorio" v-b-modal.my-modal>
+  <b-row >
+      <b-col cols="12 text-right" >
+      <b-button @click="buscarDirectorio" v-b-modal.my-modal class="w-100 agenda" >
         <font-awesome-icon
+        class="faa-horizontal animated"
           v-b-modal.my-modal
           :icon="['fas', 'address-book']"
-          size="lg"
+          size="2x"
           :transform="{ rotate: 330 }"
         />
         <b-modal
@@ -103,6 +100,7 @@
                 <b-row>
                   <b-col class="h5 letra">
                     <font-awesome-icon
+            
                       :icon="['fas', 'users-slash']"
                       size="3x"
                     />
@@ -114,7 +112,14 @@
           </template>
         </b-modal>
       </b-button>
+      </b-col>
+      <b-button-group size="sm" class="w-100">
+      <b-button @click="servicioComunicado">COMUNICADOS</b-button>
+      <b-button @click="servicioBienestar">BIENESTAR</b-button>
+      <b-button @click="servicioFundacion">FUNDACIÓN</b-button>
+      <b-button @click="servicioInformativo">MURO GN10</b-button>
     </b-button-group>
+    <!-- </b-button-group> -->
   </b-row>
 </template>
 
@@ -293,6 +298,159 @@ a:active {
   color: #282828 !important;
   border-color: #e5e5e5;
   box-shadow: 2px 2px 2px 1px rgba(87, 54, 85, 0.2);
+}
+
+
+
+
+.agenda {
+  color:#573655;
+  background-color: transparent;
+  box-shadow: transparent;
+  background-image: linear-gradient(to right, #cccccc, #cccccc);
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  background-size: 0% 0.3rem;
+  transition: background-size 1s ease;
+}
+
+.agenda:hover {
+  color:#573655;
+  border: none;
+  background-color: #ffffff;
+  box-shadow: none;
+  background-image: linear-gradient(to right, #cccccc, #cccccc);
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  background-size: 15% 0.3rem;
+  transition: background-size 1s ease;
+}
+.agenda:not(:disabled):not(.disabled):active,
+.agenda:not(:disabled):not(.disabled).active,
+.show > .agenda.dropdown-toggle {
+  color: #573655;
+  border: none;
+  background-color: #ffffff;
+  box-shadow: none;
+  background-image: linear-gradient(to right, #cccccc, #cccccc);
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  background-size: 15% 0.3rem;
+  transition: background-size 1s ease;
+}
+
+.agenda:focus {
+  color: #573655;
+  border: none;
+  box-shadow: none;
+  background-color: #ffff;
+  background-image: linear-gradient(to right, #cccccc, #cccccc);
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  background-size: 15% 0.3rem;
+  transition: background-size 1s ease, background-color 1s ease;
+}
+
+@media only screen and (min-width: 992px) {
+  .agenda {
+    font-size: 1.5rem;
+    padding-bottom: 0.8rem;
+  }
+
+  .fa-lg {
+    font-size: 2.5rem;
+    line-height: 1rem;
+  }
+}
+
+/* HORIZONTAL */
+
+@-webkit-keyframes horizontal {
+  0% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+
+  6% {
+    -webkit-transform: translate(5px, 0);
+    transform: translate(5px, 0);
+  }
+
+  12% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+
+  18% {
+    -webkit-transform: translate(5px, 0);
+    transform: translate(5px, 0);
+  }
+
+  24% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+
+  30% {
+    -webkit-transform: translate(5px, 0);
+    transform: translate(5px, 0);
+  }
+
+  36% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes horizontal {
+  0% {
+    -webkit-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+
+  6% {
+    -webkit-transform: translate(5px, 0);
+    -ms-transform: translate(5px, 0);
+    transform: translate(5px, 0);
+  }
+
+  12% {
+    -webkit-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+
+  18% {
+    -webkit-transform: translate(5px, 0);
+    -ms-transform: translate(5px, 0);
+    transform: translate(5px, 0);
+  }
+
+  24% {
+    -webkit-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+
+  30% {
+    -webkit-transform: translate(5px, 0);
+    -ms-transform: translate(5px, 0);
+    transform: translate(5px, 0);
+  }
+
+  36% {
+    -webkit-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+}
+
+.faa-horizontal.animated,
+.faa-horizontal.animated-hover:hover,
+.faa-parent.animated-hover:hover > .faa-horizontal {
+  -webkit-animation: horizontal 2s ease infinite;
+  animation: horizontal 2s ease infinite;
 }
 
 </style>
