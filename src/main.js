@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faAddressBook, faBars, faBullhorn, faDonate, faExclamationTriangle, faFileAlt, faFileDownload, faFilePdf, faGlobeAmericas, faSearch, faSitemap, faTimes } from '@fortawesome/free-solid-svg-icons'
+import { faAddressBook, faBars, faBullhorn, faDonate, faExclamationTriangle, faFileAlt, faFileDownload, faFilePdf, faGlobeAmericas, faSearch, faSitemap, faTimes, faUserSlash, faUsersSlash } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import router from "./router"
 import VueMoment from 'vue-moment'
@@ -26,6 +26,7 @@ library.add(faExclamationTriangle)
 library.add(faFilePdf)
 library.add(faFileDownload)
 library.add(faFileAlt)
+library.add(faUsersSlash)
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 

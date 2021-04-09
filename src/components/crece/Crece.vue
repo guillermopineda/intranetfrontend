@@ -38,54 +38,84 @@
       </b-col>
     </b-row>
 
-    <b-row class="justify-content-around">
-      <b-col cols="12" md="6" lg="4" class="tarjeta py-4 my-2" v-for="vacante in vacantes" :key="vacante.id">
-       
-        <b-row>
-          <b-col>
-            <TarjetaVacante :vacante="vacante" />
+    <template v-if="this.loading">
+      <Loading/>
+    </template>
+
+    <template v-else>
+      <template v-if="errored">
+        <Errored />
+      </template>
+      <template v-else>
+
+      <template v-if="vacantes.length > 0">
+        <b-row class="justify-content-around">
+          <b-col
+            cols="12"
+            md="6"
+            lg="4"
+            class="tarjeta py-4 my-2"
+            v-for="vacante in vacantes"
+            :key="vacante.id"
+          >
+            <b-row>
+              <b-col>
+                <TarjetaVacante :vacante="vacante" />
+              </b-col>
+            </b-row>
           </b-col>
         </b-row>
-         
-      </b-col>
+      </template>
 
-    </b-row>
+      <template v-else>
+        <Noinfo />
+      </template>
+      </template>
+    </template>
 
     <b-row class="mt-4">
       <b-col class="mx-0 px-0">
         <Footer />
       </b-col>
     </b-row>
-    
   </b-container>
-  
-
 </template>
 
 <script>
 import TarjetaVacante from "@/components/crece/TarjetaVacante";
 import Footer from "../Footer";
 import gnService from "@/services/crece/gnService";
+import Noinfo from "../Noinfo";
+import Errored from "../Errored";
+import Loading from "../Loading";
 export default {
   name: "Crece",
   components: {
     TarjetaVacante,
     Footer,
+    Noinfo,
+    Errored,
+    Loading,
   },
-  data(){
+  data() {
     return {
       vacantes: [],
       loading: false,
-      mostrarModalVacante:false,
-    }
+      mostrarModalVacante: false,
+      errored: false,
+    };
   },
-  created(){
+  created() {
     this.loading = true;
     gnService
       .getVacantes()
-      .then((vacantes) => (this.vacantes = vacantes.data.slice(0, 8)));
-      setTimeout(() => (this.loading = false), 1000);
-  }
+      .then((vacantes) => (this.vacantes = vacantes.data.slice(0, 8)))
+      .catch((error) => {
+        console.log(error);
+        this.errored = true;
+      })
+      .finally(() => setTimeout(() => (this.loading = false), 1000));
+  },
 };
 </script>
 
@@ -97,7 +127,5 @@ export default {
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
 }
-
-
 
 </style>

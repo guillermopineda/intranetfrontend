@@ -6,7 +6,7 @@
     :img-alt="vacante.titulo"
     img-top
     tag="article"
-    style="max-width: 25rem"
+    style="max-width: 25rem; min-width: 23rem"
     class="mb-2 text-center"
   >
     <b-card-text class="text-justify" style="min-height: 200px">

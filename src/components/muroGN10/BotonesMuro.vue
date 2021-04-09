@@ -19,66 +19,99 @@
           scrollable
           size="lg"
         >
-          <div class="text-justify d-block">
-            <b-form inline>
-              <label class="sr-only" for="inline-form-input-buscar"
-                >BUSCAR</label
-              >
+          <template v-if="this.loading">
+            <Loading/>
+          </template>
 
-              <b-input-group class="mt-3 w-100 px-md-5 mx-auto">
-                <b-form-input
-                  placeholder="BUSCAR"
-                  id="inline-form-input-buscar"
-                  type="search"
-                  v-model="buscarColaborador"
-                ></b-form-input>
-
-                <b-input-group-append>
-                  <b-button id="btnModal">
-                    <font-awesome-icon :icon="['fas', 'search']" size="md" />
-                  </b-button>
-                </b-input-group-append>
-              </b-input-group>
-            </b-form>
-          </div>
-          <b-list-group flush class="py-5 px-md-5 mx-auto w-100 letraTarjeta">
-            <b-list-group-item
-              class="flex-column align-items-start letra"
-              v-for="colaborador in filtro"
-              :key="colaborador.id"
-            >
-              <div class="d-flex w-100 justify-content-between" >
-                <h5 class="mb-1 nombre">{{ colaborador.nombre }}</h5>
-              </div>
-              <div v-for="telefono in colaborador.telefonos" :key="telefono.id">
-                <p v-if="telefono.tipo === fijo" class="mb-1">
-                  <strong>Teléfono:</strong> <br />{{ telefono.numero }} Ext:
-                  {{ telefono.extension }}
-                </p>
-              </div>
-
-              <div v-for="telefono in colaborador.telefonos" :key="telefono.id">
-                <a :href="`tel:+52${telefono.numero}`">
-                  <p v-if="telefono.tipo === movil" class="mb-1">
-                    <strong>Móvil:</strong> <br />{{ telefono.numero }},
-                  </p>
-                </a>
-              </div>
-              <div>
-                <p
-                  class="mb-1"
-                  v-for="(correo, index) in colaborador.correos"
-                  :key="correo.id"
+          <template v-else>
+            <div class="text-justify d-block">
+              <b-form inline>
+                <label class="sr-only" for="inline-form-input-buscar"
+                  >BUSCAR</label
                 >
-                  <a :href="`mailto:${correo.correo}`"
-                    ><strong> Correo {{ index + 1 }}:</strong> <br />{{
-                      correo.correo
-                    }}
-                  </a>
-                </p>
-              </div>
-            </b-list-group-item>
-          </b-list-group>
+
+                <b-input-group class="mt-3 w-100 px-md-5 mx-auto">
+                  <b-form-input
+                    placeholder="BUSCAR"
+                    id="inline-form-input-buscar"
+                    type="search"
+                    v-model="buscarColaborador"
+                  ></b-form-input>
+
+                  <b-input-group-append>
+                    <b-button id="btnModal">
+                      <font-awesome-icon :icon="['fas', 'search']" size="md" />
+                    </b-button>
+                  </b-input-group-append>
+                </b-input-group>
+              </b-form>
+            </div>
+            <template v-if="filtro === 0">
+              <b-list-group
+                flush
+                class="py-5 px-md-5 mx-auto w-100 letraTarjeta"
+              >
+                <b-list-group-item
+                  class="flex-column align-items-start letra"
+                  v-for="colaborador in filtro"
+                  :key="colaborador.id"
+                >
+                  <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1 nombre">{{ colaborador.nombre }}</h5>
+                  </div>
+                  <div
+                    v-for="telefono in colaborador.telefonos"
+                    :key="telefono.id"
+                  >
+                    <p v-if="telefono.tipo === fijo" class="mb-1">
+                      <strong>Teléfono:</strong> <br />{{
+                        telefono.numero
+                      }}
+                      Ext:
+                      {{ telefono.extension }}
+                    </p>
+                  </div>
+
+                  <div
+                    v-for="telefono in colaborador.telefonos"
+                    :key="telefono.id"
+                  >
+                    <a :href="`tel:+52${telefono.numero}`">
+                      <p v-if="telefono.tipo === movil" class="mb-1">
+                        <strong>Móvil:</strong> <br />{{ telefono.numero }},
+                      </p>
+                    </a>
+                  </div>
+                  <div>
+                    <p
+                      class="mb-1"
+                      v-for="(correo, index) in colaborador.correos"
+                      :key="correo.id"
+                    >
+                      <a :href="`mailto:${correo.correo}`"
+                        ><strong> Correo {{ index + 1 }}:</strong> <br />{{
+                          correo.correo
+                        }}
+                      </a>
+                    </p>
+                  </div>
+                </b-list-group-item>
+              </b-list-group>
+            </template>
+            <template v-else>
+              <b-container class="py-5" align="center">
+                <b-row>
+                  <b-col class="h5 letra">
+                    <font-awesome-icon
+                      :icon="['fas', 'users-slash']"
+                      size="3x"
+                    />
+                    <p class="my-3">No se han registrado empleados</p>
+                  </b-col>
+                </b-row>
+              </b-container>
+            </template>
+          </template>
         </b-modal>
       </b-button>
     </b-button-group>
@@ -87,8 +120,11 @@
 
 <script>
 import gnService from "@/services/empleados/gnService";
+import Loading from "../Loading";
 export default {
   name: "Buscador",
+  components: {
+    Loading},
   data() {
     return {
       buscarBienestar: "bienestar/",
@@ -98,9 +134,9 @@ export default {
       buscarDirectorioModal: "",
       colaboradores: [],
       buscarColaborador: "",
-
       fijo: "F",
       movil: "M",
+      loading: false,
     };
   },
 
@@ -118,9 +154,11 @@ export default {
       this.$emit("buscarMuro", this.buscarComunicado);
     },
     async buscarDirectorio() {
+      this.loading = true;
       await gnService
         .getEmpleados()
         .then((colaboradores) => (this.colaboradores = colaboradores.data));
+      setTimeout(() => (this.loading = false), 500);
     },
   },
   computed: {
@@ -129,10 +167,9 @@ export default {
         return colaborador.nombre.includes(this.buscarColaborador);
       });
     },
-     redes() {
+    redes() {
       return colaborador.unidad_de_negocio.length;
     },
- 
   },
 };
 </script>
@@ -257,4 +294,5 @@ a:active {
   border-color: #e5e5e5;
   box-shadow: 2px 2px 2px 1px rgba(87, 54, 85, 0.2);
 }
+
 </style>

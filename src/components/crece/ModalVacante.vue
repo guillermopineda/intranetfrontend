@@ -41,8 +41,8 @@
                   required
                 ></b-form-input>
                 <small class="text-muted"
-                  >Por favor vuelve a escribir el nombre de la vacante para
-                  poder continuar</small
+                  >Por favor copia y vuelve a escribir el nombre de la vacante para
+                  poder continuar.</small
                 >
                 <br />
                 <br />

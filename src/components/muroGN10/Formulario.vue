@@ -134,7 +134,7 @@ textarea {
 }
 
 .text-muted {
-  color: #e5e5e5 !important;
+  color: #282828 !important;
 }
 
 .form-control:focus {

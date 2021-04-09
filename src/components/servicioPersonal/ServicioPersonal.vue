@@ -5,53 +5,58 @@
         <h2 class="font-weight-bold py-5">SERVICIO AL PERSONAL</h2>
       </b-col>
     </b-row>
-    <b-row class="justify-content-between rounded sombra my-3" align-v="center">
-      <b-col cols="6" class="h4 pt-4 pl-5">
-        <p >GLOBAL RHPAY</p>
-      </b-col>
-      <b-col cols="4" md="3" align="center">
-        <b-link href="https://global.rhpay.com/" target="blank">
+    <b-link href="https://global.rhpay.com/" target="blank">
+      <b-row
+        class="justify-content-between rounded sombra my-3"
+        align-v="center"
+      >
+        <b-col cols="6" class="h4 pt-4 pl-5">
+          <p>GLOBAL RHPAY</p>
+        </b-col>
+        <b-col cols="4" md="3" align="center">
           <font-awesome-icon
             class="iconoIr"
             :icon="['fas', 'globe-americas']"
             size="3x"
           />
-        </b-link>
-      </b-col>
-    </b-row>
+        </b-col>
+      </b-row>
+    </b-link>
 
-    <b-row class="justify-content-between rounded sombra my-3" align-v="center">
-      <b-col cols="6" class="h4 pt-4 pl-5">
-        <p >RECIBOS Y VACACIONES</p>
-      </b-col>
-      <b-col cols="4" md="3" align="center">
-        <b-link
-          href="https://www.humaneland.net/login/login.xhtml"
-          target="blank"
-        >
+    <b-link href="https://www.humaneland.net/login/login.xhtml" target="blank">
+      <b-row
+        class="justify-content-between rounded sombra my-3"
+        align-v="center"
+      >
+        <b-col cols="6" class="h4 pt-4 pl-5">
+          <p>RECIBOS Y VACACIONES</p>
+        </b-col>
+        <b-col cols="4" md="3" align="center">
           <font-awesome-icon
             class="iconoIr"
             :icon="['fas', 'donate']"
             size="3x"
           />
-        </b-link>
-      </b-col>
-    </b-row>
+        </b-col>
+      </b-row>
+    </b-link>
+    <b-link href="https://intranet-api-dltuh.ondigitalocean.app/creceGN10" target="blank">
     <b-row class="justify-content-between rounded sombra my-3" align-v="center">
       <b-col cols="6" class="h4 pt-4 pl-5">
-        <p >JOB POST</p>
+        <p>JOB POST</p>
       </b-col>
       <b-col cols="4" md="3" align="center">
-        <b-link href="https://global.rhpay.com/" target="blank">
+        
           <font-awesome-icon
             class="iconoIr"
             :icon="['fas', 'bullhorn']"
             size="3x"
           />
-        </b-link>
+        
       </b-col>
     </b-row>
-    <hr class=" my-5" />
+    </b-link>
+    <hr class="my-5" />
 
     <b-row class="text-center">
       <b-col cols="12">
@@ -59,15 +64,15 @@
       </b-col>
     </b-row>
     <b-row class="text-justify">
-    <b-col cols="12">
-      <h6 class="pb-5 pt-2 text-justify">
-        Con el objetivo de vigilar, supervisar, y hacer cumplir todos los
-        lineamientos del Protocolo de Seguridad Sanitaria de Grandes Empresas.
-        <br />
-        Cualquier duda o comentario puedes escribir al correo
-        <strong>salud-gn10@gn10.com</strong>.
-      </h6>
-    </b-col>
+      <b-col cols="12">
+        <h6 class="pb-5 pt-2 text-justify">
+          Con el objetivo de vigilar, supervisar, y hacer cumplir todos los
+          lineamientos del Protocolo de Seguridad Sanitaria de Grandes Empresas.
+          <br />
+          Cualquier duda o comentario puedes escribir al correo
+          <strong>salud-gn10@gn10.com</strong>.
+        </h6>
+      </b-col>
     </b-row>
 
     <b-row class="mt-4">
@@ -104,8 +109,6 @@ export default {
   background-size: 100% 0.1rem;
 }
 
-
-
 .iconoIr {
   color: #573655;
 }
@@ -114,5 +117,8 @@ export default {
   outline-color: #fff !important;
 }
 
-
+a{
+    text-decoration: none;
+    color: #282828;
+}
 </style>
