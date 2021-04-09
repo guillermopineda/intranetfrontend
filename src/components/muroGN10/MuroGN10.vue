@@ -26,62 +26,65 @@
     </template>
 
     <template v-else>
-      <template v-if="this.servicio === ''">
-        <b-row>
-          <b-col
-            id="tarejetaMuro"
-            v-for="comunicado in comunicados"
-            :key="comunicado.id"
-            class="p-4 my-2"
-            cols="12"
-          >
-            <ListaComunicado :comunicado="comunicado" />
-          </b-col>
-        </b-row>
+      <template v-if="errored">
+        <Errored />
       </template>
 
-      <template
-        v-else-if="
-          this.servicio === 'fundacion/' ||
-          this.servicio === 'bienestar/' ||
-          this.servicio === 'informativo/'
-        "
-      >
-        <b-row>
-          <b-col
-            id="tarejetaMuro"
-            v-for="comunicadoMuro in comunicadosMuro"
-            :key="comunicadoMuro.id"
-            class="p-4 my-2"
-            cols="12"
-          >
-            <ListaMuro :comunicadoMuro="comunicadoMuro" />
-          </b-col>
-        </b-row>
+      <template v-else>
+        <template v-if="this.servicio === ''">
+          <b-row>
+            <b-col
+              id="tarjetaMuro"
+              v-for="comunicado in comunicados"
+              :key="comunicado.id"
+              class="p-4 my-2"
+              cols="12"
+            >
+              <ListaComunicado :comunicado="comunicado" />
+            </b-col>
+          </b-row>
+        </template>
+
+        <template
+          v-else-if="
+            this.servicio === 'fundacion/' ||
+            this.servicio === 'bienestar/' ||
+            this.servicio === 'informativo/'
+          "
+        >
+          <b-row>
+            <b-col
+              id="tarjetaMuro"
+              v-for="comunicadoMuro in comunicadosMuro"
+              :key="comunicadoMuro.id"
+              class="p-4 my-2"
+              cols="12"
+            >
+              <ListaMuro :comunicadoMuro="comunicadoMuro" />
+            </b-col>
+          </b-row>
+        </template>
       </template>
-      <template v-if="this.loaded">
+      
         <div
-          v-if="this.comunicadosMuro.length === 0 || this.comunicados.length === 0"
+          v-if="this.comunicadosMuro.length === 0 && this.loaded"
           id="pol"
         >
-          <b-container class="shadow-lg rounded p-6 mx-2 bg-light">
-            <b-row class="justify-content-between h-100">
-              <b-col cols="6" class="h4 pt-4 pl-4" align-self="start">
-                <p id="letraMuro">
-                  SIN INFORMACIÓN DISPONIBLE, VUELVE PRONTO...
-                </p>
-              </b-col>
-              <b-col cols="4" align-self="end">
-                <img
-                  class="mx-auto img-fluid"
-                  src="../../assets/logo.png"
-                  alt="Logo GN10"
-                />
-              </b-col>
-            </b-row>
-          </b-container>
+         <Noinfo/>
         </div>
-      </template>
+     
+
+     
+        <div
+          v-if="this.comunicados.length === 0 && this.loaded === false "
+          id="pol"
+        >
+          <Noinfo/>
+        </div>
+
+
+
+
     </template>
 
     <b-row>
@@ -117,6 +120,8 @@ import Universidad from "./Universidad";
 import Fundacion from "./Fundacion";
 import Formulario from "./Formulario";
 import Footer from "../Footer";
+import Errored from "../Errored";
+import Noinfo from "../Noinfo";
 export default {
   name: "MuroGN10",
   components: {
@@ -125,8 +130,10 @@ export default {
     Formulario,
     Fundacion,
     Footer,
+    Errored,
     ListaMuro,
     ListaComunicado,
+    Noinfo
   },
   data() {
     return {
@@ -135,6 +142,7 @@ export default {
       servicio: "",
       loaded: false,
       loading: false,
+      errored: false,
     };
   },
 
@@ -148,18 +156,26 @@ export default {
           .getMuro()
           .then(
             (comunicados) => (this.comunicados = comunicados.data.slice(0, 5))
-          );
-        setTimeout(() => (this.loading = false), 1000);
-         this.loaded = true;
+          )
+          .catch((error) => {
+            console.log(error);
+            this.errored = true;
+          })
+          .finally(() => setTimeout(() => (this.loading = false), 1000));
+        this.loaded = true;
       } else {
         await gnService
           .getMuro(servicio)
           .then(
             (comunicadosMuro) =>
               (this.comunicadosMuro = comunicadosMuro.data.slice(0, 5))
-          );
-        setTimeout(() => (this.loading = false), 1000);
-         this.loaded = true;
+          )
+          .catch((error) => {
+            console.log(error);
+            this.errored = true;
+          })
+          .finally(() => setTimeout(() => (this.loading = false), 1000));
+        this.loaded = true;
       }
     },
   },
@@ -172,14 +188,16 @@ export default {
   },
 
   created() {
-     this.loading = true;
+    this.loading = true;
     gnService
       .getMuro()
-      .then((comunicados) => (this.comunicados = comunicados.data.slice(0, 5)));
-      setTimeout(() => (this.loading = false), 1000);
-
+      .then((comunicados) => (this.comunicados = comunicados.data.slice(0, 5)))
+      .catch((error) => {
+        console.log(error);
+        this.errored = true;
+      })
+      .finally(() => setTimeout(() => (this.loading = false), 1000));
   },
-
 };
 </script>
 
@@ -190,11 +208,21 @@ export default {
 }
 
 @media only screen and (max-width: 992px) {
-  #tarejetaMuro {
+  #tarjetaMuro {
     min-height: 40vh;
     max-height: 41vh;
   }
 }
+
+@media only screen and (min-width: 992px) {
+  #tarjetaMuro {
+    min-height: 75vh;
+    max-height: 76vh;
+  }
+}
+
+
+
 #letraMuro {
   color: #282828;
   font-family: "Montserrat", sans-serif;
@@ -208,12 +236,6 @@ export default {
   display: flex;
 }
 
-@media only screen and (min-width: 992px) {
-  #tarejetaMuro {
-    min-height: 75vh;
-    max-height: 76vh;
-  }
-}
 
 
 .loadPantalla {
@@ -284,12 +306,12 @@ export default {
   animation-delay: -1.6s;
 }
 @keyframes lds-grid {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 1;
   }
   50% {
     opacity: 0.5;
   }
 }
-
 </style>

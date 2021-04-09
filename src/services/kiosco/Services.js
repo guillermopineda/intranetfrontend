@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseURL = 'https://intranet-api-aoity.ondigitalocean.app/kiosco/';
+const baseURL = 'https://intranet-api-dltuh.ondigitalocean.app/api/kiosco/';
 
 export default axios.create({
     baseURL,

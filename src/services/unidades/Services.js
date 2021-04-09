@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseURL = 'https://intranet-api-aoity.ondigitalocean.app/empleados/unidad-de-negocio/';
+const baseURL = 'https://intranet-api-dltuh.ondigitalocean.app/api/unidad-de-negocio/';
 
 export default axios.create({
     baseURL,

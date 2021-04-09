@@ -20,7 +20,7 @@ const routes = [
         component: Home
     },
     {
-        path:"/admin",
+        path:"/administrador",
         name:"Admin",
         component: Admin,
         meta:{

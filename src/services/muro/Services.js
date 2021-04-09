@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseURL = 'https://intranet-api-aoity.ondigitalocean.app/comunicados/';
+const baseURL = 'https://intranet-api-dltuh.ondigitalocean.app/api/comunicados/';
 
 export default axios.create({
     baseURL,
