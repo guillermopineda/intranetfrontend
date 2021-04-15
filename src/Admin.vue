@@ -1,6 +1,6 @@
 <template>
   <b-container>
-    <b-navbar toggleable type="white">
+    <b-navbar toggleable type="white" class="fixed-top">
       <b-container class="py-3 mx-3" fluid>
         <b-navbar-brand href="/">
           <img src="./assets/logo.png" width="100" alt="Logo GN10" />
@@ -90,7 +90,8 @@ export default {
 }
 
 .navbar {
-  background-color: #e5e5e5;
+  background-color: rgba(229, 229, 229, 0.9);
+  min-height: 5rem;
 }
 
 .sombra {

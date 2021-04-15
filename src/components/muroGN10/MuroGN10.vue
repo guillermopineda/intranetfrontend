@@ -1,5 +1,5 @@
 <template>
-  <b-container id="marca" fluid>
+  <b-container id="marca"  fluid>
     <!-- <Buscador @buscarDesdeHijo="buscarImagenes"/> -->
     <BotonesMuro @buscarMuro="actualizarMuro" />
 
@@ -189,6 +189,7 @@ export default {
 <style scoped>
 #marca {
   background-image: url("../../assets/fondo.png");
+  margin-top: 8rem;
 }
 
 @media only screen and (max-width: 992px) {

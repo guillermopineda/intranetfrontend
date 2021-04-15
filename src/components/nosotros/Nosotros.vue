@@ -248,6 +248,7 @@ export default {
   font-size: 13px;
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
+  margin-top: 8rem;
 }
 
 .subrayado {
