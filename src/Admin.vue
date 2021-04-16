@@ -92,6 +92,7 @@ export default {
 .navbar {
   background-color: rgba(229, 229, 229, 0.9);
   min-height: 5rem;
+  backdrop-filter: blur(15px) saturate(25%);
 }
 
 .sombra {
