@@ -28,7 +28,9 @@
             <b-nav-item link v-for="m in menu" :key="m.nombre" :to="m.ruta"
               >{{ m.nombre }}
             </b-nav-item>
+           
             <b-form @submit="cerrar">
+               <hr> 
               <b-button class="btnCerrar" type="submit"
                 >{{ cerrarSesion }}
               </b-button>
@@ -93,10 +95,10 @@ export default {
 <style scoped>
 .nav-item.nav-item.nav-item a {
   color: #185632;
-  font-size: xx-large;
+  font-size: x-large;
   transition: all 0.8s ease;
   line-height: 1;
-  padding: 1rem 1.5rem;
+  padding: .5rem 1.5rem;
   text-align: center;
 }
 .nav-item.nav-item.nav-item a:hover {
@@ -132,9 +134,9 @@ export default {
 }
 
 .btn {
-  border-radius: 2rem;
-  padding: 0.5rem 3rem;
-  font-size: xx-large;
+  border: none;
+  padding: 0 1.5rem;
+  font-size: x-large;
   font-weight: 600;
   margin: 0.5rem;
   min-width: 100%;
@@ -167,4 +169,26 @@ export default {
   background-color: rgba(229, 229, 229, 0.1);
   border: none;
 }
+hr {
+  height: 1px;
+  width: 85%;
+  background-color: #573655;
+}
+
+@media only screen and (min-width: 768px) {
+  .nav-item.nav-item.nav-item a {
+  font-size: xx-large;
+  padding: 1rem 1.5rem;
+}
+  .btn {
+  font-size: xx-large;
+   padding: 1rem 1.5rem;
+
+}
+hr {
+  width: 50%;
+}
+
+}
+
 </style>
