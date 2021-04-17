@@ -25,9 +25,14 @@
 
         <b-collapse id="navbar-toggle-collapse" is-nav>
           <b-navbar-nav class="ml-auto">
-            <b-nav-item link v-for="m in menu" :key="m.nombre" :to="m.ruta">{{
-              m.nombre
-            }}</b-nav-item>
+            <b-nav-item link v-for="m in menu" :key="m.nombre" :to="m.ruta"
+              >{{ m.nombre }}
+            </b-nav-item>
+            <b-form @submit="cerrar">
+              <b-button class="btnCerrar" type="submit"
+                >{{ cerrarSesion }}
+              </b-button>
+            </b-form>
           </b-navbar-nav>
         </b-collapse>
       </b-container>
@@ -37,11 +42,13 @@
 </template>
 
 <script>
+import gnService from "@/services/login/gnService";
 export default {
   name: "App",
   components: {},
   data() {
     return {
+      cerrarSesion: "Cerrar Sesión",
       menu: [
         { ruta: "/muroGN10", nombre: "Muro GN10", icono: "mdi-folder" },
         { ruta: "/nosotros", nombre: "Nosotros", icono: "mdi-folder" },
@@ -65,16 +72,25 @@ export default {
           ruta: "/kiosco",
           nombre: "Kiosco",
           icono: "mdi-folder",
-        }
-        
+        },
       ],
     };
+  },
+  computed: {
+    userLogged() {
+      return gnService.getUserLogged();
+    },
+  },
+  methods: {
+    cerrar() {
+      return gnService.deleteUser();
+    },
   },
 };
 </script>
 
 
-<style >
+<style scoped>
 .nav-item.nav-item.nav-item a {
   color: #185632;
   font-size: xx-large;
@@ -113,5 +129,42 @@ export default {
   outline-color: #e5e5e5 !important;
   border-radius: 1rem;
   box-shadow: 4px 4px 4px 4px rgba(87, 54, 85, 0.4);
+}
+
+.btn {
+  border-radius: 2rem;
+  padding: 0.5rem 3rem;
+  font-size: xx-large;
+  font-weight: 600;
+  margin: 0.5rem;
+  min-width: 100%;
+}
+
+.btn-secondary {
+  color: #573655;
+  background-color: #e5e5e5;
+  border: none;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background-color: rgba(229, 229, 229, 0.1);
+  color: #573655;
+  font-weight: bolder;
+}
+
+.btn-secondary:active {
+  color: #573655 !important;
+  background-color: rgba(229, 229, 229, 0.1);
+  border: none;
+}
+
+.btn-primary:focus {
+  color: #573655 !important;
+  background-color: rgba(229, 229, 229, 0.1);
+  border: none;
 }
 </style>

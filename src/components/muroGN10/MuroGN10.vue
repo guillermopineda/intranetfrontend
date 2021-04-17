@@ -1,10 +1,10 @@
 <template>
-  <b-container id="marca"  fluid>
+  <b-container id="marca" fluid>
     <!-- <Buscador @buscarDesdeHijo="buscarImagenes"/> -->
     <BotonesMuro @buscarMuro="actualizarMuro" />
 
     <template v-if="this.loading">
-      <Loading/>
+      <Loading />
     </template>
 
     <template v-else>
@@ -46,27 +46,19 @@
             </b-col>
           </b-row>
         </template>
-      </template>
       
-        <div
-          v-if="this.comunicadosMuro.length === 0 && this.loaded"
-          id="pol"
-        >
-         <Noinfo/>
-        </div>
-     
 
-     
-        <div
-          v-if="this.comunicados.length === 0 && this.loaded === false "
-          id="pol"
-        >
-          <Noinfo/>
-        </div>
+      <div v-if="this.comunicadosMuro.length === 0 && this.loaded" id="pol">
+        <Noinfo />
+      </div>
 
-
-
-
+      <div
+        v-if="this.comunicados.length === 0 && this.loaded === false"
+        id="pol"
+      >
+        <Noinfo />
+      </div>
+      </template>
     </template>
 
     <b-row>
@@ -171,7 +163,7 @@ export default {
     },
   },
 
-  created() {
+  beforeCreated() {
     this.loading = true;
     gnService
       .getMuro()
@@ -206,8 +198,6 @@ export default {
   }
 }
 
-
-
 #letraMuro {
   color: #282828;
   font-family: "Montserrat", sans-serif;
@@ -220,5 +210,4 @@ export default {
   margin: auto;
   display: flex;
 }
-
 </style>

@@ -82,7 +82,7 @@ export default {
       loading: false,
     };
   },
-  created() {
+  beforeCreated() {
     this.loading = true;
     gnService
       .getEmpleados()

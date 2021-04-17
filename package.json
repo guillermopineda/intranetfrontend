@@ -16,6 +16,7 @@
     "bootstrap-vue": "^2.21.2",
     "core-js": "^3.6.5",
     "emailjs-com": "^2.6.4",
+    "js-cookie": "^2.2.1",
     "moment-timezone": "^0.5.33",
     "node-sass": "^5.0.0",
     "sass-loader": "^11.0.1",

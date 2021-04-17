@@ -137,7 +137,7 @@ export default {
       handler: "actualizarKiosco",
     },
   },
-  created() {
+  beforeCreated() {
     this.loading = true;
     gnService
       .getKiosco()

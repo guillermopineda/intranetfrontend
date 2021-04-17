@@ -26,8 +26,8 @@
           <b-col cols="12">
             <h6 class="pb-5 pt-2 text-justify">
               Bienvenido a IntraGN10, el sitio creado para todos los
-              colaboradores de GN10. <br />El objetivo de IntraGN10 es
-              ser el canal de comunicación oficial, donde encontrarás contenido
+              colaboradores de GN10. <br />El objetivo de IntraGN10 es ser el
+              canal de comunicación oficial, donde encontrarás contenido
               referente a Comunicados, Bienestar, Fundación, temas en Tendencia.
               <br />Explora en su menú dinámico; Directorio de Colaboradores,
               Buzón GN10, Contenido Corporativo, Desarrollo de Talento,
@@ -35,24 +35,48 @@
               GRUPO GN10.
             </h6>
           </b-col>
-          <b-col cols="8" class="mx-auto">
-            <div>
-              <img
-                id="login"
-                class="img-fluid"
-                src="../assets/office.png"
-                alt="Login IntraGN10"
-              />
-            </div>
-          </b-col>
-          <b-col cols="12" class="py-5">
-
-            <b-button type="submit" class="btn-primary bg-primary text-center" @click="submit"
-              >LOGIN</b-button
-            >
-        
-            <input type="checkbox" id="checkbox" v-model="checked" />
-            <label for="checkbox">{{ checked }}</label>
+          <b-col cols="12" class="py-5 letraFormulario">
+            <b-form @submit.prevent="enviarLogin"  @reset.prevent="cancelar">
+              <b-form-group
+                id="input-login-1"
+                label="Correo:"
+                label-for="input-1"
+              >
+                <b-form-input
+                  id="input-login-1"
+                  v-model="form.username"
+                  name="username"
+                  placeholder="Ingresa tu correo"
+                  type="email"
+                  required
+                >
+                </b-form-input>
+              </b-form-group>
+              <b-form-group
+                id="input-login-2"
+                label="Contraseña:"
+                label-for="input-2"
+              >
+                <b-form-input
+                  id="input-login-2"
+                  v-model="form.password"
+                  name="password"
+                  placeholder="Ingresa tu contraseña"
+                  type="password"
+                  required
+                >
+                </b-form-input>
+              </b-form-group>
+               <p v-if="error" class="error">
+                Has introducido mal el correo o la contraseña.
+              </p>
+              <b-button type="submit" class="btn-primary bg-primary text-center"
+                >Login</b-button
+              >
+              <b-button type="reset" class="btn-primary bg-primary text-center"
+                >Cancelar</b-button
+              >
+            </b-form>
           </b-col>
         </b-row>
       </b-col>
@@ -61,24 +85,46 @@
 </template>
 
 <script>
+import gnService from "@/services/login/gnService";
 export default {
   name: "Home",
   data() {
     return {
-      checked: false,
+      form: {
+        username: "",
+        password: "",
+      },
+      error: false,
     };
   },
-  getters: {
-    usuarioAutenticado() {
-      this.checked = checked;
-    },
-  },
   methods: {
-    submit() {
+    async enviarLogin(e) {
+      e.preventDefault();
+      try {
+        const response = await gnService.postLogin(this.form.username, this.form.password);
+        const login =true
+        gnService.setUserLogged(login);
+        const key = response.data;
+        gnService.setUserToken(`Token ${key.token}`);
+        this.$router.push("/muroGN10");
+      } catch (error) {
+        this.error = true;
+        console.log(error);
+      }
+
       //if you want to send any data into server before redirection then you can do it here
-      this.$router.push("/muroGN10");
+    },
+    cancelar(e) {
+      e.preventDefault();
+      this.form.username = "";
+      this.form.password = "";
     },
   },
+  computed: {
+    userLogged() {
+      return auth.getUserLogged();
+    }
+  }
 };
 </script>
 
@@ -89,7 +135,13 @@ export default {
   font-size: 13px;
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
-  
+}
+
+.letraFormulario {
+  color: #573655;
+  font-size: 13px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
 }
 
 .titulo-valores {
@@ -121,9 +173,9 @@ export default {
 }
 
 .btn-primary {
-  color: #ec3c03;
+  color: #573655;
   background-color: #fff;
-  border-color: #ec3c03;
+  border-color: #573655;
   position: relative;
   overflow: hidden;
   z-index: 1;
@@ -132,20 +184,20 @@ export default {
 
 .btn-primary:hover {
   color: #fff;
-  background-color: #ec3c03 !important;
+  background-color: #573655 !important;
   border-color: #fff;
 }
 
 .btn-primary:active {
   color: #fff !important;
-  background-color: rgba(236, 60, 3, 0.95) !important;
+  background-color: rgba(87, 54, 85, 0.95) !important;
   border-color: rgba(255, 255, 255, 0.1) !important;
 }
 
 .btn-primary:focus {
   color: #fff !important;
-  background-color: rgba(236, 60, 3, 0.95) !important;
+  background-color: rgba(87, 54, 85, 0.95) !important;
   border-color: rgba(255, 255, 255, 0.1) !important;
-  box-shadow: 0 0 0 0.2rem rgba(236, 60, 3, 0.5) !important;
+  box-shadow: 0 0 0 0.2rem rgba(87, 54, 85, 0.5) !important;
 }
 </style>

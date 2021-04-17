@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from "vue-router"
+import Cookies from "js-cookie";
 
 import Home from "./components/Home"
 import Admin from "../src/Admin"
@@ -24,7 +25,7 @@ const routes = [
         name:"Admin",
         component: Admin,
         meta:{
-            rutaProtegida:true
+            requiresAuth:true
         },
         children:[
             {
@@ -32,7 +33,7 @@ const routes = [
                 name:"muroGN10",
                 component: MuroGN10,
                 meta:{
-                    rutaProtegida:true
+                    requiresAuth:true
                 },
             },
             {
@@ -40,7 +41,7 @@ const routes = [
                 name:"nosotros",
                 component: Nosotros,
                 meta:{
-                    rutaProtegida:true
+                    requiresAuth:true
                 },
             },
             {
@@ -48,7 +49,7 @@ const routes = [
                 name:"organigrama",
                 component: Organigrama,
                 meta:{
-                    rutaProtegida:true
+                    requiresAuth:true
                 },
             },
             {
@@ -56,7 +57,7 @@ const routes = [
                 name:"servicioPersonal",
                 component: ServicioPersonal,
                 meta:{
-                    rutaProtegida:true
+                    requiresAuth:true
                 },
             },
             {
@@ -64,7 +65,7 @@ const routes = [
                 name:"desarrolloTalento",
                 component: DesarrolloTalento,
                 meta:{
-                    rutaProtegida:true
+                    requiresAuth:true
                 },
             },
             {
@@ -72,7 +73,7 @@ const routes = [
                 name:"creceGN10",
                 component: Crece,
                 meta:{
-                    rutaProtegida:true
+                    requiresAuth:true
                 },
             },
             {
@@ -80,7 +81,7 @@ const routes = [
                 name:"kiosco",
                 component: Kiosco,
                 meta:{
-                    rutaProtegida:true
+                    requiresAuth:true
                 },
             }
         ]
@@ -94,5 +95,24 @@ const router = new VueRouter({
     routes
 })
 
+
+router.beforeEach((to,from,next)=>{
+    console.log(Cookies.get("login"));
+    console.log(Cookies.get("token"));
+    if(to.matched.some(route => route.meta.requiresAuth)){
+        if(Cookies.get("login")==="true"){
+            next()
+        }else{
+            next('/')
+        }
+    }else{
+        
+        if(Cookies.get("login")==="true"){
+            next('/muroGN10')
+        }else{
+            next()
+        }
+    }
+})
 
 export default router

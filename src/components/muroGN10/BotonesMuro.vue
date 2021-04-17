@@ -1,9 +1,9 @@
 <template>
   <b-row >
       <b-col cols="12 text-right" >
-      <b-button @click="buscarDirectorio" v-b-modal.my-modal class="w-100 agenda" >
+      <b-button @click="buscarDirectorio" v-b-modal.my-modal class="w-100 agenda" >DIRECTORIO
         <font-awesome-icon
-        class="faa-horizontal animated"
+        class="faa-horizontal animated m-2"
           v-b-modal.my-modal
           :icon="['fas', 'address-book']"
           size="2x"
@@ -144,7 +144,6 @@ export default {
       loading: false,
     };
   },
-
   methods: {
     servicioBienestar() {
       this.$emit("buscarMuro", this.buscarBienestar);
@@ -185,19 +184,16 @@ export default {
   color: #282828;
   font-size: 1rem;
 }
-
 .nombre {
   color: #185632;
   font-weight: bold;
 }
-
 a:link,
 a:visited,
 a:active {
   text-decoration: none;
   color: #282828;
 }
-
 .btn-secondary {
   color: #185632;
   font-weight: 600;
@@ -213,7 +209,6 @@ a:active {
   background-size: 0% 0.3rem;
   transition: background-size 1s ease;
 }
-
 .btn-secondary:hover {
   color: #185632;
   border: none;
@@ -238,7 +233,6 @@ a:active {
   background-size: 80% 0.3rem;
   transition: background-size 1s ease;
 }
-
 .btn-secondary:focus {
   color: #185632;
   border: none;
@@ -250,25 +244,21 @@ a:active {
   background-size: 80% 0.3rem;
   transition: background-size 1s ease, background-color 1s ease;
 }
-
 @media only screen and (min-width: 992px) {
   .btn-secondary {
     font-size: 1.5rem;
     padding-bottom: 0.8rem;
   }
-
   .fa-lg {
     font-size: 2.5rem;
     line-height: 1rem;
   }
 }
-
 ::v-deep .modal-header {
   color: #282828;
   font-family: "Montserrat", sans-serif;
   border: none;
 }
-
 ::v-deep .modal-title {
   font-size: 2rem;
   font-weight: 600;
@@ -276,7 +266,6 @@ a:active {
   width: 100%;
   padding: 1rem 0;
 }
-
 ::v-deep #btnModal {
   border-radius: 0 1rem 1rem 0;
   font-size: medium;
@@ -287,22 +276,16 @@ a:active {
   padding: 0 1rem;
   background-image: none;
 }
-
 ::v-deep #inline-form-input-buscar {
   border-radius: 1rem 0 0 1rem;
   font-size: medium;
   color: #282828 !important;
 }
-
 ::v-deep #inline-form-input-buscar:focus {
   color: #282828 !important;
   border-color: #e5e5e5;
   box-shadow: 2px 2px 2px 1px rgba(87, 54, 85, 0.2);
 }
-
-
-
-
 .agenda {
   color:#573655;
   background-color: transparent;
@@ -313,7 +296,6 @@ a:active {
   background-size: 0% 0.3rem;
   transition: background-size 1s ease;
 }
-
 .agenda:hover {
   color:#573655;
   border: none;
@@ -338,7 +320,6 @@ a:active {
   background-size: 15% 0.3rem;
   transition: background-size 1s ease;
 }
-
 .agenda:focus {
   color: #573655;
   border: none;
@@ -350,107 +331,88 @@ a:active {
   background-size: 15% 0.3rem;
   transition: background-size 1s ease, background-color 1s ease;
 }
-
 @media only screen and (min-width: 992px) {
   .agenda {
     font-size: 1.5rem;
     padding-bottom: 0.8rem;
   }
-
   .fa-lg {
     font-size: 2.5rem;
     line-height: 1rem;
   }
 }
-
 /* HORIZONTAL */
-
 @-webkit-keyframes horizontal {
   0% {
     -webkit-transform: translate(0, 0);
     transform: translate(0, 0);
   }
-
   6% {
     -webkit-transform: translate(5px, 0);
     transform: translate(5px, 0);
   }
-
   12% {
     -webkit-transform: translate(0, 0);
     transform: translate(0, 0);
   }
-
   18% {
     -webkit-transform: translate(5px, 0);
     transform: translate(5px, 0);
   }
-
   24% {
     -webkit-transform: translate(0, 0);
     transform: translate(0, 0);
   }
-
   30% {
     -webkit-transform: translate(5px, 0);
     transform: translate(5px, 0);
   }
-
   36% {
     -webkit-transform: translate(0, 0);
     transform: translate(0, 0);
   }
 }
-
 @keyframes horizontal {
   0% {
     -webkit-transform: translate(0, 0);
     -ms-transform: translate(0, 0);
     transform: translate(0, 0);
   }
-
   6% {
     -webkit-transform: translate(5px, 0);
     -ms-transform: translate(5px, 0);
     transform: translate(5px, 0);
   }
-
   12% {
     -webkit-transform: translate(0, 0);
     -ms-transform: translate(0, 0);
     transform: translate(0, 0);
   }
-
   18% {
     -webkit-transform: translate(5px, 0);
     -ms-transform: translate(5px, 0);
     transform: translate(5px, 0);
   }
-
   24% {
     -webkit-transform: translate(0, 0);
     -ms-transform: translate(0, 0);
     transform: translate(0, 0);
   }
-
   30% {
     -webkit-transform: translate(5px, 0);
     -ms-transform: translate(5px, 0);
     transform: translate(5px, 0);
   }
-
   36% {
     -webkit-transform: translate(0, 0);
     -ms-transform: translate(0, 0);
     transform: translate(0, 0);
   }
 }
-
 .faa-horizontal.animated,
 .faa-horizontal.animated-hover:hover,
 .faa-parent.animated-hover:hover > .faa-horizontal {
   -webkit-animation: horizontal 2s ease infinite;
   animation: horizontal 2s ease infinite;
 }
-
 </style>

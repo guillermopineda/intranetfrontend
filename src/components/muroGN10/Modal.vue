@@ -97,7 +97,7 @@ export default {
       },
     },
   },
-  created() {
+  beforeCreated() {
     moment.locale("es");
   },
 };

@@ -39,7 +39,7 @@
     </b-row>
 
     <template v-if="this.loading">
-      <Loading/>
+      <Loading />
     </template>
 
     <template v-else>
@@ -47,29 +47,28 @@
         <Errored />
       </template>
       <template v-else>
+        <template v-if="vacantes.length > 0">
+          <b-row class="justify-content-around">
+            <b-col
+              cols="12"
+              md="6"
+              lg="4"
+              class="tarjeta py-4 my-2"
+              v-for="vacante in vacantes"
+              :key="vacante.id"
+            >
+              <b-row>
+                <b-col>
+                  <TarjetaVacante :vacante="vacante" />
+                </b-col>
+              </b-row>
+            </b-col>
+          </b-row>
+        </template>
 
-      <template v-if="vacantes.length > 0">
-        <b-row class="justify-content-around">
-          <b-col
-            cols="12"
-            md="6"
-            lg="4"
-            class="tarjeta py-4 my-2"
-            v-for="vacante in vacantes"
-            :key="vacante.id"
-          >
-            <b-row>
-              <b-col>
-                <TarjetaVacante :vacante="vacante" />
-              </b-col>
-            </b-row>
-          </b-col>
-        </b-row>
-      </template>
-
-      <template v-else>
-        <Noinfo />
-      </template>
+        <template v-else>
+          <Noinfo />
+        </template>
       </template>
     </template>
 
@@ -105,7 +104,7 @@ export default {
       errored: false,
     };
   },
-  created() {
+  beforCreated() {
     this.loading = true;
     gnService
       .getVacantes()
@@ -128,5 +127,4 @@ export default {
   font-weight: 600;
   margin-top: 8rem;
 }
-
 </style>
