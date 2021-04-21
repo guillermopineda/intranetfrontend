@@ -80,9 +80,10 @@ export default {
       companias: [],
       empleadoDatas: {},
       loading: false,
+       errored: false,
     };
   },
-  beforeCreated() {
+  mounted() {
     this.loading = true;
     gnService
       .getEmpleados()

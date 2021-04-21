@@ -46,18 +46,17 @@
             </b-col>
           </b-row>
         </template>
-      
 
-      <div v-if="this.comunicadosMuro.length === 0 && this.loaded" id="pol">
-        <Noinfo />
-      </div>
+        <div v-if="comunicadosMuroLargo === 0 && this.loaded" id="pol">
+          <Noinfo />
+        </div>
 
-      <div
-        v-if="this.comunicados.length === 0 && this.loaded === false"
-        id="pol"
-      >
-        <Noinfo />
-      </div>
+        <div
+          v-if="comunicadosLargo===0 "
+          id="pol"
+        >
+          <Noinfo />
+        </div>
       </template>
     </template>
 
@@ -89,6 +88,7 @@
 import ListaMuro from "./ListaMuro";
 import ListaComunicado from "./ListaComunicado";
 import gnService from "@/services/muro/gnService";
+import gnServiceL from "@/services/login/gnService";
 import BotonesMuro from "./BotonesMuro";
 import Universidad from "./Universidad";
 import Fundacion from "./Fundacion";
@@ -123,12 +123,13 @@ export default {
   },
 
   methods: {
-    async actualizarMuro(servicio) {
+    actualizarMuro(servicio) {
       this.servicio = servicio;
       this.loading = true;
+      this.loaded = false;
 
       if (servicio === "") {
-        await gnService
+        gnService
           .getMuro()
           .then(
             (comunicados) => (this.comunicados = comunicados.data.slice(0, 5))
@@ -140,7 +141,7 @@ export default {
           .finally(() => setTimeout(() => (this.loading = false), 1000));
         this.loaded = true;
       } else {
-        await gnService
+        gnService
           .getMuro(servicio)
           .then(
             (comunicadosMuro) =>
@@ -163,9 +164,9 @@ export default {
     },
   },
 
-  beforeCreated() {
+  mounted() {
     this.loading = true;
-    gnService
+     gnService
       .getMuro()
       .then((comunicados) => (this.comunicados = comunicados.data.slice(0, 5)))
       .catch((error) => {
@@ -173,7 +174,18 @@ export default {
         this.errored = true;
       })
       .finally(() => setTimeout(() => (this.loading = false), 1000));
+      
   },
+  
+  computed: {
+  comunicadosLargo () {
+    return this.comunicados.length
+
+  },
+  comunicadosMuroLargo () {
+    return this.comunicadosMuro.length
+  }
+}
 };
 </script>
 

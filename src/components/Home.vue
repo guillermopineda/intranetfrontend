@@ -39,7 +39,7 @@
             <b-form @submit.prevent="enviarLogin"  @reset.prevent="cancelar">
               <b-form-group
                 id="input-login-1"
-                label="Correo:"
+                label="Correo"
                 label-for="input-1"
               >
                 <b-form-input
@@ -54,7 +54,7 @@
               </b-form-group>
               <b-form-group
                 id="input-login-2"
-                label="Contraseña:"
+                label="Contraseña"
                 label-for="input-2"
               >
                 <b-form-input
@@ -103,10 +103,13 @@ export default {
       try {
         const response = await gnService.postLogin(this.form.username, this.form.password);
         const login =true
-        gnService.setUserLogged(login);
         const key = response.data;
+        gnService.setUserLogged(login);
         gnService.setUserToken(`Token ${key.token}`);
-        this.$router.push("/muroGN10");
+        console.log(key.token);
+        this.$router.go();
+        //this.$router.push("/muroGN10");
+        
       } catch (error) {
         this.error = true;
         console.log(error);

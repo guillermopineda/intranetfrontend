@@ -1,10 +1,16 @@
 <template>
   <b-container id="marca" fluid>
+
+
     <b-row class="text-center">
       <b-col cols="12">
         <h2 class="font-weight-bold py-5">CRECE CON GN10</h2>
       </b-col>
     </b-row>
+
+
+
+
     <b-row class="text-justify">
       <b-col cols="12">
         <h6 class="pb-5 pt-2 text-justify">
@@ -17,11 +23,19 @@
         </h6>
       </b-col>
     </b-row>
+
+
+
+
     <b-row class="text-center">
       <b-col cols="12">
         <h4 class="font-weight-bold py-5">CONOCE EL PROCESO</h4>
       </b-col>
     </b-row>
+
+
+
+
     <b-row>
       <b-col cols="12" class="p-md-5">
         <b-embed
@@ -32,36 +46,46 @@
       </b-col>
     </b-row>
 
+
+
+
+
     <b-row class="text-center">
       <b-col cols="12">
         <h4 class="font-weight-bold py-5">VACANTES</h4>
       </b-col>
     </b-row>
 
+
+
+
     <template v-if="this.loading">
       <Loading />
     </template>
 
     <template v-else>
+
+
       <template v-if="errored">
         <Errored />
       </template>
+
+
+      
       <template v-else>
+
+
         <template v-if="vacantes.length > 0">
-          <b-row class="justify-content-around">
+          <b-row >
             <b-col
               cols="12"
               md="6"
               lg="4"
-              class="tarjeta py-4 my-2"
+              class=" py-4 my-2"
               v-for="vacante in vacantes"
               :key="vacante.id"
             >
-              <b-row>
-                <b-col>
-                  <TarjetaVacante :vacante="vacante" />
-                </b-col>
-              </b-row>
+              <TarjetaVacante :vacante="vacante" />
             </b-col>
           </b-row>
         </template>
@@ -69,7 +93,13 @@
         <template v-else>
           <Noinfo />
         </template>
+
+
+        
       </template>
+
+
+
     </template>
 
     <b-row class="mt-4">
@@ -104,7 +134,7 @@ export default {
       errored: false,
     };
   },
-  beforCreated() {
+  mounted() {
     this.loading = true;
     gnService
       .getVacantes()
@@ -127,4 +157,6 @@ export default {
   font-weight: 600;
   margin-top: 8rem;
 }
+
+
 </style>

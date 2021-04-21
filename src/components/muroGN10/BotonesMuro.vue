@@ -37,13 +37,13 @@
 
                   <b-input-group-append>
                     <b-button id="btnModal">
-                      <font-awesome-icon :icon="['fas', 'search']" size="md" />
+                      <font-awesome-icon :icon="['fas', 'search']" size="lg" />
                     </b-button>
                   </b-input-group-append>
                 </b-input-group>
               </b-form>
             </div>
-            <template v-if="filtro === 0">
+            <template v-if="filtro.length > 0">
               <b-list-group
                 flush
                 class="py-5 px-md-5 mx-auto w-100 letraTarjeta"
@@ -67,18 +67,14 @@
                       Ext:
                       {{ telefono.extension }}
                     </p>
-                  </div>
-
-                  <div
-                    v-for="telefono in colaborador.telefonos"
-                    :key="telefono.id"
-                  >
                     <a :href="`tel:+52${telefono.numero}`">
                       <p v-if="telefono.tipo === movil" class="mb-1">
                         <strong>Móvil:</strong> <br />{{ telefono.numero }},
                       </p>
                     </a>
                   </div>
+
+                 
                   <div>
                     <p
                       class="mb-1"
@@ -157,9 +153,9 @@ export default {
     servicioComunicado() {
       this.$emit("buscarMuro", this.buscarComunicado);
     },
-    async buscarDirectorio() {
+     buscarDirectorio() {
       this.loading = true;
-      await gnService
+       gnService
         .getEmpleados()
         .then((colaboradores) => (this.colaboradores = colaboradores.data));
       setTimeout(() => (this.loading = false), 500);

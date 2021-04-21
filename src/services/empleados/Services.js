@@ -7,5 +7,6 @@ export default axios.create({
     baseURL,
     headers:{
         "Authorization": Cookies.get("token")
-    }
+    },
+        
 });

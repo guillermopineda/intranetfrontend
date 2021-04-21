@@ -12,18 +12,18 @@
                </b-col>
            </b-row>
        </b-container>
-       <Modal :mostrarModal="mostrarModal" :comunicado="comunicado" />
+       <Modali  :mostrarModal="mostrarModal" :comunicado="comunicado" />
   </div>
   
 </template>
 
 <script>
-import Modal from "./Modal";
+import Modali from "@/components/muroGN10/Modali";
 export default {
   name: "ListaComunicado",
   props: ["comunicado"],
   components: {
-      Modal,
+      Modali,
   },
   data(){
       return {

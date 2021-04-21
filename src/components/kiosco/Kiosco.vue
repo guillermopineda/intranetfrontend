@@ -9,7 +9,7 @@
     <!-- <Descarga /> -->
 
     <template v-if="this.loading">
-      <Loading/>
+      <Loading />
     </template>
 
     <template v-else>
@@ -22,39 +22,37 @@
           <b-row
             v-for="documento in documentos"
             :key="documento.id"
-            class="justify-content-between rounded sombra my-3"
+            class="rounded sombra my-3"
             align-v="center"
           >
-            <b-col
-              cols="8"
-              class="h5 pt-4 pl-5"
-              v-for="descarga in documento.documentos"
-              :key="descarga.id"
-            >
-              <p>
-                <strong>{{ documento.descripcion }}</strong>
-              </p>
-              <p>
-                <small>{{ descarga.nombre }}</small>
-              </p>
-            </b-col>
-            <b-col
-              cols="4"
-              md="3"
-              align="center"
-              v-for="descarga in documento.documentos"
-              :key="descarga.id"
-            >
-              <b-link :href="descarga.documento" target="blank">
-                <font-awesome-icon
-                  class="iconoIr faa-tada animated"
-                  :icon="['fas', 'file-alt']"
-                  size="3x"
-                />
-              </b-link>
+            <b-col cols="12">
+              <b-row
+                v-for="descarga in documento.documentos"
+                :key="descarga.id"
+              >
+                <b-col cols="10" class="h5 pt-2 pl-3">
+                  <p>
+                    <strong>{{ documento.descripcion }}</strong>
+                  </p>
+                  <p>
+                    {{ descarga.nombre }}
+                  </p>
+                </b-col>
+
+                <b-col cols="2" class="pt-4 pr-3">
+                  <b-link :href="descarga.documento" target="blank">
+                    <font-awesome-icon
+                      class="iconoIr faa-tada animated"
+                      :icon="['fas', 'file-alt']"
+                      size="2x"
+                    />
+                  </b-link>
+                </b-col>
+              </b-row>
             </b-col>
           </b-row>
         </template>
+
         <template v-else>
           <Noinfo />
         </template>
@@ -91,7 +89,6 @@ export default {
       servicio: "",
       loaded: false,
       loading: false,
-      documentosDescarga: [],
       errored: false,
     };
   },
@@ -137,7 +134,7 @@ export default {
       handler: "actualizarKiosco",
     },
   },
-  beforeCreated() {
+  mounted() {
     this.loading = true;
     gnService
       .getKiosco()
@@ -165,6 +162,14 @@ export default {
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
   margin-top: 8rem;
+}
+
+p {
+  height: 2rem;
+}
+
+a {
+  color: #573655;
 }
 
 .sombra {

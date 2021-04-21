@@ -12,7 +12,7 @@
 
 <script>
 export default {
-  nam: "Descarga",
+  name: "Descarga",
   data() {
     return {
       buscarFormato: "Formato",

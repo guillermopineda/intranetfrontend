@@ -6,11 +6,10 @@
           class="display-6 font-weight-bold py-5"
           align="center"
           style="color: #282828"
-        >BUZÓN GN10
+        >
+          BUZÓN GN10
         </h2>
         <b-form @submit="enviarCorreo" @reset="onReset">
-          
-          
           <b-form-group id="input-group-1" label="Nombre:" label-for="input-1">
             <b-form-input
               id="input-1"
@@ -24,47 +23,49 @@
             >
           </b-form-group>
 
-
           <template v-if="form.name.length >= 6">
-          <label for="textarea">Mensaje:</label>
-          <b-form-textarea
-            id="textarea-1"
-            v-model="form.message"
-            name="message"
-            placeholder="Escribe tu mensaje, sugerencia o queja"
-            rows="8"
-            required
-          ></b-form-textarea>
-          </template>
-          <p v-else class="alerta" >Por favor ingresa un nombre mayor a 6 caracteres</p>
-
-          
-          <template v-if="form.message.length > 10">
-          <b-form-group id="input-group-1" v-slot="{ ariaDescribedby }">
-            <b-form-checkbox-group
-              v-model="form.checked"
-              id="form.checked"
-              :aria-describedby="ariaDescribedby"
+            <label for="textarea">Mensaje:</label>
+            <b-form-textarea
+              id="textarea-1"
+              v-model="form.message"
+              name="message"
+              placeholder="Escribe tu mensaje, sugerencia o queja"
+              rows="8"
               required
-            >
-              <br />
-              <b-form-checkbox >No soy un robot</b-form-checkbox>
-            </b-form-checkbox-group>
-          </b-form-group>
-           </template>
-          <p v-else-if="form.name.length >= 6" class="alerta" >Por favor ingresa un mensaje mayor a 10 caracteres</p>
-
-
-          <template v-if="form.checked === true ">
-          <b-button  type="submit" value="Send" class="btn-primary bg-primary"
-            >Enviar</b-button
-          >
-          <b-button type="reset" class="btn-primary bg-primary"
-            >Borrar</b-button
-          >
+            ></b-form-textarea>
           </template>
-          <p v-else-if="form.message.length > 10" class="alerta" >Por favor marca la casilla para continuar</p>
-      
+          <p v-else class="alerta">
+            Por favor ingresa un nombre mayor a 6 caracteres
+          </p>
+
+          <template v-if="form.message.length > 10">
+            <b-form-group id="input-group-1" v-slot="{ ariaDescribedby }">
+              <b-form-checkbox-group
+                v-model="form.checked"
+                id="form.checked"
+                :aria-describedby="ariaDescribedby"
+                required
+              >
+                <br />
+                <b-form-checkbox>No soy un robot</b-form-checkbox>
+              </b-form-checkbox-group>
+            </b-form-group>
+          </template>
+          <p v-else-if="form.name.length >= 6" class="alerta">
+            Por favor ingresa un mensaje mayor a 10 caracteres
+          </p>
+
+          <template v-if="form.checked === true">
+            <b-button type="submit" value="Send" class="btn-primary bg-primary"
+              >Enviar</b-button
+            >
+            <b-button type="reset" class="btn-primary bg-primary"
+              >Borrar</b-button
+            >
+          </template>
+          <p v-else-if="form.message.length > 10" class="alerta">
+            Por favor marca la casilla para continuar
+          </p>
         </b-form>
       </b-col>
     </b-row>
@@ -72,7 +73,7 @@
 </template>
 
 <script>
-import  emailjs from 'emailjs-com';
+import emailjs from "emailjs-com";
 export default {
   name: "Formulario",
   data() {
@@ -92,30 +93,36 @@ export default {
       this.form.checked = false;
       this.form.message = "";
     },
-    enviarCorreo(e){
+    enviarCorreo(e) {
       e.preventDefault();
-      alert("Muchas gracias por tu mensaje, el Cómite de Ética GN10 te escucha, lee y ayuda.");
+      alert(
+        "Muchas gracias por tu mensaje, el Cómite de Ética GN10 te escucha, lee y ayuda."
+      );
       try {
-        emailjs.sendForm('service_ruy025b','template_elddntt',e.target,
-        'user_9kYzuJ3S98QHGgfInPLsA',{
-          name  : this.form.name,
-          message : this.form.message
-        })
-      }
-      catch(error){
-        console.log({error})
+        emailjs.sendForm(
+          "service_ruy025b",
+          "template_elddntt",
+          e.target,
+          "user_9kYzuJ3S98QHGgfInPLsA",
+          {
+            name: this.form.name,
+            message: this.form.message,
+          }
+        );
+      } catch (error) {
+        console.log({ error });
       }
       this.form.name = "";
       this.form.checked = false;
       this.form.message = "";
-    }
+    },
   },
 };
 </script>
 
 <style scoped>
-.alerta{
-  color: rgba(255,5,0,.6);
+.alerta {
+  color: rgba(255, 5, 0, 0.6);
 }
 
 #letraFormulario {
@@ -148,7 +155,7 @@ textarea {
   padding: 0.5rem 3rem;
   font-weight: bold;
   font-size: large;
-  margin: .5rem;
+  margin: 0.5rem;
   min-width: 100%;
 }
 
@@ -174,13 +181,13 @@ textarea {
 
 .btn-primary:active {
   color: #185632 !important;
-  background-color: rgba(255,255,255, 0.95) !important;
+  background-color: rgba(255, 255, 255, 0.95) !important;
   border-color: rgba(28, 86, 50, 0.1) !important;
 }
 
 .btn-primary:focus {
   color: #185632 !important;
-  background-color: rgba(255,255,255, 0.95) !important;
+  background-color: rgba(255, 255, 255, 0.95) !important;
   border-color: rgba(28, 86, 50, 0.1) !important;
   box-shadow: 0 0 0 0.2rem rgba(28, 86, 50, 0.5) !important;
 }

@@ -6,6 +6,7 @@
       hide-footer
       scrollable
       size="xl"
+      
     >
       <b-conatiner class="letra">
         <b-row class="px-2">
@@ -73,7 +74,7 @@
 <script>
 import moment from "moment";
 export default {
-  name: "Modal",
+  name: "Modali",
   data(){
     return {
       cerrarModal: false,
@@ -82,10 +83,6 @@ export default {
   props: {
     comunicado: {},
     mostrarModal: {},
-    textoComunicado: {
-      type: String,
-      required: true,
-    },
   },
   computed: {
     mostrar: {
@@ -97,7 +94,7 @@ export default {
       },
     },
   },
-  beforeCreated() {
+  mounted() {
     moment.locale("es");
   },
 };

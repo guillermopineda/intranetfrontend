@@ -1,4 +1,5 @@
 <template>
+
   <b-card
     :title="vacante.titulo"
     :sub-title="vacante.subtitulo"
@@ -6,10 +7,9 @@
     :img-alt="vacante.titulo"
     img-top
     tag="article"
-    style="max-width: 25rem; min-width: 23rem"
-    class="mb-2 text-center"
+    class="mb-2 text-center "
   >
-    <b-card-text class="text-justify" style="min-height: 200px">
+    <b-card-text class="text-justify" style="height:300px">
       {{ vacante.descripcion }}
     </b-card-text>
 
@@ -84,5 +84,15 @@ export default {
   background-color: rgba(255,255,255, 0.95) !important;
   border-color: rgba(28, 86, 50, 0.1) !important;
   box-shadow: 0 0 0 0.2rem rgba(28, 86, 50, 0.5) !important;
+}
+
+h4{
+  height: 4rem;
+  margin: 0;
+}
+
+h6{
+  height: 2rem;
+  margin: 0;
 }
 </style>
