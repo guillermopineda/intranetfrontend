@@ -97,8 +97,6 @@ const router = new VueRouter({
 
 
 router.beforeEach((to,from,next)=>{
-    console.log(Cookies.get("login"));
-    console.log(Cookies.get("token"));
     if(to.matched.some(route => route.meta.requiresAuth)){
         if(Cookies.get("login")==="true"){
             next()

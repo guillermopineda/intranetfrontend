@@ -18,7 +18,7 @@ export default {
       buscarFormato: "Formato",
       buscarPolitica: "Política",
       buscarLogotipos: "Logotipo",
-      buscarAviso:"",
+      buscarAviso:"Aviso",
       documentos: [],
     };
   },

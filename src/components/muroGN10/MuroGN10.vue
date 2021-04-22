@@ -88,7 +88,6 @@
 import ListaMuro from "./ListaMuro";
 import ListaComunicado from "./ListaComunicado";
 import gnService from "@/services/muro/gnService";
-import gnServiceL from "@/services/login/gnService";
 import BotonesMuro from "./BotonesMuro";
 import Universidad from "./Universidad";
 import Fundacion from "./Fundacion";
@@ -180,7 +179,6 @@ export default {
   computed: {
   comunicadosLargo () {
     return this.comunicados.length
-
   },
   comunicadosMuroLargo () {
     return this.comunicadosMuro.length

@@ -18,6 +18,8 @@
       </template>
 
       <template v-else>
+
+
         <template v-if="documentos.length > 0">
           <b-row
             v-for="documento in documentos"
@@ -30,11 +32,11 @@
                 v-for="descarga in documento.documentos"
                 :key="descarga.id"
               >
-                <b-col cols="10" class="h5 pt-2 pl-3">
-                  <p>
-                    <strong>{{ documento.descripcion }}</strong>
+                <b-col cols="10" class=" h4 pt-2 pl-3">
+                  <p class="letraMuro">
+                  {{ documento.descripcion }}
                   </p>
-                  <p>
+                  <p class="letra">
                     {{ descarga.nombre }}
                   </p>
                 </b-col>
@@ -52,10 +54,39 @@
             </b-col>
           </b-row>
         </template>
-
-        <template v-else>
-          <Noinfo />
+        <template v-else-if="anunciosLargo>0 ">
+          
+          <b-col
+              id="tarjetaMuro"
+              v-for="anuncio in anuncios"
+              :key="anuncio.id"
+              class="px-4 my-0"
+              cols="12"
+            >
+              <Anuncio :anuncio="anuncio" />
+            </b-col>
         </template>
+        <template v-else>
+          <Noinfo/>
+        </template>
+        
+
+        
+        <!-- <template v-if="anunciosLargo>0">
+          <b-col
+              id="tarjetaMuro"
+              v-for="anuncio in anuncios"
+              :key="anuncio.id"
+              class="px-4 my-0"
+              cols="12"
+            >
+              <Anuncio :anuncio="anuncio" />
+            </b-col>
+        </template> -->
+       
+          
+          <!-- <Noinfo /> -->
+        
       </template>
     </template>
 
@@ -69,7 +100,9 @@
 
 <script>
 import gnService from "@/services/kiosco/gnService";
+import gnServiceAviso from "@/services/aviso/gnService";
 import Descarga from "./Descarga";
+import Anuncio from "./Anuncio";
 import Footer from "../Footer";
 import Errored from "../Errored";
 import Noinfo from "../Noinfo";
@@ -79,6 +112,7 @@ export default {
   components: {
     Descarga,
     Footer,
+    Anuncio,
     Errored,
     Noinfo,
     Loading,
@@ -86,6 +120,7 @@ export default {
   data() {
     return {
       documentos: [],
+      anuncios:[],
       servicio: "",
       loaded: false,
       loading: false,
@@ -103,6 +138,7 @@ export default {
               return documento.tipo.includes("Formato");
             }))
         );
+         this.anuncios = 0;
         setTimeout(() => (this.loading = false), 500);
       } else if (servicio === "Política") {
         await gnService.getKiosco().then(
@@ -111,6 +147,7 @@ export default {
               return documento.tipo.includes("Política");
             }))
         );
+         this.anuncios = 0;
         setTimeout(() => (this.loading = false), 500);
       } else if (servicio === "Logotipo") {
         await gnService.getKiosco().then(
@@ -119,11 +156,13 @@ export default {
               return documento.tipo.includes("Logotipo");
             }))
         );
+         this.anuncios = 0;
         setTimeout(() => (this.loading = false), 500);
-      } else {
-        await gnService
-          .getKiosco()
-          .then((documentos) => (this.documentos = documentos.data));
+      } else if (servicio === "Aviso"){
+        await gnServiceAviso
+          .getAviso()
+          .then((anuncios) => (this.anuncios = anuncios.data));
+           this.documentos = 0;
         setTimeout(() => (this.loading = false), 1000);
       }
     },
@@ -150,6 +189,14 @@ export default {
       })
       .finally(() => setTimeout(() => (this.loading = false), 1000));
   },
+  computed:{
+    documentosLargo(){
+      return this.documentos.length
+    },
+    anunciosLargo(){
+      return this.anuncios.length
+    },
+  }
 };
 </script>
 
@@ -171,6 +218,50 @@ p {
 a {
   color: #573655;
 }
+
+@media only screen and (max-width: 992px) {
+  #tarjetaMuro {
+    min-height: 40vh;
+    max-height: 41vh;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  #tarjetaMuro {
+    min-height: 75vh;
+    max-height: 76vh;
+  }
+}
+
+.letraMuro {
+  color: #282828;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: larger;
+}
+
+.letra {
+
+  font-size: medium;
+}
+
+@media only screen and (max-width: 576px) {
+  .letraMuro {
+    font-size: medium;
+  }
+
+    .letra {
+    font-size: small;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .letraMuro {
+    font-size: medium;
+  }
+
+}
+
 
 .sombra {
   background-color: white;

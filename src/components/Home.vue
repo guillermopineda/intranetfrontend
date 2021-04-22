@@ -106,7 +106,6 @@ export default {
         const key = response.data;
         gnService.setUserLogged(login);
         gnService.setUserToken(`Token ${key.token}`);
-        console.log(key.token);
         this.$router.go();
         //this.$router.push("/muroGN10");
         

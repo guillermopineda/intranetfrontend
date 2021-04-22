@@ -94,6 +94,7 @@ export default {
       this.form.message = "";
     },
     enviarCorreo(e) {
+      const API_KEY=process.env.VUE_APP_KEY;
       e.preventDefault();
       alert(
         "Muchas gracias por tu mensaje, el Cómite de Ética GN10 te escucha, lee y ayuda."
