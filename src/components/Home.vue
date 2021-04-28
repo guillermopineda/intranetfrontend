@@ -106,6 +106,7 @@ export default {
         const key = response.data;
         gnService.setUserLogged(login);
         gnService.setUserToken(`Token ${key.token}`);
+        gnService.setHeaderToken(`${key.token}`);
         this.$router.go();
         //this.$router.push("/muroGN10");
         
@@ -151,7 +152,7 @@ export default {
 }
 
 .subtitulo-valores {
-  color: #e5e5e5;
+  color: #282828;
 }
 
 .login {

@@ -5,7 +5,7 @@
       :title="comunicado.titulo"
       hide-footer
       scrollable
-      size="xl"
+      size="lg"
       
     >
       <b-conatiner class="letra">
@@ -43,7 +43,20 @@
               class="textoComunicado"
               v-html="comunicado.texto"
             ></article>
+            <br>
           </b-col>
+
+            <template v-if="comunicado.imagen_comunicado !== null">
+            <b-col cols="10" class="mx-auto">
+              <img
+                class="mx-auto img-fluid"
+                :src="comunicado.imagen_comunicado"
+                alt="Logo GN10"
+              />
+              <br>
+              <br>
+            </b-col>
+          </template>
 
           <b-col cols="12" class="h-6 text-justify">
             <p>Agradecemos su comprensión y atención, un cordial saludo.</p>

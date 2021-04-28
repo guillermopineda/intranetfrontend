@@ -43,7 +43,7 @@
     <b-link href="https://intranet-api-dltuh.ondigitalocean.app/creceGN10" target="blank">
     <b-row class="justify-content-between rounded sombra my-3" align-v="center">
       <b-col cols="6" class="h4 pt-4 pl-5">
-        <p>JOB POST</p>
+        <p>CRECE CON GN10</p>
       </b-col>
       <b-col cols="4" md="3" align="center">
         

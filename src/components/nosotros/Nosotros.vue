@@ -16,7 +16,7 @@
       </b-col>
       <b-col cols="12" md="8">
         <h3
-          class="font-weight-bold pt-4 text-center text-md-left subrayado izquierda"
+          class="font-weight-bold pt-4 pb-2 text-center text-md-left subrayado izquierda"
         >
           MISIÓN
         </h3>
@@ -30,7 +30,7 @@
     <b-row>
       <b-col cols="12" md="8" class="order-1 order-md-0">
         <h3
-          class="font-weight-bold pt-4 text-center text-md-right subrayado derecha"
+          class="font-weight-bold pt-4 pb-2 text-center text-md-right subrayado derecha"
         >
           VISIÓN
         </h3>
@@ -51,7 +51,7 @@
     </b-row>
     <b-row>
       <b-col cols="12">
-        <h3 class="font-weight-bold pt-4 text-center subrayado centrado">
+        <h3 class="font-weight-bold pt-4 text-center  pb-2 subrayado centrado mb-4">
           VALORES
         </h3>
       </b-col>
@@ -135,7 +135,7 @@
               />
             </div>
           </b-col>
-          <b-col cols="12">
+          <b-col cols="12" clas>
             <h4 class="font-weight-bold pt-4 text-center titulo-valores">
               COMPROMISO
             </h4>
@@ -263,7 +263,7 @@ export default {
 }
 
 .subtitulo-valores {
-  color: #e5e5e5;
+  color: #282828;
 }
 
 .tarjeta {

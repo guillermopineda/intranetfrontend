@@ -1,27 +1,39 @@
 <template>
-    <b-modal 
+  <b-modal
     v-model="mostrarOrg"
-    title="ORGANIGRAMA" 
-    hide-footer size="lg" 
+    title="Organigrama"
+    hide-footer
+    scrollable
+    size="lg"
+  >
+    <b-carousel
+      id="carousel-fade"
+      style="text-shadow: 0px 0px 10px #e5e5e5"
+      fade
+      :interval="5000"
+      indicators
+      no-hover-pause
     >
-     <img
-        class="mx-auto img-fluid"
-        :src="empleadoData.image_organigrama"
-        alt="Organigrama"
-      />
-      <p class="letra"> {{compania.subtitulo}} </p>
-    </b-modal>
+      <b-carousel-slide
+        v-for="fotoOrg in compania.imagenes"
+        :key="fotoOrg.unidad_de_negocio"
+        :img-src="fotoOrg.imagen"
+      ></b-carousel-slide>
+    </b-carousel>
+    <b-row class="text-center">
+      <b-col cols="12">
+        <hr />
+        <p id="letraModal" class="letra">{{ compania.subtitulo }}</p>
+      </b-col>
+    </b-row>
+  </b-modal>
 </template>
 
 <script>
 export default {
-    name: "OrganigramaDetalle",
-     props: [
-    "empleadoData",
-    "mostrarOrganigrama",
-    "compania"
-  ],
-   computed: {
+  name: "OrganigramaDetalle",
+  props: ["empleadoData", "mostrarOrganigrama", "compania"],
+  computed: {
     mostrarOrg: {
       get() {
         return this.mostrarOrganigrama;
@@ -31,19 +43,10 @@ export default {
       },
     },
   },
-    
-}
+};
 </script>
 
 <style scoped>
-
-.letra {
-  color: #282828;
-  font-weight: bold;
-  font-size: 1rem;
-  text-align: center;
-}
-
 ::v-deep .modal-header {
   color: #282828;
   font-family: "Montserrat", sans-serif;
@@ -51,13 +54,16 @@ export default {
 }
 
 ::v-deep .modal-title {
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: 600;
   text-align: center;
   width: 100%;
   padding: 1rem 0;
 }
 
-
-
+#letraModal {
+  color: #573655;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+}
 </style>

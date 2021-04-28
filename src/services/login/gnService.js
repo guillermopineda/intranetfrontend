@@ -13,6 +13,7 @@ export default {
     deleteUser() {
         Cookies.remove("login");
         Cookies.remove("token");
+        Cookies.remove("csrf");
       },
     postLogin(username, password) {
         const user = { username, password };
@@ -24,4 +25,11 @@ export default {
       getUserToken(){
           return Cookies.get("token");
       },
+      setHeaderToken(headerToken){
+        Cookies.set('csrf',headerToken);
+      },
+      getHeaderToken(){
+        return Cookies.get("csrf");
+      }
+
 };

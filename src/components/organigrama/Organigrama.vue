@@ -19,18 +19,18 @@
 
       <template v-else>
         <template v-if="companias.length > 0">
-          <div v-for="(compania, i) in companias" :key="compania.id">
+          <div v-for="(compania, i) in companias" :key="compania.id" class="my-md-4 my-3 ">
             <b-row
-              class="justify-content-between rounded sombra my-3"
+              class="justify-content-between   mx-2 alto rounded sombra  "
               v-b-toggle="'accordion-compania.id' + i"
               align-v="center"
             >
-              <b-col cols="6" class="h4 pt-4 pl-5">
+              <b-col cols="6"  class="h4 pt-4 pl-5">
                 <p>
-                  <strong>{{ compania.subtitulo }} </strong>
+                  {{ compania.subtitulo }} 
                 </p>
               </b-col>
-              <b-col cols="4" md="3">
+              <b-col cols="5" md="3">
                 <img
                   class="mx-auto img-fluid"
                   :src="compania.imagen"
@@ -141,19 +141,31 @@ export default {
   background-color: white;
   border-color: #e5e5e5;
   border-radius: 1rem;
-  box-shadow: 4px 4px 4px 4px rgba(87, 54, 85, 0.2);
+  box-shadow: 2px 2px 2px 2px rgba(87, 54, 85, 0.2);
 }
 .sombra:focus {
   background-color: #fcfcfc;
   outline-color: #e5e5e5 !important;
   border-radius: 1rem;
-  box-shadow: 4px 4px 4px 4px rgba(87, 54, 85, 0.4);
+  box-shadow: 2px 2px 2px 2px rgba(87, 54, 85, 0.4);
 }
 .sombra:hover {
   background-color: #fcfcfc;
   outline-color: #e5e5e5 !important;
   border-radius: 1rem;
-  box-shadow: 4px 4px 4px 4px rgba(87, 54, 85, 0.4);
+  box-shadow: 2px 2px 2px 2px rgba(87, 54, 85, 0.4);
 }
+
+.alto{
+  min-height: 20vh;
+}
+
+@media only screen and (max-width: 576px) {
+  p {
+    font-size: 1rem;
+  }
+}
+
+
 
 </style>

@@ -1,9 +1,13 @@
 <template>
-  <b-row >
-      <b-col cols="12 text-right" >
-      <b-button @click="buscarDirectorio" v-b-modal.my-modal class="w-100 agenda" >DIRECTORIO
+  <b-row>
+    <b-col cols="12 text-right">
+      <b-button
+        @click="buscarDirectorio"
+        v-b-modal.my-modal
+        class="w-100 agenda"
+        >DIRECTORIO
         <font-awesome-icon
-        class="faa-horizontal animated m-2"
+          class="faa-horizontal animated m-2"
           v-b-modal.my-modal
           :icon="['fas', 'address-book']"
           size="2x"
@@ -17,7 +21,7 @@
           size="lg"
         >
           <template v-if="this.loading">
-            <Loading/>
+            <Loading />
           </template>
 
           <template v-else>
@@ -54,16 +58,14 @@
                   :key="colaborador.id"
                 >
                   <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1 nombre">{{ colaborador.nombre }}</h5>
+                    <h6 class="mb-1 nombre">{{ colaborador.nombre }}</h6>
                   </div>
                   <div
                     v-for="telefono in colaborador.telefonos"
                     :key="telefono.id"
                   >
                     <p v-if="telefono.tipo === fijo" class="mb-1">
-                      <strong>Teléfono:</strong> <br />{{
-                        telefono.numero
-                      }}
+                      <strong>Teléfono:</strong> <br />{{ telefono.numero }}
                       Ext:
                       {{ telefono.extension }}
                     </p>
@@ -74,7 +76,6 @@
                     </a>
                   </div>
 
-                 
                   <div>
                     <p
                       class="mb-1"
@@ -92,24 +93,24 @@
               </b-list-group>
             </template>
             <template v-else>
-              <b-container class="py-5" align="center">
+               <Loading />
+              <!-- <b-container class="py-5" align="center">
                 <b-row>
                   <b-col class="h5 letra">
                     <font-awesome-icon
-            
                       :icon="['fas', 'users-slash']"
                       size="3x"
                     />
                     <p class="my-3">No se han registrado empleados</p>
                   </b-col>
                 </b-row>
-              </b-container>
+              </b-container> -->
             </template>
           </template>
         </b-modal>
       </b-button>
-      </b-col>
-      <b-button-group size="sm" class="w-100">
+    </b-col>
+    <b-button-group size="sm" class="w-100">
       <b-button @click="servicioComunicado">COMUNICADOS</b-button>
       <b-button @click="servicioBienestar">BIENESTAR</b-button>
       <b-button @click="servicioFundacion">FUNDACIÓN</b-button>
@@ -125,7 +126,8 @@ import Loading from "../Loading";
 export default {
   name: "Buscador",
   components: {
-    Loading},
+    Loading,
+  },
   data() {
     return {
       buscarBienestar: "bienestar/",
@@ -153,9 +155,9 @@ export default {
     servicioComunicado() {
       this.$emit("buscarMuro", this.buscarComunicado);
     },
-     buscarDirectorio() {
+    buscarDirectorio() {
       this.loading = true;
-       gnService
+      gnService
         .getEmpleados()
         .then((colaboradores) => (this.colaboradores = colaboradores.data));
       setTimeout(() => (this.loading = false), 500);
@@ -195,7 +197,7 @@ a:active {
   font-weight: 600;
   padding-bottom: 0.5rem;
   font-family: "Montserrat", sans-serif;
-  font-size: 11px;
+  font-size: 1.3rem;
   border: none;
   background-color: transparent;
   box-shadow: transparent;
@@ -240,16 +242,7 @@ a:active {
   background-size: 80% 0.3rem;
   transition: background-size 1s ease, background-color 1s ease;
 }
-@media only screen and (min-width: 992px) {
-  .btn-secondary {
-    font-size: 1.5rem;
-    padding-bottom: 0.8rem;
-  }
-  .fa-lg {
-    font-size: 2.5rem;
-    line-height: 1rem;
-  }
-}
+
 ::v-deep .modal-header {
   color: #282828;
   font-family: "Montserrat", sans-serif;
@@ -283,7 +276,7 @@ a:active {
   box-shadow: 2px 2px 2px 1px rgba(87, 54, 85, 0.2);
 }
 .agenda {
-  color:#573655;
+  color: #573655;
   background-color: transparent;
   box-shadow: transparent;
   background-image: linear-gradient(to right, #cccccc, #cccccc);
@@ -293,14 +286,14 @@ a:active {
   transition: background-size 1s ease;
 }
 .agenda:hover {
-  color:#573655;
+  color: #573655;
   border: none;
   background-color: #ffffff;
   box-shadow: none;
   background-image: linear-gradient(to right, #cccccc, #cccccc);
   background-position: bottom center;
   background-repeat: no-repeat;
-  background-size: 15% 0.3rem;
+  background-size: 30% 0.2rem;
   transition: background-size 1s ease;
 }
 .agenda:not(:disabled):not(.disabled):active,
@@ -313,7 +306,7 @@ a:active {
   background-image: linear-gradient(to right, #cccccc, #cccccc);
   background-position: bottom center;
   background-repeat: no-repeat;
-  background-size: 15% 0.3rem;
+  background-size: 30% 0.2rem;
   transition: background-size 1s ease;
 }
 .agenda:focus {
@@ -324,17 +317,53 @@ a:active {
   background-image: linear-gradient(to right, #cccccc, #cccccc);
   background-position: bottom center;
   background-repeat: no-repeat;
-  background-size: 15% 0.3rem;
+  background-size: 30% 0.2rem;
   transition: background-size 1s ease, background-color 1s ease;
 }
-@media only screen and (min-width: 992px) {
+
+@media only screen and (max-width: 992px) {
   .agenda {
-    font-size: 1.5rem;
+    font-size: 1.1rem;
+    padding-bottom: 1rem;
+  }
+  .fa-lg {
+    font-size: 2rem;
+    line-height: .8rem;
+  }
+  .btn-secondary {
+  font-size: 1.1rem;
+  }
+}
+
+
+
+
+@media only screen and (max-width: 768px) {
+  .agenda {
+    font-size: .9rem;
     padding-bottom: 0.8rem;
   }
   .fa-lg {
-    font-size: 2.5rem;
-    line-height: 1rem;
+    font-size: 2rem;
+    line-height: .8rem;
+  }
+  .btn-secondary {
+  font-size: .9rem;
+  }
+}
+
+
+@media only screen and (max-width: 576px) {
+  .agenda {
+    font-size: .7rem;
+    padding-bottom: 0.6rem;
+  }
+  .fa-lg {
+    font-size: 1.5rem;
+    line-height: .7rem;
+  }
+  .btn-secondary {
+  font-size: .7rem;
   }
 }
 /* HORIZONTAL */

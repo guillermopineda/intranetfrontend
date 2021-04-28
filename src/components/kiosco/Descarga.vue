@@ -144,4 +144,30 @@ export default {
   box-shadow: 2px 2px 2px 1px rgba(87, 54, 85, 0.2);
 }
 
+
+@media only screen and (max-width: 992px) {
+
+  .btn-secondary {
+  font-size: 1.1rem;
+  }
+}
+
+
+
+
+@media only screen and (max-width: 768px) {
+
+  .btn-secondary {
+  font-size: .9rem;
+  }
+}
+
+
+@media only screen and (max-width: 576px) {
+
+  .btn-secondary {
+  font-size: .7rem;
+  }
+}
+
 </style>

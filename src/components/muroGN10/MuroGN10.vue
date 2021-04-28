@@ -47,7 +47,7 @@
           </b-row>
         </template>
 
-        <div v-if="comunicadosMuroLargo === 0 && this.loaded" id="pol">
+        <div v-if="comunicadosMuroLargo === 0 && this.loaded " id="pol">
           <Noinfo />
         </div>
 
@@ -138,7 +138,7 @@ export default {
             this.errored = true;
           })
           .finally(() => setTimeout(() => (this.loading = false), 1000));
-        this.loaded = true;
+        this.loaded = false;
       } else {
         gnService
           .getMuro(servicio)
@@ -193,18 +193,28 @@ export default {
   background-image: url("../../assets/fondo.png");
   margin-top: 8rem;
 }
+#tarjetaMuro {
+    height: 55vh;;
+  }
+
 
 @media only screen and (max-width: 992px) {
   #tarjetaMuro {
-    min-height: 40vh;
-    max-height: 41vh;
+    height: 45vh;;
   }
 }
 
-@media only screen and (min-width: 992px) {
+@media only screen and (max-width: 768px) {
   #tarjetaMuro {
-    min-height: 75vh;
-    max-height: 76vh;
+    height: 35vh;
+    
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  #tarjetaMuro {
+    height: 30vh;
+    
   }
 }
 

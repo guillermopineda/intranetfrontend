@@ -16,7 +16,7 @@
         @click.stop
         
       >
-        <b-col cols="6" class="h4 pt-4 pl-5 m-0">
+        <b-col cols="6" class="h5 pt-4 pl-5 m-0">
           <p>{{ empleadoData.nombre }}</p>
           <p id="letraPuesto">{{ empleadoData.puesto }}</p>
         </b-col>
@@ -55,6 +55,7 @@ export default {
 
 <style scoped>
 .tarjeta {
+  min-height: 15vh;
   background-color: white;
   box-shadow:  0px 1px rgba(87, 54, 85, 0.8);
 }
@@ -69,15 +70,20 @@ export default {
 
 #letraPuesto {
   color: rgba(87, 54, 85, 0.6);
-  font-weight: bold;
-  font-size: 1rem;
+  
 }
 
-@media only screen and (min-width: 992px) {
+@media only screen and (max-width: 576px) {
   #letraPuesto {
-    font-size: 1.5rem;
+    font-size: 1rem;
+  }
+    p {
+    font-size: 1rem;
   }
 }
+
+
+
 
 .collapse-div {
   width: 100%;

@@ -308,17 +308,8 @@ a {
   color: #e5e5e5;
 }
 
-@media only screen and (min-width: 992px) {
-  .btn-secondary {
-    font-size: 1.5rem;
-    padding-bottom: 0.8rem;
-  }
 
-  .fa-lg {
-    font-size: 2.5rem;
-    line-height: 1rem;
-  }
-}
+
 
 /* TADA */
 

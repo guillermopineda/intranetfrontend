@@ -1,5 +1,5 @@
 <template>
-  <b-container class="shadow-lg rounded p-4 mx-0 my-5 bg-light">
+  <b-container class="shadow-sm rounded p-4 mx-0 my-5 bg-light">
     <b-row class="justify-content-between h-100">
       <b-col cols="6" class="h4 pt-4 pl-4" align-self="start">
         <p id="letraMuro">SIN INFORMACIÓN DISPONIBLE, VUELVE PRONTO...</p>
