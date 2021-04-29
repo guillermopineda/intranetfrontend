@@ -32,7 +32,7 @@ export default {
 Loading */
 
 .loadPantalla {
-  height: 60vh;
+  height: 45rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -108,4 +108,11 @@ Loading */
   }
 }
 
+
+@media only screen and (max-width: 576px) {
+
+.loadPantalla {
+  height: 25rem;
+}
+}
 </style>

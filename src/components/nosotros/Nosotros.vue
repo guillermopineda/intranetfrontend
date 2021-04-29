@@ -2,7 +2,7 @@
   <b-container id="marca" fluid>
     <b-row class="text-center">
       <b-col cols="12">
-        <h2 class="font-weight-bold py-5">NOSOTROS</h2>
+        <h2 class="font-weight-bold pt-2 pt-mb-5">NOSOTROS</h2>
       </b-col>
     </b-row>
     <b-row>
@@ -51,7 +51,7 @@
     </b-row>
     <b-row>
       <b-col cols="12">
-        <h3 class="font-weight-bold pt-4 text-center  pb-2 subrayado centrado mb-4">
+        <h3 class="font-weight-bold pt-2 pt-mb-5 text-center   subrayado centrado mb-4">
           VALORES
         </h3>
       </b-col>

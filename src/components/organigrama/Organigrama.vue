@@ -3,7 +3,7 @@
     <b-container align="center">
       <b-row class="text-center">
         <b-col cols="12">
-          <h2 class="font-weight-bold py-5">ORGANIGRAMA</h2>
+          <h2 class="font-weight-bold pt-2 pt-mb-5 pb-1">ORGANIGRAMA</h2>
         </b-col>
       </b-row>
     </b-container>
@@ -25,7 +25,7 @@
               v-b-toggle="'accordion-compania.id' + i"
               align-v="center"
             >
-              <b-col cols="6"  class="h4 pt-4 pl-5">
+              <b-col cols="6"  class="h4 pt-4 pl-md-5 pl-3">
                 <p>
                   {{ compania.subtitulo }} 
                 </p>
@@ -157,7 +157,8 @@ export default {
 }
 
 .alto{
-  min-height: 20vh;
+    min-height: 8rem;
+    height: 100%;
 }
 
 @media only screen and (max-width: 576px) {
@@ -166,6 +167,12 @@ export default {
   }
 }
 
+
+@media only screen and (max-width: 378px) {
+    p {
+    font-size: .8rem;
+  }
+}
 
 
 </style>

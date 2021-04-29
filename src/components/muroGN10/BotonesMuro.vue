@@ -293,7 +293,7 @@ a:active {
   background-image: linear-gradient(to right, #cccccc, #cccccc);
   background-position: bottom center;
   background-repeat: no-repeat;
-  background-size: 30% 0.2rem;
+  background-size: 0% 0rem;
   transition: background-size 1s ease;
 }
 .agenda:not(:disabled):not(.disabled):active,
@@ -306,7 +306,7 @@ a:active {
   background-image: linear-gradient(to right, #cccccc, #cccccc);
   background-position: bottom center;
   background-repeat: no-repeat;
-  background-size: 30% 0.2rem;
+  background-size: 0% 0rem;
   transition: background-size 1s ease;
 }
 .agenda:focus {
@@ -317,7 +317,7 @@ a:active {
   background-image: linear-gradient(to right, #cccccc, #cccccc);
   background-position: bottom center;
   background-repeat: no-repeat;
-  background-size: 30% 0.2rem;
+  background-size: 0% 0rem;
   transition: background-size 1s ease, background-color 1s ease;
 }
 

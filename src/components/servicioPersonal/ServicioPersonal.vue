@@ -2,7 +2,7 @@
   <b-container id="marca" fluid>
     <b-row class="text-center">
       <b-col cols="12">
-        <h2 class="font-weight-bold py-5">SERVICIO AL PERSONAL</h2>
+        <h2 class="font-weight-bold pt-2 pt-mb-5">SERVICIO AL PERSONAL</h2>
       </b-col>
     </b-row>
     <b-link href="https://global.rhpay.com/" target="blank">

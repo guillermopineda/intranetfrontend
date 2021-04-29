@@ -9,19 +9,19 @@
       :key="empleadoData.id"
     > 
       <b-row
-        class="justify-content-between  tarjeta my-3"
+        class="justify-content-between border-top  tarjeta my-0"
         align-v="center"
         align-h="end"
         v-b-modal="'accordion-empleadoData.id' + index + i"
         @click.stop
         
       >
-        <b-col cols="6" class="h5 pt-4 pl-5 m-0">
+        <b-col cols="7" class="h5 pt-4 pl-md-5 pl-3 m-0">
           <p>{{ empleadoData.nombre }}</p>
           <p id="letraPuesto">{{ empleadoData.puesto }}</p>
         </b-col>
-        <b-col cols="3" md="2">
-          <b-avatar :src="empleadoData.foto" size="4rem"></b-avatar>
+        <b-col cols="4" md="2">
+          <b-avatar :src="empleadoData.foto" class="mt-0 avatar"></b-avatar>
         </b-col>
       </b-row>
       <EmpleadoDetalle
@@ -55,9 +55,8 @@ export default {
 
 <style scoped>
 .tarjeta {
-  min-height: 15vh;
+  height: 6rem;
   background-color: white;
-  box-shadow:  0px 1px rgba(87, 54, 85, 0.8);
 }
 .tarjeta:focus {
   background-color: #fcfcfc;
@@ -73,19 +72,40 @@ export default {
   
 }
 
+  .avatar{
+    width: 4rem;
+    height: 4rem;
+  }
+
+
 @media only screen and (max-width: 576px) {
   #letraPuesto {
-    font-size: 1rem;
+    font-size: .9rem;
   }
     p {
-    font-size: 1rem;
+    font-size: .9rem;
   }
 }
 
-
-
+@media only screen and (max-width: 378px) {
+  #letraPuesto {
+    font-size: .7rem;
+  }
+    p {
+    font-size: .7rem;
+    margin-bottom: .4rem;
+  }
+  .avatar{
+    width: 3rem;
+    height: 3rem;
+  }
+}
 
 .collapse-div {
   width: 100%;
+}
+
+.border-top {
+    border-top: 1px dashed #573655 !important;
 }
 </style>

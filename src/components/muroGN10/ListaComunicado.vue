@@ -1,7 +1,7 @@
 <template>
   <div id="pol">
        <b-container 
-       class="shadow-sm rounded p-6 mx-2 tarjetaComunicado" 
+       class="shadow-sm rounded mb-4 tarjetaComunicado" 
        :id="comunicado.id" 
        @click="mostrarModal = !mostrarModal"> 
            <b-row class="justify-content-between h-100">
@@ -53,22 +53,11 @@ export default {
     font-size: xx-large;
     
 }
-@media only screen and (max-width: 992px) {
-#letraMuro{
-    
-    font-size: large;
-}
-}
 
-@media only screen and (max-width: 576px) {
-#letraMuro{
-    
-    font-size: medium;
-}
-}
 
 .tarjetaComunicado{
     background-color:#ffffff;
+    height: 20rem;
 }
 
 .tarjetaComunicado:focus {
@@ -82,6 +71,24 @@ export default {
   outline-color: #e5e5e5 !important;
   border-radius: 1rem;
   box-shadow: 2px 2px 2px 2px rgba(87, 54, 85, 0.4);
+}
+
+@media only screen and (max-width: 992px) {
+  #letraMuro {
+    font-size: large;
+  }
+  .tarjetaComunicado {
+  height: 15rem;
+}
+}
+
+@media only screen and (max-width: 576px) {
+  #letraMuro {
+    font-size: medium;
+  }
+  .tarjetaComunicado {
+  height: 10rem;
+}
 }
 
 </style>

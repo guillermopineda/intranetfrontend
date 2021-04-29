@@ -3,7 +3,7 @@
     <Descarga @buscarDocumento="actualizarKiosco" />
     <b-row class="text-center">
       <b-col cols="12">
-        <h2 class="font-weight-bold pt-5 pb-3">KIOSCO</h2>
+        <h2 class="font-weight-bold pt-2 pt-mb-5">KIOSCO</h2>
       </b-col>
     </b-row>
     <!-- <Descarga /> -->
@@ -267,20 +267,20 @@ a {
   background-color: white;
   border-color: #e5e5e5;
   border-radius: 1rem;
-  box-shadow: 4px 4px 4px 4px rgba(87, 54, 85, 0.2);
+  box-shadow: 2px 2px 2px 2px rgba(87, 54, 85, 0.2);
 }
 .sombra:focus {
   background-color: #fcfcfc;
   outline-color: #e5e5e5 !important;
   border-radius: 1rem;
-  box-shadow: 4px 4px 4px 4px rgba(87, 54, 85, 0.4);
+  box-shadow: 2px 2px 2px 2px rgba(87, 54, 85, 0.4);
 }
 
 .formato:hover {
   background-color: #fcfcfc;
   outline-color: #e5e5e5 !important;
   border-radius: 1rem;
-  box-shadow: 4px 4px 4px 4px rgba(87, 54, 85, 0.4);
+  box-shadow: 2px 2px 2px 2px rgba(87, 54, 85, 0.4);
 }
 
 .formato {
@@ -294,14 +294,14 @@ a {
   background-color: #185632;
   outline-color: #3f664f !important;
   border-radius: 1rem;
-  box-shadow: 4px 4px 4px 4px rgba(24, 86, 50 0.4);
+  box-shadow: 2px 2px 2px 2px rgba(24, 86, 50 0.4);
 }
 
 .formato:hover {
   background-color: #185632;
   outline-color: #3f664f !important;
   border-radius: 1rem;
-  box-shadow: 4px 4px 4px 4px rgba(24, 86, 50 0.4);
+  box-shadow: 2px 2px 2px 2px rgba(24, 86, 50 0.4);
 }
 
 .fa-lg {

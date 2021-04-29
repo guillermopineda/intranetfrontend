@@ -16,10 +16,8 @@
         <template v-if="this.servicio === ''">
           <b-row>
             <b-col
-              id="tarjetaMuro"
               v-for="comunicado in comunicados"
               :key="comunicado.id"
-              class="p-4 my-2"
               cols="12"
             >
               <ListaComunicado :comunicado="comunicado" />
@@ -36,10 +34,10 @@
         >
           <b-row>
             <b-col
-              id="tarjetaMuro"
+              
               v-for="comunicadoMuro in comunicadosMuro"
               :key="comunicadoMuro.id"
-              class="p-4 my-2"
+              class="mb-4 rounded tarjetaComunicado"
               cols="12"
             >
               <ListaMuro :comunicadoMuro="comunicadoMuro" />
@@ -193,41 +191,36 @@ export default {
   background-image: url("../../assets/fondo.png");
   margin-top: 8rem;
 }
-#tarjetaMuro {
-    height: 55vh;;
-  }
 
-
-@media only screen and (max-width: 992px) {
-  #tarjetaMuro {
-    height: 45vh;;
-  }
+.tarjetaComunicado{
+    background-color:#ffffff;
+    height: 35rem;
+    margin: 0;
+    padding: 0;
 }
 
-@media only screen and (max-width: 768px) {
-  #tarjetaMuro {
-    height: 35vh;
-    
-  }
+.tarjetaComunicado:focus {
+  background-color: #fcfcfc;
+  box-shadow: 2px 2px 2px 2px rgba(87, 54, 85, 0.4);
+}
+.tarjetaComunicado:hover {
+  background-color: #fcfcfc;
+  box-shadow: 2px 2px 2px 2px rgba(87, 54, 85, 0.4);
+}
+
+@media only screen and (max-width: 992px) {
+
+  .tarjetaComunicado {
+  height: 23rem;
+}
 }
 
 @media only screen and (max-width: 576px) {
-  #tarjetaMuro {
-    height: 30vh;
-    
-  }
+  .tarjetaComunicado {
+  height: 12rem;
+}
 }
 
-#letraMuro {
-  color: #282828;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 600;
-}
 
-#pol {
-  height: 100%;
-  width: 100%;
-  margin: auto;
-  display: flex;
-}
+
 </style>

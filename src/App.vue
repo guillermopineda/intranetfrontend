@@ -78,19 +78,19 @@ export default {
   background-color: white;
   border-color: #e5e5e5;
   border-radius: 1rem;
-  box-shadow: 4px 4px 4px 4px rgba(87, 54, 85, 0.2);
+  box-shadow: 2px 2px 2px 2px rgba(87, 54, 85, 0.2);
 }
 .sombra:focus {
   background-color: #fcfcfc;
   outline-color: #e5e5e5 !important;
   border-radius: 1rem;
-  box-shadow: 4px 4px 4px 4px rgba(87, 54, 85, 0.4);
+  box-shadow: 2px 2px 2px 2px rgba(87, 54, 85, 0.4);
 }
 
 .sombra:hover {
   background-color: #fcfcfc;
   outline-color: #e5e5e5 !important;
   border-radius: 1rem;
-  box-shadow: 4px 4px 4px 4px rgba(87, 54, 85, 0.4);
+  box-shadow: 2px 2px 2px 2px rgba(87, 54, 85, 0.4);
 }
 </style>

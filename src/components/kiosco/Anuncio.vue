@@ -1,7 +1,7 @@
 <template>
   <div id="pol">
     <b-container
-      class="shadow-sm rounded p-4 mx-0 my-5 tarjetaAnuncio"
+      class="shadow-sm rounded mx-2 tarjetaAnuncio"
       :id="anuncio.id"
       @click="mostrarModal = !mostrarModal"
     >
@@ -58,7 +58,8 @@ export default {
 
 .tarjetaAnuncio {
   background-color: #ffffff;
-  height: 35vh;
+  height: 20rem;
+  
 }
 
 .tarjetaAnuncio:focus {
@@ -79,7 +80,7 @@ export default {
     font-size: large;
   }
   .tarjetaAnuncio {
-  height: 30vh;
+  height: 15rem;
 }
 }
 
@@ -88,7 +89,7 @@ export default {
     font-size: medium;
   }
   .tarjetaAnuncio {
-  height: 25vh;
+  height: 10rem;
 }
 }
 </style>
