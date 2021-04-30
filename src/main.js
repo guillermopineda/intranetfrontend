@@ -9,6 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import router from "./router"
 import VueMoment from 'vue-moment'
 import moment from 'moment-timezone'
+import VueGtag from "vue-gtag";
 
 Vue.config.productionTip = false
 
@@ -35,6 +36,11 @@ Vue.config.productionTip = false
 Vue.use(VueMoment, {
   moment,
 }) 
+Vue.use(VueGtag, {
+  config: { id: "196006653" },
+  appName: 'INTRAGN10',
+  pageTrackerScreenviewEnabled: true
+},router);
 new Vue({
   router,
   render: h => h(App),

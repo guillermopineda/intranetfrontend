@@ -40,7 +40,7 @@
         </b-col>
       </b-row>
     </b-link>
-    <b-link href="https://intranet-api-dltuh.ondigitalocean.app/creceGN10" target="blank">
+    <b-link href="https://intranet-api-dltuh.ondigitalocean.app/creceGN10" >
     <b-row class="justify-content-between rounded sombra my-3" align-v="center">
       <b-col cols="6" class="h4 pt-4 pl-5">
         <p>CRECE CON GN10</p>

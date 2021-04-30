@@ -32,12 +32,12 @@
             this.servicio === 'informativo/'
           "
         >
-          <b-row>
+          <b-row class="px-3">
             <b-col
               
               v-for="comunicadoMuro in comunicadosMuro"
               :key="comunicadoMuro.id"
-              class="mb-4 rounded tarjetaComunicado"
+              class="mb-4  rounded tarjetaComunicado"
               cols="12"
             >
               <ListaMuro :comunicadoMuro="comunicadoMuro" />

@@ -159,7 +159,11 @@ export default {
       this.loading = true;
       gnService
         .getEmpleados()
-        .then((colaboradores) => (this.colaboradores = colaboradores.data));
+        .then((colaboradores) => (this.colaboradores = colaboradores.data.sort(function(a,b){
+          if(a.nombre < b.nombre){return -1;}
+          if(a.nombre > b.nombre){return 1; }
+          return 0;
+        })));
       setTimeout(() => (this.loading = false), 500);
     },
   },
@@ -168,9 +172,6 @@ export default {
       return this.colaboradores.filter((colaborador) => {
         return colaborador.nombre.includes(this.buscarColaborador);
       });
-    },
-    redes() {
-      return colaborador.unidad_de_negocio.length;
     },
   },
 };

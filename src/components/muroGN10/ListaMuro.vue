@@ -4,7 +4,7 @@
       :id="comunicadoMuro.id"
       :src="comunicadoMuro.imagen_pequena"
       @click="mostrarModal = !mostrarModal"
-      class="h-100 w-100 rounded"
+      class="h-100 w-100 rounded "
       rounded
      
     ></b-img>
