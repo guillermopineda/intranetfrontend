@@ -37,9 +37,7 @@ Vue.use(VueMoment, {
   moment,
 }) 
 Vue.use(VueGtag, {
-  config: { id: "196006653" },
-  appName: 'INTRAGN10',
-  pageTrackerScreenviewEnabled: true
+  config: { id: "UA-196011126-1" },
 },router);
 new Vue({
   router,
