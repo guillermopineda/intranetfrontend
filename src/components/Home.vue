@@ -67,7 +67,7 @@
                 >
                 </b-form-input>
               </b-form-group>
-               <p v-if="error" class="error">
+               <p v-if="error" class="error alerta">
                 Has introducido mal el correo o la contraseña.
               </p>
               <b-button type="submit" class="btn-primary bg-primary text-center"
@@ -153,6 +153,10 @@ export default {
 
 .subtitulo-valores {
   color: #282828;
+}
+
+.alerta {
+  color: rgba(255, 5, 0, 0.6);
 }
 
 .login {

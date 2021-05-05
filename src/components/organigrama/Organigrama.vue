@@ -19,7 +19,7 @@
 
       <template v-else>
         <template v-if="companias.length > 0">
-          <div v-for="(compania, i) in companias" :key="compania.id" class="my-md-4 my-3 ">
+          <div v-for="(compania, i) in sortCompanias" :key="compania.id" class="my-md-4 my-3 ">
             <b-row
               class="justify-content-between   mx-2 alto rounded sombra  "
               v-b-toggle="'accordion-compania.id' + i"
@@ -123,7 +123,26 @@ export default {
         console.log(error);
         this.errored = true;
       })
-      .finally(() => setTimeout(() => (this.loading = false), 1000));
+      .finally(() => this.loading = false);
+  },
+    computed: {
+    sortCompanias(){
+      return this.companias.sort(function(a,b){
+    var aTitulo = a.titulo;
+    var bTitulo = b.titulo;
+    var aSubtitulo = a.subtitulo;
+    var bSubtitulo = b.subtitulo;
+
+    if(aTitulo == bTitulo)
+    {
+        return (aSubtitulo < bSubtitulo) ? -1 : (aSubtitulo > bSubtitulo) ? 1 : 0;
+    }
+    else
+    {
+        return (aTitulo < bTitulo) ? -1 : 1;
+    }
+      })
+    }
   },
 };
 </script>
