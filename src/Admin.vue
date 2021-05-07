@@ -138,7 +138,7 @@ export default {
   padding: 0 1.5rem;
   font-size: x-large;
   font-weight: 600;
-  margin: 0.5rem;
+  margin: 0rem;
   min-width: 100%;
 }
 
@@ -178,11 +178,12 @@ hr {
 @media only screen and (min-width: 768px) {
   .nav-item.nav-item.nav-item a {
   font-size: xx-large;
-  padding: 1rem 1.5rem;
+  padding: .5rem 1.5rem;
 }
   .btn {
   font-size: xx-large;
-   padding: 1rem 1.5rem;
+   padding: .5rem 1.5rem;
+   margin: 0;
 
 }
 hr {

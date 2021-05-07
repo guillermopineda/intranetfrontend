@@ -9,7 +9,7 @@
     </b-container>
 
     <template v-if="this.loading">
-      <Loading/>
+      <Loading />
     </template>
 
     <template v-else>
@@ -19,16 +19,18 @@
 
       <template v-else>
         <template v-if="companias.length > 0">
-          <div v-for="(compania, i) in sortCompanias" :key="compania.id" class="my-md-4 my-3 ">
+          <div
+            v-for="(compania, i) in companias"
+            :key="compania.id"
+            class="my-md-4 my-3"
+          >
             <b-row
-              class="justify-content-between   mx-2 alto rounded sombra  "
+              class="justify-content-between mx-2 alto rounded sombra"
               v-b-toggle="'accordion-compania.id' + i"
               align-v="center"
             >
-              <b-col cols="6"  class="h4 pt-4 pl-md-5 pl-3">
-                <p>
-                  {{ compania.subtitulo }} 
-                </p>
+              <b-col cols="6" class="h4 pt-4 pl-md-5 pl-3">
+                <p>{{ compania.subtitulo }}</p>
               </b-col>
               <b-col cols="5" md="3">
                 <img
@@ -46,7 +48,7 @@
           </div>
         </template>
         <template v-else>
-          <Noinfo/>
+          <Noinfo />
         </template>
       </template>
     </template>
@@ -80,7 +82,7 @@ export default {
       companias: [],
       empleadoDatas: {},
       loading: false,
-       errored: false,
+      errored: false,
     };
   },
   mounted() {
@@ -116,34 +118,38 @@ export default {
           }
           empleadoDatas[index] = empleadoDatasAry;
         }
-        this.companias = temp;
+        this.companias = temp
         this.empleadoDatas = empleadoDatas;
+
+   
+        
       })
       .catch((error) => {
         console.log(error);
         this.errored = true;
       })
-      .finally(() => this.loading = false);
+      .finally(() => (this.loading = false));
   },
-    computed: {
-    sortCompanias(){
-      return this.companias.sort(function(a,b){
-    var aTitulo = a.titulo;
-    var bTitulo = b.titulo;
-    var aSubtitulo = a.subtitulo;
-    var bSubtitulo = b.subtitulo;
 
-    if(aTitulo == bTitulo)
-    {
-        return (aSubtitulo < bSubtitulo) ? -1 : (aSubtitulo > bSubtitulo) ? 1 : 0;
-    }
-    else
-    {
-        return (aTitulo < bTitulo) ? -1 : 1;
-    }
-      })
-    }
-  },
+  //   computed: {
+  //   sortCompanias(){
+  //     return this.companias.sort(function(a,b){
+  //   var aTitulo = a.titulo;
+  //   var bTitulo = b.titulo;
+  //   var aSubtitulo = a.subtitulo;
+  //   var bSubtitulo = b.subtitulo;
+
+  //   if(aTitulo == bTitulo)
+  //   {
+  //       return (aSubtitulo < bSubtitulo) ? -1 : (aSubtitulo > bSubtitulo) ? 1 : 0;
+  //   }
+  //   else
+  //   {
+  //       return (aTitulo < bTitulo) ? -1 : 1;
+  //   }
+  //     })
+  //   }
+  // },
 };
 </script>
 
@@ -175,9 +181,9 @@ export default {
   box-shadow: 2px 2px 2px 2px rgba(87, 54, 85, 0.4);
 }
 
-.alto{
-    min-height: 8rem;
-    height: 100%;
+.alto {
+  min-height: 8rem;
+  height: 100%;
 }
 
 @media only screen and (max-width: 576px) {
@@ -186,12 +192,9 @@ export default {
   }
 }
 
-
 @media only screen and (max-width: 378px) {
-    p {
-    font-size: .8rem;
+  p {
+    font-size: 0.8rem;
   }
 }
-
-
 </style>

@@ -1,7 +1,9 @@
 import axios from 'axios';
 import Cookies from 'js-cookie';
 
-const baseURL = 'https://intranet-api-dltuh.ondigitalocean.app/api/kiosco/';
+const API_KEY=process.env.VUE_APP_KEY;
+
+const baseURL = `${API_KEY}kiosco/`;
 
 export default axios.create({
     baseURL,
