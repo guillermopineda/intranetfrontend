@@ -120,9 +120,6 @@ export default {
         }
         this.companias = temp
         this.empleadoDatas = empleadoDatas;
-
-   
-        
       })
       .catch((error) => {
         console.log(error);
