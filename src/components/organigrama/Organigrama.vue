@@ -40,7 +40,6 @@
                 />
               </b-col>
               <Empleado
-                :empleadoDatas="empleadoDatas[i]"
                 :compania="compania"
                 :i="i"
               />
@@ -62,7 +61,7 @@
 
 
 <script>
-import gnService from "@/services/empleados/gnService";
+import gnService from "@/services/organigrama/gnService";
 import Empleado from "@/components/organigrama/Empleado";
 import Footer from "../Footer";
 import Errored from "../Errored";
@@ -80,53 +79,63 @@ export default {
   data() {
     return {
       companias: [],
-      empleadoDatas: {},
       loading: false,
       errored: false,
     };
   },
-  mounted() {
+  mounted(){
     this.loading = true;
     gnService
-      .getEmpleados()
-      .then((res) => {
-        let companias = res.data;
-        var temp = [];
-        let empleadoDatas = {};
-        companias.map((em) => {
-          em.unidad_de_negocio.map((item) => {
-            if (temp.find((ii) => ii.id == item.id)) return;
-            temp.push(item);
-          });
-        });
-        for (let index = 0; index < temp.length; index++) {
-          const element = temp[index];
-          var empleadoDatasAry = [];
-          for (let j = 0; j < companias.length; j++) {
-            const ele = companias[j];
-            let flag = true;
-            if (ele.unidad_de_negocio) {
-              ele.unidad_de_negocio.forEach((category) => {
-                if (flag) {
-                  if (category.id == element.id) {
-                    empleadoDatasAry.push(ele);
-                    flag = false;
-                  }
-                }
-              });
-            }
-          }
-          empleadoDatas[index] = empleadoDatasAry;
-        }
-        this.companias = temp
-        this.empleadoDatas = empleadoDatas;
-      })
-      .catch((error) => {
-        console.log(error);
-        this.errored = true;
-      })
-      .finally(() => (this.loading = false));
-  },
+    .getOrganigrama()
+    .then((companias)=> (this.companias = companias.data))
+    .catch((error)=>{
+      console.log(error);
+      this.errored = true;
+    })
+    .finally(()=> this.loading = false);
+  }
+  // mounted() {
+  //   this.loading = true;
+  //   gnService
+  //     .getEmpleados()
+  //     .then((res) => {
+  //       let companias = res.data;
+  //       var temp = [];
+  //       let empleadoDatas = {};
+  //       companias.map((em) => {
+  //         em.unidad_de_negocio.map((item) => {
+  //           if (temp.find((ii) => ii.id == item.id)) return;
+  //           temp.push(item);
+  //         });
+  //       });
+  //       for (let index = 0; index < temp.length; index++) {
+  //         const element = temp[index];
+  //         var empleadoDatasAry = [];
+  //         for (let j = 0; j < companias.length; j++) {
+  //           const ele = companias[j];
+  //           let flag = true;
+  //           if (ele.unidad_de_negocio) {
+  //             ele.unidad_de_negocio.forEach((category) => {
+  //               if (flag) {
+  //                 if (category.id == element.id) {
+  //                   empleadoDatasAry.push(ele);
+  //                   flag = false;
+  //                 }
+  //               }
+  //             });
+  //           }
+  //         }
+  //         empleadoDatas[index] = empleadoDatasAry;
+  //       }
+  //       this.companias = temp
+  //       this.empleadoDatas = empleadoDatas;
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //       this.errored = true;
+  //     })
+  //     .finally(() => (this.loading = false));
+  // },
 
   //   computed: {
   //   sortCompanias(){
