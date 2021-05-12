@@ -8,3 +8,10 @@ services:
     command: serve -s dist
     expose:
       - 5000
+    env_file:
+        vars.env
+networks:
+    default:
+        external:
+            name: red
+
