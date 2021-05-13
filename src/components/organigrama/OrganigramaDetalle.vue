@@ -16,7 +16,7 @@
     >
       <b-carousel-slide
         v-for="fotoOrg in compania.imagenes"
-        :key="fotoOrg.unidad_de_negocio"
+        :key="fotoOrg.id"
         :img-src="fotoOrg.imagen"
       ></b-carousel-slide>
     </b-carousel>

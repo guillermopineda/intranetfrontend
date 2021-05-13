@@ -5,7 +5,7 @@
     class="collapse-div"
   >
    <b-container 
-      v-for="(empleadoData,index) in empleadoDatas"
+      v-for="(empleadoData,index) in compania.empleados"
       :key="empleadoData.id"
     > 
       <b-row
@@ -40,7 +40,7 @@
 import EmpleadoDetalle from "@/components/organigrama/EmpleadoDetalle";
 export default {
   name: "Empleado",
-  props: ["empleadoDatas","i","compania"],
+  props: ["i","compania"],
   components: {
     EmpleadoDetalle,
   },
