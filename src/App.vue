@@ -16,8 +16,23 @@ export default {
           nombre: "Home", 
           icono: "mdi-folder" 
         },
-        { ruta: "/muroGN10", 
-          nombre: "Muro GN10", 
+        ,
+        { ruta: "/comunicados", 
+          nombre: "Comunicados", 
+          icono: "mdi-folder" 
+        },
+        ,
+        { ruta: "/bienestar", 
+          nombre: "Bienestar", 
+          icono: "mdi-folder" 
+        },
+        ,
+        { ruta: "/fundacion", 
+          nombre: "Fundación", 
+          icono: "mdi-folder" 
+        },
+        { ruta: "/muro", 
+          nombre: "Muro", 
           icono: "mdi-folder" 
         },
         { ruta: "/nosotros",

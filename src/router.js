@@ -4,7 +4,10 @@ import Cookies from "js-cookie";
 
 import Home from "./components/Home"
 import Admin from "../src/Admin"
-import MuroGN10 from "./components/muroGN10/MuroGN10"
+import Comunicados from "./components/comunicados/Comunicados"
+import Bienestar from "./components/bienestar/Bienestar"
+import FundacionM from "./components/fundacion/FundacionM"
+import Muro from "./components/muro/Muro"
 import Nosotros from "./components/nosotros/Nosotros"
 import Organigrama from "./components/organigrama/Organigrama"
 import ServicioPersonal from "./components/servicioPersonal/ServicioPersonal"
@@ -29,9 +32,33 @@ const routes = [
         },
         children:[
             {
-                path:"/muroGN10",
-                name:"muroGN10",
-                component: MuroGN10,
+                path:"/comunicados",
+                name:"comunicados",
+                component: Comunicados,
+                meta:{
+                    requiresAuth:true
+                },
+            },
+            {
+                path:"/bienestar",
+                name:"bienestar",
+                component: Bienestar,
+                meta:{
+                    requiresAuth:true
+                },
+            },
+            {
+                path:"/fundacion",
+                name:"fundacion",
+                component: FundacionM,
+                meta:{
+                    requiresAuth:true
+                },
+            },
+            {
+                path:"/muro",
+                name:"muro",
+                component: Muro,
                 meta:{
                     requiresAuth:true
                 },
@@ -106,7 +133,7 @@ router.beforeEach((to,from,next)=>{
     }else{
         
         if(Cookies.get("login")==="true"){
-            next('/muroGN10')
+            next('/comunicados')
         }else{
             next()
         }

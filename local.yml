@@ -1,0 +1,12 @@
+version: '3'
+services:
+  intranetfront:
+    container_name: intranetfront
+    build: .
+    # command: http-server dist
+    command: npm run serve
+    # command: serve -s dist
+    ports:
+      - 8080:8080
+    env_file:
+        local.env

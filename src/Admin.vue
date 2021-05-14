@@ -52,7 +52,10 @@ export default {
     return {
       cerrarSesion: "Cerrar Sesión",
       menu: [
-        { ruta: "/muroGN10", nombre: "Muro GN10", icono: "mdi-folder" },
+        { ruta: "/comunicados", nombre: "Comunicados", icono: "mdi-folder" },
+        { ruta: "/bienestar", nombre: "Bienestar", icono: "mdi-folder" },
+        { ruta: "/fundacion", nombre: "Fundación", icono: "mdi-folder" },
+        { ruta: "/muro", nombre: "Muro", icono: "mdi-folder" },
         { ruta: "/nosotros", nombre: "Nosotros", icono: "mdi-folder" },
         { ruta: "/organigrama", nombre: "Organigrama", icono: "mdi-folder" },
         {
@@ -95,11 +98,12 @@ export default {
 <style scoped>
 .nav-item.nav-item.nav-item a {
   color: #185632;
-  font-size: x-large;
+  font-size: large;
   transition: all 0.8s ease;
   line-height: 1;
   padding: .5rem 1.5rem;
   text-align: center;
+  transition: all 0.3s ease;
 }
 .nav-item.nav-item.nav-item a:hover {
   background-color: rgba(229, 229, 229, 0.1);
@@ -136,7 +140,7 @@ export default {
 .btn {
   border: none;
   padding: 0 1.5rem;
-  font-size: x-large;
+  font-size: large;
   font-weight: 600;
   margin: 0rem;
   min-width: 100%;
@@ -177,11 +181,11 @@ hr {
 
 @media only screen and (min-width: 768px) {
   .nav-item.nav-item.nav-item a {
-  font-size: xx-large;
-  padding: .5rem 1.5rem;
+  font-size: x-large;
+  padding: .3rem 1.5rem;
 }
   .btn {
-  font-size: xx-large;
+  font-size: x-large;
    padding: .5rem 1.5rem;
    margin: 0;
 

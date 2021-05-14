@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import Modali from "@/components/muroGN10/Modali";
+import Modali from "@/components/muro/Modali";
 export default {
   name: "ListaComunicado",
   props: ["comunicado"],

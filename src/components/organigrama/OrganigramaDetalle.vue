@@ -23,7 +23,7 @@
     <b-row class="text-center">
       <b-col cols="12">
         <hr />
-        <p id="letraModal" class="letra">{{ compania.subtitulo }}</p>
+        <p id="letraModal" class="letra">{{ compania.subtitulo }} </p>
       </b-col>
     </b-row>
   </b-modal>
