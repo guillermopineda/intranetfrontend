@@ -4,7 +4,6 @@
       <b-button @click="servicioFormato">FORMATOS</b-button>
       <b-button @click="servicioPolitica">POLÍTICAS</b-button>
       <b-button @click="servicioLogotipo">LOGOTIPOS</b-button>
-      <b-button @click="servicioAviso">AVISO OPORTUNO</b-button>
     </b-button-group>
   </b-row>
 </template>
@@ -18,7 +17,6 @@ export default {
       buscarFormato: "Formato",
       buscarPolitica: "Política",
       buscarLogotipos: "Logotipo",
-      buscarAviso:"Aviso",
       documentos: [],
     };
   },
@@ -32,9 +30,6 @@ export default {
     servicioLogotipo(){
       this.$emit("buscarDocumento", this.buscarLogotipos);
     },
-    servicioAviso(){
-      this.$emit("buscarDocumento", this.buscarAviso);
-    }
   },
 };
 </script>

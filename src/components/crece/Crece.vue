@@ -4,7 +4,7 @@
 
     <b-row class="text-center">
       <b-col cols="12">
-        <h2 class="font-weight-bold pt-2 pt-mb-5">CRECE CON GN10</h2>
+        <h2 class="font-weight-bold pt-2 pt-m5-5">CRECE CON GN10</h2>
       </b-col>
     </b-row>
 

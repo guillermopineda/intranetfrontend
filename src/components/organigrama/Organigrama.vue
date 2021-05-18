@@ -3,7 +3,7 @@
     <b-container align="center">
       <b-row class="text-center">
         <b-col cols="12">
-          <h2 class="font-weight-bold pt-2 pt-mb-5 pb-1">ORGANIGRAMA</h2>
+          <h2 class="font-weight-bold pt-2 pt-md-5 pb-1">ORGANIGRAMA</h2>
         </b-col>
       </b-row>
     </b-container>

@@ -2,7 +2,7 @@
   <b-container id="marca" fluid>
     <b-row class="text-center">
       <b-col cols="12">
-        <h2 class="font-weight-bold pt-2 pt-mb-5">MURO GN10</h2>
+        <h2 class="font-weight-bold pt-2 pt-m5-5">MURO GN10</h2>
         <Directorio @buscarMuro="actualizarMuro" />
       </b-col>
     </b-row>
@@ -29,7 +29,9 @@
 
     <b-row class="text-center">
       <b-col cols="12">
-        <h2 class="font-weight-bold pt-2 pt-mb-5">AVISO OPORTUNO</h2>
+        <hr>
+        <h2 class="font-weight-bold py-2 py-md-4">AVISO OPORTUNO</h2>
+         <hr>
       </b-col>
     </b-row>
 
@@ -178,4 +180,19 @@ export default {
     height: 12rem;
   }
 }
+
+hr {
+  height: 2px;
+  width: 85%;
+  background-color: #573655;
+}
+
+@media only screen and (min-width: 768px) {
+hr {
+  width: 50%;
+}
+
+}
+
+
 </style>

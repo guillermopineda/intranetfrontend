@@ -59,13 +59,8 @@ export default {
         { ruta: "/nosotros", nombre: "Nosotros", icono: "mdi-folder" },
         { ruta: "/organigrama", nombre: "Organigrama", icono: "mdi-folder" },
         {
-          ruta: "/servicioPersonal",
-          nombre: "Servicios Personal",
-          icono: "mdi-folder",
-        },
-        {
-          ruta: "/desarrolloTalento",
-          nombre: "Desarrollo de Talento",
+          ruta: "/kiosco",
+          nombre: "Kiosco",
           icono: "mdi-folder",
         },
         {
@@ -74,8 +69,8 @@ export default {
           icono: "mdi-folder",
         },
         {
-          ruta: "/kiosco",
-          nombre: "Kiosco",
+          ruta: "/biblioteca",
+          nombre: "Biblioteca",
           icono: "mdi-folder",
         },
       ],
@@ -113,7 +108,7 @@ export default {
 
 .navbar {
   background-color: rgba(229, 229, 229, 0.9);
-  min-height: 5rem;
+  height: auto;
   backdrop-filter: blur(15px) saturate(25%);
 }
 

@@ -2,7 +2,7 @@
   <b-container id="marca" fluid>
     <b-row class="text-center">
       <b-col cols="12">
-        <h2 class="font-weight-bold pt-2 pt-mb-5">NOSOTROS</h2>
+        <h2 class="font-weight-bold pt-2 pt-md-5">NOSOTROS</h2>
       </b-col>
     </b-row>
     <b-row>
@@ -51,7 +51,7 @@
     </b-row>
     <b-row>
       <b-col cols="12">
-        <h3 class="font-weight-bold pt-2 pt-mb-5 text-center   subrayado centrado mb-4">
+        <h3 class="font-weight-bold pt-2 pt-md-5 text-center   subrayado centrado mb-4">
           VALORES
         </h3>
       </b-col>
@@ -222,6 +222,14 @@
         </b-row>
       </b-col>
     </b-row>
+    <b-row class="text-center">
+      <b-col cols="12">
+        <h2 class="font-weight-bold pt-2 pt-md-5">INDICADORES GN10</h2>
+      </b-col>
+    </b-row>
+    <Desarrollo/>
+
+
 
     <b-row class="mt-4">
       <b-col class="mx-0 px-0">
@@ -232,10 +240,12 @@
 </template>
 
 <script>
+import Desarrollo from "@/components/nosotros/Desarrollo"
 import Footer from "../Footer";
 export default {
   name: "Nosotros",
   components: {
+    Desarrollo,
     Footer,
   },
 };

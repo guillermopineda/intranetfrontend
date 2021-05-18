@@ -2,7 +2,7 @@
   <b-container id="marca" fluid>
     <b-row class="text-center">
       <b-col cols="12">
-        <h2 class="font-weight-bold pt-2 pt-mb-5">COMUNICADOS</h2>
+        <h2 class="font-weight-bold pt-2 pt-m5-5">COMUNICADOS</h2>
         <Directorio @buscarMuro="actualizarMuro" />
       </b-col>
     </b-row>

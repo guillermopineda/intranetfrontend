@@ -48,18 +48,13 @@ export default {
           icono: "mdi-folder",
         },
         {
-          ruta: "/desarrolloTalento",
-          nombre: "Desarrollo de Talento",
-          icono: "mdi-folder",
-        },
-        {
           ruta: "/creceGN10",
           nombre: "Crece con GN10",
           icono: "mdi-folder",
         },
         {
-          ruta: "/kiosco",
-          nombre: "Kiosco",
+          ruta: "/biblioteca",
+          nombre: "biblioteca",
           icono: "mdi-folder",
         }
         
@@ -108,4 +103,5 @@ export default {
   border-radius: 1rem;
   box-shadow: 2px 2px 2px 2px rgba(87, 54, 85, 0.4);
 }
+
 </style>

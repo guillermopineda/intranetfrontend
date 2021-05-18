@@ -10,10 +10,9 @@ import FundacionM from "./components/fundacion/FundacionM"
 import Muro from "./components/muro/Muro"
 import Nosotros from "./components/nosotros/Nosotros"
 import Organigrama from "./components/organigrama/Organigrama"
-import ServicioPersonal from "./components/servicioPersonal/ServicioPersonal"
-import DesarrolloTalento from "./components/desarrollo/DesarrolloTalento"
-import Crece from "./components/crece/Crece"
 import Kiosco from "./components/kiosco/Kiosco"
+import Crece from "./components/crece/Crece"
+import Biblioteca from "./components/biblioteca/Biblioteca"
 
 Vue.use(VueRouter);
 
@@ -80,17 +79,9 @@ const routes = [
                 },
             },
             {
-                path:"/servicioPersonal",
-                name:"servicioPersonal",
-                component: ServicioPersonal,
-                meta:{
-                    requiresAuth:true
-                },
-            },
-            {
-                path:"/desarrolloTalento",
-                name:"desarrolloTalento",
-                component: DesarrolloTalento,
+                path:"/kiosco",
+                name:"kiosco",
+                component: Kiosco,
                 meta:{
                     requiresAuth:true
                 },
@@ -104,9 +95,9 @@ const routes = [
                 },
             },
             {
-                path:"/kiosco",
-                name:"kiosco",
-                component: Kiosco,
+                path:"/biblioteca",
+                name:"biblioteca",
+                component: Biblioteca,
                 meta:{
                     requiresAuth:true
                 },
