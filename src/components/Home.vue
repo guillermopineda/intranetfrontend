@@ -73,7 +73,7 @@
               <b-button type="submit" class="btn-primary bg-primary text-center"
                 >Login</b-button
               >
-              <b-button type="reset" class="btn-primary bg-primary text-center"
+              <b-button type="reset" class="btn-primary bg-primary text-center cierre"
                 >Cancelar</b-button
               >
             </b-form>
@@ -206,5 +206,23 @@ export default {
   background-color: rgba(87, 54, 85, 0.95) !important;
   border-color: rgba(255, 255, 255, 0.1) !important;
   box-shadow: 0 0 0 0.2rem rgba(87, 54, 85, 0.5) !important;
+}
+.cierre{
+  color: #8B1412 !important;
+}
+
+.cierre:hover{
+  background-color: rgba(139,20,18, 0.95) !important;
+  color: #fff !important;
+}
+
+.cierre:active{
+  background-color: rgba(139,20,18, 0.6) !important;
+  color: #fff !important;
+}
+
+.cierre:focus{
+  background-color: rgba(139,20,18, 0.6) !important;
+  color: #fff !important;
 }
 </style>

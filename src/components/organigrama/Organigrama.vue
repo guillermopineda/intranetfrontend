@@ -44,7 +44,7 @@
             <b-button type="submit" value="Send" class="btn-primary bg-primary w-100 my-md-2 my-1"
               >Buscar</b-button
             >
-            <b-button type="reset" class="btn-primary bg-primary w-100 my-md-2 my-1 "
+            <b-button type="reset" class="btn-primary bg-primary w-100 my-md-2 my-1 cierre"
               >Borrar</b-button
             >
           </b-col>
@@ -288,8 +288,19 @@ export default {
   height: 100%;
 }
 
+select {
+  color: #573655 !important;
+  border-color: #e5e5e5;
+  text-align: center;
+  text-align-last: center;
+  -moz-text-align-last: center;
+}
+
 @media only screen and (max-width: 576px) {
   p {
+    font-size: 1rem;
+  }
+  select{
     font-size: 1rem;
   }
 }
@@ -298,15 +309,12 @@ export default {
   p {
     font-size: 0.8rem;
   }
+
+  select{
+    font-size: 0.8rem;
+  }
 }
 
-select {
-  color: #573655 !important;
-  border-color: #e5e5e5;
-  text-align: center;
-  text-align-last: center;
-  -moz-text-align-last: center;
-}
 
 .btn {
   border-radius: .5rem;
@@ -317,13 +325,13 @@ select {
 }
 
 .bg-primary {
-  background-color: #185632 !important;
+  background-color: #fff !important;
 }
 
 .btn-primary {
-  color: #fff;
-  background-color: #185632;
-  border-color: #185632;
+  color: #573655;
+  background-color: #fff;
+  border-color: #573655;
   position: relative;
   overflow: hidden;
   z-index: 1;
@@ -331,21 +339,40 @@ select {
 }
 
 .btn-primary:hover {
-  color: #185632;
-  background-color: #fff !important;
-  border-color: #185632;
+  color: #fff;
+  background-color: #573655 !important;
+  border-color: #fff;
 }
 
 .btn-primary:active {
-  color: #185632 !important;
-  background-color: rgba(255, 255, 255, 0.95) !important;
-  border-color: rgba(28, 86, 50, 0.1) !important;
+  color: #fff !important;
+  background-color: rgba(87, 54, 85, 0.95) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
 }
 
 .btn-primary:focus {
-  color: #185632 !important;
-  background-color: rgba(255, 255, 255, 0.95) !important;
-  border-color: rgba(28, 86, 50, 0.1) !important;
-  box-shadow: 0 0 0 0.2rem rgba(28, 86, 50, 0.5) !important;
+  color: #fff !important;
+  background-color: rgba(87, 54, 85, 0.95) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 0 0 0.2rem rgba(87, 54, 85, 0.5) !important;
+}
+
+.cierre{
+  color: #8B1412 !important;
+}
+
+.cierre:hover{
+  background-color: rgba(139,20,18, 0.95) !important;
+  color: #fff !important;
+}
+
+.cierre:active{
+  background-color: rgba(139,20,18, 0.6) !important;
+  color: #fff !important;
+}
+
+.cierre:focus{
+  background-color: rgba(139,20,18, 0.6) !important;
+  color: #fff !important;
 }
 </style>
