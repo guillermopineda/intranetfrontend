@@ -7,6 +7,51 @@
         </b-col>
       </b-row>
     </b-container>
+     <b-form @submit="verOrganigrama" @reset="onReset">
+    <b-container fluid class="pt-2 pt-md-5">
+      <b-row class="text-justify">
+        
+          <b-col cols="12" md="6">
+            <b-form-select
+              class="my-md-3 my-1"
+              v-model="form.unidadSeleccionada"
+              :options="unidad"
+              value-field="value"
+            >
+              <template #first>
+                <b-form-select-option value="" disabled
+                  >--- Elige Unidad de Negocio ---</b-form-select-option
+                >
+              </template>
+            </b-form-select>
+          </b-col>
+
+          <b-col cols="12" md="6">
+            <b-form-select
+              class="my-md-3 my-1"
+              v-model="form.areaSeleccionada"
+              :options="area"
+              value-field="value"
+            >
+              <template #first>
+                <b-form-select-option value="" disabled
+                  >--- Elige Área ---</b-form-select-option
+                >
+              </template>
+            </b-form-select>
+          </b-col>
+          <b-col>
+            <b-button type="submit" value="Send" class="btn-primary bg-primary w-100 my-md-2 my-1"
+              >Buscar</b-button
+            >
+            <b-button type="reset" class="btn-primary bg-primary w-100 my-md-2 my-1 "
+              >Borrar</b-button
+            >
+          </b-col>
+
+      </b-row>
+    </b-container>
+    </b-form>
 
     <template v-if="this.loading">
       <Loading />
@@ -18,36 +63,38 @@
       </template>
 
       <template v-else>
-        <template v-if="companias.length > 0">
-          <div
-            v-for="(compania, i) in companias"
-            :key="compania.id"
-            class="my-md-4 my-3"
-          >
-            <b-row
-              class="justify-content-between mx-2 alto rounded sombra"
-              v-b-toggle="'accordion-compania.id' + i"
-              align-v="center"
-            >
-              <b-col cols="6" class="h4 pt-4 pl-md-5 pl-3">
-                <p>{{ compania.subtitulo }}</p>
-              </b-col>
-              <b-col cols="5" md="3">
-                <img
-                  class="mx-auto img-fluid"
-                  :src="compania.imagen"
-                  :alt="compania.titulo"
-                />
-              </b-col>
-              <Empleado
-                :compania="compania"
-                :i="i"
-              />
-            </b-row>
-          </div>
+        <template v-if="espera">
+          <Espera />
         </template>
         <template v-else>
-          <Noinfo />
+          <template v-if="companias.length > 0">
+            <div
+              v-for="(compania, i) in filtroSubtitulo"
+              :key="compania.id"
+              class="my-md-4 my-3"
+            >
+              <b-row
+                class="justify-content-between mx-2 alto rounded sombra"
+                v-b-toggle="'accordion-compania.id' + i"
+                align-v="center"
+              >
+                <b-col cols="6" class="h4 pt-4 pl-md-5 pl-3">
+                  <p>{{ compania.subtitulo }}</p>
+                </b-col>
+                <b-col cols="5" md="3">
+                  <img
+                    class="mx-auto img-fluid"
+                    :src="compania.imagen"
+                    :alt="compania.titulo"
+                  />
+                </b-col>
+                <Empleado :compania="compania" :i="i" />
+              </b-row>
+            </div>
+          </template>
+          <template v-else>
+            <Noinfo />
+          </template>
         </template>
       </template>
     </template>
@@ -63,14 +110,17 @@
 <script>
 import gnService from "@/services/organigrama/gnService";
 import Empleado from "@/components/organigrama/Empleado";
+import Espera from "@/components/organigrama/Espera";
 import Footer from "../Footer";
 import Errored from "../Errored";
 import Noinfo from "../Noinfo";
 import Loading from "../Loading";
+
 export default {
   name: "Organigrama",
   components: {
     Empleado,
+    Espera,
     Footer,
     Errored,
     Noinfo,
@@ -78,22 +128,68 @@ export default {
   },
   data() {
     return {
+      form: {
+        unidadSeleccionada: "",
+        areaSeleccionada: "",
+      },
       companias: [],
       loading: false,
       errored: false,
+      buscarUnidad: "",
+      areas: [],
+      espera: false,
     };
   },
-  mounted(){
+  mounted() {
     this.loading = true;
     gnService
-    .getOrganigrama()
-    .then((companias)=> (this.companias = companias.data))
-    .catch((error)=>{
-      console.log(error);
-      this.errored = true;
-    })
-    .finally(()=> this.loading = false);
-  }
+      .getOrganigrama()
+      .then((companias) => (this.companias = companias.data))
+      .catch((error) => {
+        console.log(error);
+        this.errored = true;
+      })
+      .finally(() => (this.loading = false));
+    this.espera = true;
+  },
+  methods: {
+    onReset(e) {
+      e.preventDefault();
+      // Reset our form values
+      this.form.unidadSeleccionada = "";
+      this.form.areaSeleccionada = "";
+      this.espera = true;
+    },
+    verOrganigrama(e) {
+      e.preventDefault();
+      // Reset our form values
+      this.espera = false;
+    },
+  },
+  computed: {
+    unidad() {
+      const unidad = new Set();
+      this.companias.forEach((x) => unidad.add(x.titulo));
+      return Array.from(unidad);
+    },
+    area() {
+      const area = new Set();
+      this.filtroUnidad.forEach((x) => area.add(x.subtitulo));
+      return Array.from(area);
+    },
+
+    filtroSubtitulo() {
+      return this.filtroUnidad.filter((compania) => {
+        return compania.subtitulo.includes(this.form.areaSeleccionada);
+      });
+    },
+    filtroUnidad() {
+      return this.companias.filter((compania) => {
+        return compania.titulo.includes(this.form.unidadSeleccionada);
+      });
+    },
+  },
+
   // mounted() {
   //   this.loading = true;
   //   gnService
@@ -202,5 +298,55 @@ export default {
   p {
     font-size: 0.8rem;
   }
+}
+
+select {
+  color: #573655 !important;
+  border-color: #e5e5e5;
+  text-align: center;
+  text-align-last: center;
+  -moz-text-align-last: center;
+}
+
+.btn {
+  border-radius: 2rem;
+  padding: 0.5rem 3rem;
+  font-weight: bold;
+  font-size: large;
+  margin: 0.5rem;
+  min-width: 100%;
+}
+
+.bg-primary {
+  background-color: #185632 !important;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #185632;
+  border-color: #185632;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  color: #185632;
+  background-color: #fff !important;
+  border-color: #185632;
+}
+
+.btn-primary:active {
+  color: #185632 !important;
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  border-color: rgba(28, 86, 50, 0.1) !important;
+}
+
+.btn-primary:focus {
+  color: #185632 !important;
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  border-color: rgba(28, 86, 50, 0.1) !important;
+  box-shadow: 0 0 0 0.2rem rgba(28, 86, 50, 0.5) !important;
 }
 </style>
