@@ -309,11 +309,10 @@ select {
 }
 
 .btn {
-  border-radius: 2rem;
-  padding: 0.5rem 3rem;
+  border-radius: .5rem;
+  padding: 0.2rem 0rem;
   font-weight: bold;
   font-size: large;
-  margin: 0.5rem;
   min-width: 100%;
 }
 
