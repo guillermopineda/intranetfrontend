@@ -1,7 +1,7 @@
 import axios from "axios";
 import Cookies from "js-cookie";
 
-const baseURL = 'https://intranet-api-dltuh.ondigitalocean.app/api/login/';
+const baseURL = 'https://intragn10.com/api/login/';
 
 export default {
     setUserLogged(userLogged) {
