@@ -61,8 +61,17 @@
                     v-for="colaborador in filtro"
                     :key="colaborador.id"
                   >
+
+
+                  <div v-if="colaborador.telefonos.length != 0 ">
                     <div class="d-flex w-100 justify-content-between">
                       <h6 class="mb-1 nombre">{{ colaborador.nombre }}</h6>
+                    </div>
+                    </div>
+                    <div v-else-if="colaborador.correos.length !=0">
+                       <div class="d-flex w-100 justify-content-between">
+                      <h6 class="mb-1 nombre">{{ colaborador.nombre }}</h6>
+                    </div>
                     </div>
                     <div
                       v-for="telefono in colaborador.telefonos"
