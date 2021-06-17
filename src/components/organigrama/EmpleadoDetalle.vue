@@ -24,8 +24,11 @@
           <p>
             <strong>Trayectoria: </strong> {{empleadoData.trayectoria}}
           </p>
-          <p>
+          <p v-if="empleadoData.intereses.length > 2 ">
             <strong>Intereses: </strong> {{empleadoData.intereses}} 
+          </p>
+           <p v-if="empleadoData.adicionales.length > 2">
+            <strong>Algo más... </strong> {{empleadoData.adicionales}} 
           </p>
           <p>
             <strong>Ubicación: </strong>  {{empleadoData.centro_de_trabajo.nombre}}
