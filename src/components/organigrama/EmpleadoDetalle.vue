@@ -7,7 +7,7 @@
      hide-footer>
       <b-row class="justify-content-center">
         <b-col cols="12" class="my-5" align="center">
-          <b-avatar :src="empleadoData.foto" size="10rem"></b-avatar>
+          <b-avatar :src="empleadoData.foto" size="12rem"></b-avatar>
         </b-col>
         <b-col cols="12" align="center" class="h5 letra">
           <p><strong>{{empleadoData.nombre}}</strong></p>
@@ -72,6 +72,25 @@ export default {
 </script>
 
 <style scoped>
+
+
+@media only screen and (min-width: 768px) {
+  
+
+::v-deep span{
+  width: 25rem!important;
+  height: 25rem!important;
+}
+::v-deep img{
+  width: 100%!important;
+  height: 100%!important;
+  max-height: auto!important;
+  border-radius: inherit!important;
+  -o-object-fit: cover!important;
+  object-fit: cover!important;
+}
+}
+
 
 ::v-deep .modal-header {
   color: #282828;
